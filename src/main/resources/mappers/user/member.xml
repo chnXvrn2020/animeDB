@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.animeDB.member">
+    <!--SQL that first level to login-->
+    <select id="login" parameterType="string" resultType="MemberVO">
+        SELECT *
+        FROM anime_member
+        WHERE user_id = #{userId}
+    </select>
+    <!--SQL that check session key to keep login-->
+    <select id="checkUserWithSessionKey" parameterType="string" resultType="MemberVO">
+        SELECT *
+        FROM anime_member
+        WHERE session_key = #{value}
+    </select>
+    <!--SQL that update session key to keep login-->
+    <update id="renewalLimit" parameterType="hashmap">
+        UPDATE anime_member
+        SET session_limit = #{sessionLimit}
+        WHERE user_id = #{userId} AND session_key = #{value}
+    </update>
+    <!--SQL that keep to auto-Login-->
+    <update id="keepAutoLogin" parameterType="hashmap">
+        UPDATE anime_member
+        SET session_key = #{sessionKey}, session_limit = #{sessionLimit}
+        WHERE user_id = #{userId}
+    </update>
+    <!--Authenticate member ID with password-->
+    <select id="selectMember" parameterType="string" resultType="string">
+        SELECT passwd
+        FROM anime_member
+        WHERE user_id = #{userId}
+    </select>
+    <!--Update member to unused-->
+    <update id="deleteMember" parameterType="string">
+        UPDATE anime_member
+        SET session_key = 'none', session_limit = null, delete_yn = 'Y', delete_date = now()
+        WHERE user_id = #{userId}
+    </update>
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.animeDB.joinMember">
+    <!--SQL that checking userId if it's duplicated-->
+    <select id="checkId" resultType="int" parameterType="string">
+        SELECT COUNT(user_id)
+        FROM anime_member
+        WHERE user_id = #{userId}
+    </select>
+
+    <!--SQL that checking email if it's duplicated-->
+    <select id="checkEmail" resultType="int" parameterType="string">
+        SELECT COUNT(email)
+        FROM anime_member
+        WHERE email = #{email}
+    </select>
+
+    <!--SQL that inserting one of the new member-->
+    <insert id="insertNewMember" parameterType="JoinVO">
+        INSERT INTO anime_member
+        (user_id, passwd, nickname, first_name, last_name, furi_first, furi_last, gender, birthday, addr1, addr2, addr3, phone, email, user_key)
+        VALUES (#{userId}, #{passwd}, #{nickname}, #{firstName}, #{lastName}, #{furiFirst}, #{furiLast}, #{gender}, #{birthday}, #{addr1}, #{addr2}, #{addr3}, #{phone}, #{email}, #{userKey})
+    </insert>
+
+    <update id="updateUserKey" parameterType="hashmap">
+        UPDATE anime_member
+        SET user_key = 'Y'
+        WHERE user_id = #{userId} AND user_key = #{userKey}
+    </update>
+</mapper>

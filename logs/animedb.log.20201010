@@ -1,0 +1,609 @@
+main> [2020-10-10 21:06:19] [ContextLoader] [270] [INFO] Root WebApplicationContext: initialization started 
+main> [2020-10-10 21:06:19] [UiApplicationContextUtils] [85] [DEBUG] Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@414f13fc] 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 21:06:19] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.liveBeansView.mbeanDomain] not found - trying original name [spring.liveBeansView.mbeanDomain]. javax.naming.NameNotFoundException; remaining name 'spring.liveBeansView.mbeanDomain' 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 21:06:19] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.liveBeansView.mbeanDomain] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:06:19] [ContextLoader] [306] [INFO] Root WebApplicationContext initialized in 212 ms 
+main> [2020-10-10 21:06:19] [DispatcherServlet] [524] [INFO] Initializing Servlet 'dispatcher' 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.profiles.active] 
+main> [2020-10-10 21:06:19] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.profiles.active] not found - trying original name [spring.profiles.active]. javax.naming.NameNotFoundException; remaining name 'spring.profiles.active' 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.profiles.active] 
+main> [2020-10-10 21:06:19] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.profiles.active] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.profiles.default] 
+main> [2020-10-10 21:06:19] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.profiles.default] not found - trying original name [spring.profiles.default]. javax.naming.NameNotFoundException; remaining name 'spring.profiles.default' 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.profiles.default] 
+main> [2020-10-10 21:06:19] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.profiles.default] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.url] 
+main> [2020-10-10 21:06:19] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.url] not found - trying original name [jdbc.url]. javax.naming.NameNotFoundException; remaining name 'jdbc.url' 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.url] 
+main> [2020-10-10 21:06:19] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.url] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.database] 
+main> [2020-10-10 21:06:19] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.database] not found - trying original name [jdbc.database]. javax.naming.NameNotFoundException; remaining name 'jdbc.database' 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.database] 
+main> [2020-10-10 21:06:19] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.database] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.username] 
+main> [2020-10-10 21:06:19] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.username] not found - trying original name [jdbc.username]. javax.naming.NameNotFoundException; remaining name 'jdbc.username' 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.username] 
+main> [2020-10-10 21:06:19] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.username] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.password] 
+main> [2020-10-10 21:06:19] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.password] not found - trying original name [jdbc.password]. javax.naming.NameNotFoundException; remaining name 'jdbc.password' 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.password] 
+main> [2020-10-10 21:06:19] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.password] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.host] 
+main> [2020-10-10 21:06:19] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.host] not found - trying original name [mail.host]. javax.naming.NameNotFoundException; remaining name 'mail.host' 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.host] 
+main> [2020-10-10 21:06:19] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.host] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.port] 
+main> [2020-10-10 21:06:19] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.port] not found - trying original name [mail.port]. javax.naming.NameNotFoundException; remaining name 'mail.port' 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.port] 
+main> [2020-10-10 21:06:19] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.port] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.username] 
+main> [2020-10-10 21:06:19] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.username] not found - trying original name [mail.username]. javax.naming.NameNotFoundException; remaining name 'mail.username' 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.username] 
+main> [2020-10-10 21:06:19] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.username] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.password] 
+main> [2020-10-10 21:06:19] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.password] not found - trying original name [mail.password]. javax.naming.NameNotFoundException; remaining name 'mail.password' 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.password] 
+main> [2020-10-10 21:06:19] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.password] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.protocol] 
+main> [2020-10-10 21:06:19] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.protocol] not found - trying original name [mail.protocol]. javax.naming.NameNotFoundException; remaining name 'mail.protocol' 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.protocol] 
+main> [2020-10-10 21:06:19] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.protocol] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.smtp.auth] 
+main> [2020-10-10 21:06:19] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.smtp.auth] not found - trying original name [mail.smtp.auth]. javax.naming.NameNotFoundException; remaining name 'mail.smtp.auth' 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.smtp.auth] 
+main> [2020-10-10 21:06:19] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.smtp.auth] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.smtp.starttls.enable] 
+main> [2020-10-10 21:06:19] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.smtp.starttls.enable] not found - trying original name [mail.smtp.starttls.enable]. javax.naming.NameNotFoundException; remaining name 'mail.smtp.starttls.enable' 
+main> [2020-10-10 21:06:19] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.smtp.starttls.enable] 
+main> [2020-10-10 21:06:19] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.smtp.starttls.enable] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:06:19] [UiApplicationContextUtils] [85] [DEBUG] Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.DelegatingThemeSource@59edb4f5] 
+main> [2020-10-10 21:06:19] [LogFactory] [135] [DEBUG] Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+main> [2020-10-10 21:06:19] [DriverManagerDataSource] [133] [DEBUG] Loaded JDBC driver: com.mysql.jdbc.Driver 
+main> [2020-10-10 21:06:20] [SqlSessionFactoryBean] [496] [DEBUG] Parsed configuration file: 'class path resource [mybatis-config.xml]' 
+main> [2020-10-10 21:06:20] [SqlSessionFactoryBean] [528] [DEBUG] Parsed mapper file: 'file [C:\Users\orien\IdeaProjects\animeDB\target\classes\mappers\user\joinMember.xml]' 
+main> [2020-10-10 21:06:20] [SqlSessionFactoryBean] [528] [DEBUG] Parsed mapper file: 'file [C:\Users\orien\IdeaProjects\animeDB\target\classes\mappers\user\member.xml]' 
+main> [2020-10-10 21:06:20] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 21:06:20] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.liveBeansView.mbeanDomain] not found - trying original name [spring.liveBeansView.mbeanDomain]. javax.naming.NameNotFoundException; remaining name 'spring.liveBeansView.mbeanDomain' 
+main> [2020-10-10 21:06:20] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 21:06:20] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.liveBeansView.mbeanDomain] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:06:20] [DispatcherServlet] [546] [INFO] Completed initialization in 1215 ms 
+qtp501650218-25> [2020-10-10 21:06:52] [PageNotFound] [1248] [WARN] No mapping for GET /favicon.ico 
+main> [2020-10-10 21:32:08] [ContextLoader] [270] [INFO] Root WebApplicationContext: initialization started 
+main> [2020-10-10 21:32:08] [UiApplicationContextUtils] [85] [DEBUG] Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@2d237460] 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 21:32:08] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.liveBeansView.mbeanDomain] not found - trying original name [spring.liveBeansView.mbeanDomain]. javax.naming.NameNotFoundException; remaining name 'spring.liveBeansView.mbeanDomain' 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 21:32:08] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.liveBeansView.mbeanDomain] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:32:08] [ContextLoader] [306] [INFO] Root WebApplicationContext initialized in 239 ms 
+main> [2020-10-10 21:32:08] [DispatcherServlet] [524] [INFO] Initializing Servlet 'dispatcher' 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.profiles.active] 
+main> [2020-10-10 21:32:08] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.profiles.active] not found - trying original name [spring.profiles.active]. javax.naming.NameNotFoundException; remaining name 'spring.profiles.active' 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.profiles.active] 
+main> [2020-10-10 21:32:08] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.profiles.active] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.profiles.default] 
+main> [2020-10-10 21:32:08] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.profiles.default] not found - trying original name [spring.profiles.default]. javax.naming.NameNotFoundException; remaining name 'spring.profiles.default' 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.profiles.default] 
+main> [2020-10-10 21:32:08] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.profiles.default] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.url] 
+main> [2020-10-10 21:32:08] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.url] not found - trying original name [jdbc.url]. javax.naming.NameNotFoundException; remaining name 'jdbc.url' 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.url] 
+main> [2020-10-10 21:32:08] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.url] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.database] 
+main> [2020-10-10 21:32:08] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.database] not found - trying original name [jdbc.database]. javax.naming.NameNotFoundException; remaining name 'jdbc.database' 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.database] 
+main> [2020-10-10 21:32:08] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.database] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.username] 
+main> [2020-10-10 21:32:08] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.username] not found - trying original name [jdbc.username]. javax.naming.NameNotFoundException; remaining name 'jdbc.username' 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.username] 
+main> [2020-10-10 21:32:08] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.username] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.password] 
+main> [2020-10-10 21:32:08] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.password] not found - trying original name [jdbc.password]. javax.naming.NameNotFoundException; remaining name 'jdbc.password' 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.password] 
+main> [2020-10-10 21:32:08] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.password] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.host] 
+main> [2020-10-10 21:32:08] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.host] not found - trying original name [mail.host]. javax.naming.NameNotFoundException; remaining name 'mail.host' 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.host] 
+main> [2020-10-10 21:32:08] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.host] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.port] 
+main> [2020-10-10 21:32:08] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.port] not found - trying original name [mail.port]. javax.naming.NameNotFoundException; remaining name 'mail.port' 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.port] 
+main> [2020-10-10 21:32:08] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.port] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.username] 
+main> [2020-10-10 21:32:08] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.username] not found - trying original name [mail.username]. javax.naming.NameNotFoundException; remaining name 'mail.username' 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.username] 
+main> [2020-10-10 21:32:08] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.username] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.password] 
+main> [2020-10-10 21:32:08] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.password] not found - trying original name [mail.password]. javax.naming.NameNotFoundException; remaining name 'mail.password' 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.password] 
+main> [2020-10-10 21:32:08] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.password] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.protocol] 
+main> [2020-10-10 21:32:08] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.protocol] not found - trying original name [mail.protocol]. javax.naming.NameNotFoundException; remaining name 'mail.protocol' 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.protocol] 
+main> [2020-10-10 21:32:08] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.protocol] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.smtp.auth] 
+main> [2020-10-10 21:32:08] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.smtp.auth] not found - trying original name [mail.smtp.auth]. javax.naming.NameNotFoundException; remaining name 'mail.smtp.auth' 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.smtp.auth] 
+main> [2020-10-10 21:32:08] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.smtp.auth] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.smtp.starttls.enable] 
+main> [2020-10-10 21:32:08] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.smtp.starttls.enable] not found - trying original name [mail.smtp.starttls.enable]. javax.naming.NameNotFoundException; remaining name 'mail.smtp.starttls.enable' 
+main> [2020-10-10 21:32:08] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.smtp.starttls.enable] 
+main> [2020-10-10 21:32:08] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.smtp.starttls.enable] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:32:08] [UiApplicationContextUtils] [85] [DEBUG] Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.DelegatingThemeSource@1d6713dd] 
+main> [2020-10-10 21:32:08] [LogFactory] [135] [DEBUG] Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+main> [2020-10-10 21:32:08] [DriverManagerDataSource] [133] [DEBUG] Loaded JDBC driver: com.mysql.jdbc.Driver 
+main> [2020-10-10 21:32:09] [SqlSessionFactoryBean] [496] [DEBUG] Parsed configuration file: 'class path resource [mybatis-config.xml]' 
+main> [2020-10-10 21:32:09] [SqlSessionFactoryBean] [528] [DEBUG] Parsed mapper file: 'file [C:\Users\orien\IdeaProjects\animeDB\target\classes\mappers\user\joinMember.xml]' 
+main> [2020-10-10 21:32:09] [SqlSessionFactoryBean] [528] [DEBUG] Parsed mapper file: 'file [C:\Users\orien\IdeaProjects\animeDB\target\classes\mappers\user\member.xml]' 
+main> [2020-10-10 21:32:09] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 21:32:09] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.liveBeansView.mbeanDomain] not found - trying original name [spring.liveBeansView.mbeanDomain]. javax.naming.NameNotFoundException; remaining name 'spring.liveBeansView.mbeanDomain' 
+main> [2020-10-10 21:32:09] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 21:32:09] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.liveBeansView.mbeanDomain] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 21:32:09] [DispatcherServlet] [546] [INFO] Completed initialization in 1042 ms 
+qtp379963364-15> [2020-10-10 21:32:36] [SqlSessionUtils] [99] [DEBUG] Creating a new SqlSession 
+qtp379963364-15> [2020-10-10 21:32:36] [SqlSessionUtils] [150] [DEBUG] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5584ec1a] was not registered for synchronization because synchronization is not active 
+qtp379963364-15> [2020-10-10 21:32:36] [DataSourceUtils] [114] [DEBUG] Fetching JDBC Connection from DataSource 
+qtp379963364-15> [2020-10-10 21:32:36] [DriverManagerDataSource] [143] [DEBUG] Creating new JDBC DriverManager Connection to [jdbc:mysql://18.221.252.62/anime_db?useUnicode=true&characterEncoding=utf8] 
+qtp379963364-15> [2020-10-10 21:32:39] [SpringManagedTransaction] [89] [DEBUG] JDBC Connection [com.mysql.jdbc.JDBC4Connection@2003cd47] will not be managed by Spring 
+qtp379963364-15> [2020-10-10 21:32:39] [checkId] [145] [DEBUG] ==>  Preparing: SELECT COUNT(user_id) FROM anime_member WHERE user_id = ?  
+qtp379963364-15> [2020-10-10 21:32:39] [checkId] [145] [DEBUG] ==> Parameters: kyouten20(String) 
+qtp379963364-15> [2020-10-10 21:32:39] [checkId] [145] [DEBUG] <==      Total: 1 
+qtp379963364-15> [2020-10-10 21:32:39] [SqlSessionUtils] [193] [DEBUG] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5584ec1a] 
+qtp379963364-18> [2020-10-10 21:33:05] [SqlSessionUtils] [99] [DEBUG] Creating a new SqlSession 
+qtp379963364-18> [2020-10-10 21:33:05] [SqlSessionUtils] [150] [DEBUG] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5dd61631] was not registered for synchronization because synchronization is not active 
+qtp379963364-18> [2020-10-10 21:33:05] [DataSourceUtils] [114] [DEBUG] Fetching JDBC Connection from DataSource 
+qtp379963364-18> [2020-10-10 21:33:05] [DriverManagerDataSource] [143] [DEBUG] Creating new JDBC DriverManager Connection to [jdbc:mysql://18.221.252.62/anime_db?useUnicode=true&characterEncoding=utf8] 
+qtp379963364-18> [2020-10-10 21:33:07] [SpringManagedTransaction] [89] [DEBUG] JDBC Connection [com.mysql.jdbc.JDBC4Connection@37885de4] will not be managed by Spring 
+qtp379963364-18> [2020-10-10 21:33:07] [checkEmail] [145] [DEBUG] ==>  Preparing: SELECT COUNT(email) FROM anime_member WHERE email = ?  
+qtp379963364-18> [2020-10-10 21:33:07] [checkEmail] [145] [DEBUG] ==> Parameters: oriente_flotta4@naver.com(String) 
+qtp379963364-18> [2020-10-10 21:33:07] [checkEmail] [145] [DEBUG] <==      Total: 1 
+qtp379963364-18> [2020-10-10 21:33:07] [SqlSessionUtils] [193] [DEBUG] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5dd61631] 
+qtp379963364-36> [2020-10-10 21:38:08] [PageNotFound] [1248] [WARN] No mapping for GET /favicon.ico 
+qtp379963364-43> [2020-10-10 21:43:18] [SqlSessionUtils] [99] [DEBUG] Creating a new SqlSession 
+qtp379963364-43> [2020-10-10 21:43:18] [SqlSessionUtils] [150] [DEBUG] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@152ef4fa] was not registered for synchronization because synchronization is not active 
+qtp379963364-43> [2020-10-10 21:43:18] [DataSourceUtils] [114] [DEBUG] Fetching JDBC Connection from DataSource 
+qtp379963364-43> [2020-10-10 21:43:18] [DriverManagerDataSource] [143] [DEBUG] Creating new JDBC DriverManager Connection to [jdbc:mysql://18.221.252.62/anime_db?useUnicode=true&characterEncoding=utf8] 
+qtp379963364-43> [2020-10-10 21:43:20] [SpringManagedTransaction] [89] [DEBUG] JDBC Connection [com.mysql.jdbc.JDBC4Connection@6bc4ebc8] will not be managed by Spring 
+qtp379963364-43> [2020-10-10 21:43:20] [checkId] [145] [DEBUG] ==>  Preparing: SELECT COUNT(user_id) FROM anime_member WHERE user_id = ?  
+qtp379963364-43> [2020-10-10 21:43:20] [checkId] [145] [DEBUG] ==> Parameters: kyouten20(String) 
+qtp379963364-43> [2020-10-10 21:43:20] [checkId] [145] [DEBUG] <==      Total: 1 
+qtp379963364-43> [2020-10-10 21:43:20] [SqlSessionUtils] [193] [DEBUG] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@152ef4fa] 
+qtp379963364-36> [2020-10-10 21:43:40] [SqlSessionUtils] [99] [DEBUG] Creating a new SqlSession 
+qtp379963364-36> [2020-10-10 21:43:40] [SqlSessionUtils] [150] [DEBUG] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@34339aff] was not registered for synchronization because synchronization is not active 
+qtp379963364-36> [2020-10-10 21:43:40] [DataSourceUtils] [114] [DEBUG] Fetching JDBC Connection from DataSource 
+qtp379963364-36> [2020-10-10 21:43:40] [DriverManagerDataSource] [143] [DEBUG] Creating new JDBC DriverManager Connection to [jdbc:mysql://18.221.252.62/anime_db?useUnicode=true&characterEncoding=utf8] 
+qtp379963364-36> [2020-10-10 21:43:42] [SpringManagedTransaction] [89] [DEBUG] JDBC Connection [com.mysql.jdbc.JDBC4Connection@35d89e17] will not be managed by Spring 
+qtp379963364-36> [2020-10-10 21:43:42] [checkEmail] [145] [DEBUG] ==>  Preparing: SELECT COUNT(email) FROM anime_member WHERE email = ?  
+qtp379963364-36> [2020-10-10 21:43:42] [checkEmail] [145] [DEBUG] ==> Parameters: oriente_flotta4@naver.com(String) 
+qtp379963364-36> [2020-10-10 21:43:42] [checkEmail] [145] [DEBUG] <==      Total: 1 
+qtp379963364-36> [2020-10-10 21:43:42] [SqlSessionUtils] [193] [DEBUG] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@34339aff] 
+qtp379963364-34> [2020-10-10 21:43:48] [SqlSessionUtils] [99] [DEBUG] Creating a new SqlSession 
+qtp379963364-34> [2020-10-10 21:43:48] [SqlSessionUtils] [150] [DEBUG] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7df1aefb] was not registered for synchronization because synchronization is not active 
+qtp379963364-34> [2020-10-10 21:43:48] [DataSourceUtils] [114] [DEBUG] Fetching JDBC Connection from DataSource 
+qtp379963364-34> [2020-10-10 21:43:48] [DriverManagerDataSource] [143] [DEBUG] Creating new JDBC DriverManager Connection to [jdbc:mysql://18.221.252.62/anime_db?useUnicode=true&characterEncoding=utf8] 
+qtp379963364-21> [2020-10-10 21:43:48] [SqlSessionUtils] [99] [DEBUG] Creating a new SqlSession 
+qtp379963364-21> [2020-10-10 21:43:48] [SqlSessionUtils] [150] [DEBUG] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3af58a0] was not registered for synchronization because synchronization is not active 
+qtp379963364-21> [2020-10-10 21:43:48] [DataSourceUtils] [114] [DEBUG] Fetching JDBC Connection from DataSource 
+qtp379963364-21> [2020-10-10 21:43:48] [DriverManagerDataSource] [143] [DEBUG] Creating new JDBC DriverManager Connection to [jdbc:mysql://18.221.252.62/anime_db?useUnicode=true&characterEncoding=utf8] 
+qtp379963364-36> [2020-10-10 21:43:48] [SqlSessionUtils] [99] [DEBUG] Creating a new SqlSession 
+qtp379963364-36> [2020-10-10 21:43:48] [SqlSessionUtils] [150] [DEBUG] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31c03281] was not registered for synchronization because synchronization is not active 
+qtp379963364-36> [2020-10-10 21:43:48] [DataSourceUtils] [114] [DEBUG] Fetching JDBC Connection from DataSource 
+qtp379963364-36> [2020-10-10 21:43:48] [DriverManagerDataSource] [143] [DEBUG] Creating new JDBC DriverManager Connection to [jdbc:mysql://18.221.252.62/anime_db?useUnicode=true&characterEncoding=utf8] 
+qtp379963364-21> [2020-10-10 21:43:50] [SpringManagedTransaction] [89] [DEBUG] JDBC Connection [com.mysql.jdbc.JDBC4Connection@50ef7557] will not be managed by Spring 
+qtp379963364-21> [2020-10-10 21:43:50] [checkEmail] [145] [DEBUG] ==>  Preparing: SELECT COUNT(email) FROM anime_member WHERE email = ?  
+qtp379963364-21> [2020-10-10 21:43:50] [checkEmail] [145] [DEBUG] ==> Parameters: oriente_flotta4@naver.com(String) 
+qtp379963364-34> [2020-10-10 21:43:50] [SpringManagedTransaction] [89] [DEBUG] JDBC Connection [com.mysql.jdbc.JDBC4Connection@5bc5a9d0] will not be managed by Spring 
+qtp379963364-34> [2020-10-10 21:43:50] [checkId] [145] [DEBUG] ==>  Preparing: SELECT COUNT(user_id) FROM anime_member WHERE user_id = ?  
+qtp379963364-34> [2020-10-10 21:43:50] [checkId] [145] [DEBUG] ==> Parameters: kyouten20(String) 
+qtp379963364-36> [2020-10-10 21:43:50] [SpringManagedTransaction] [89] [DEBUG] JDBC Connection [com.mysql.jdbc.JDBC4Connection@e703c2f] will not be managed by Spring 
+qtp379963364-36> [2020-10-10 21:43:50] [insertNewMember] [145] [DEBUG] ==>  Preparing: INSERT INTO anime_member (user_id, passwd, nickname, first_name, last_name, furi_first, furi_last, gender, birthday, addr1, addr2, addr3, phone, email, user_key) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  
+qtp379963364-36> [2020-10-10 21:43:50] [insertNewMember] [145] [DEBUG] ==> Parameters: kyouten20(String), $2a$10$8OA6IeE/0m8RqPfXGvplP.W7HMMguRYe7UGTEEfRTcFjaUwUWJ2WG(String), りっぴー(String), 飯田(String), 里穂(String), イイダ(String), リホ(String), 女性(String), 1994-05-16(String), 013-0013(String), 秋田県(String), 横手市城南町(String), 010-6483-8091(String), oriente_flotta4@naver.com(String), NOiRw4LYI1WWSmyU8Ej4(String) 
+qtp379963364-21> [2020-10-10 21:43:50] [checkEmail] [145] [DEBUG] <==      Total: 1 
+qtp379963364-21> [2020-10-10 21:43:50] [SqlSessionUtils] [193] [DEBUG] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3af58a0] 
+qtp379963364-34> [2020-10-10 21:43:50] [checkId] [145] [DEBUG] <==      Total: 1 
+qtp379963364-34> [2020-10-10 21:43:50] [SqlSessionUtils] [193] [DEBUG] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7df1aefb] 
+qtp379963364-36> [2020-10-10 21:43:50] [insertNewMember] [145] [DEBUG] <==    Updates: 1 
+qtp379963364-36> [2020-10-10 21:43:50] [SqlSessionUtils] [193] [DEBUG] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@31c03281] 
+qtp379963364-32> [2020-10-10 21:46:00] [SqlSessionUtils] [99] [DEBUG] Creating a new SqlSession 
+qtp379963364-32> [2020-10-10 21:46:00] [SqlSessionUtils] [150] [DEBUG] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4e415bf9] was not registered for synchronization because synchronization is not active 
+qtp379963364-32> [2020-10-10 21:46:00] [DataSourceUtils] [114] [DEBUG] Fetching JDBC Connection from DataSource 
+qtp379963364-32> [2020-10-10 21:46:00] [DriverManagerDataSource] [143] [DEBUG] Creating new JDBC DriverManager Connection to [jdbc:mysql://18.221.252.62/anime_db?useUnicode=true&characterEncoding=utf8] 
+qtp379963364-32> [2020-10-10 21:46:01] [SpringManagedTransaction] [89] [DEBUG] JDBC Connection [com.mysql.jdbc.JDBC4Connection@1e6482d5] will not be managed by Spring 
+qtp379963364-32> [2020-10-10 21:46:01] [updateUserKey] [145] [DEBUG] ==>  Preparing: UPDATE anime_member SET user_key = 'Y' WHERE user_id = ? AND user_key = ?  
+qtp379963364-32> [2020-10-10 21:46:01] [updateUserKey] [145] [DEBUG] ==> Parameters: kyouten20(String), NOiRw4LYI1WWSmyU8Ej4(String) 
+qtp379963364-32> [2020-10-10 21:46:02] [updateUserKey] [145] [DEBUG] <==    Updates: 1 
+qtp379963364-32> [2020-10-10 21:46:02] [SqlSessionUtils] [193] [DEBUG] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4e415bf9] 
+qtp379963364-18> [2020-10-10 21:46:05] [PageNotFound] [1248] [WARN] No mapping for GET /favicon.ico 
+main> [2020-10-10 22:01:14] [ContextLoader] [270] [INFO] Root WebApplicationContext: initialization started 
+main> [2020-10-10 22:01:14] [UiApplicationContextUtils] [85] [DEBUG] Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@36327cec] 
+main> [2020-10-10 22:01:14] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 22:01:14] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.liveBeansView.mbeanDomain] not found - trying original name [spring.liveBeansView.mbeanDomain]. javax.naming.NameNotFoundException; remaining name 'spring.liveBeansView.mbeanDomain' 
+main> [2020-10-10 22:01:14] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 22:01:14] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.liveBeansView.mbeanDomain] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:01:14] [ContextLoader] [306] [INFO] Root WebApplicationContext initialized in 158 ms 
+main> [2020-10-10 22:01:14] [DispatcherServlet] [524] [INFO] Initializing Servlet 'dispatcher' 
+main> [2020-10-10 22:01:14] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.profiles.active] 
+main> [2020-10-10 22:01:14] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.profiles.active] not found - trying original name [spring.profiles.active]. javax.naming.NameNotFoundException; remaining name 'spring.profiles.active' 
+main> [2020-10-10 22:01:14] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.profiles.active] 
+main> [2020-10-10 22:01:14] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.profiles.active] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:01:14] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.profiles.default] 
+main> [2020-10-10 22:01:14] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.profiles.default] not found - trying original name [spring.profiles.default]. javax.naming.NameNotFoundException; remaining name 'spring.profiles.default' 
+main> [2020-10-10 22:01:14] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.profiles.default] 
+main> [2020-10-10 22:01:14] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.profiles.default] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.url] 
+main> [2020-10-10 22:01:15] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.url] not found - trying original name [jdbc.url]. javax.naming.NameNotFoundException; remaining name 'jdbc.url' 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.url] 
+main> [2020-10-10 22:01:15] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.url] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.database] 
+main> [2020-10-10 22:01:15] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.database] not found - trying original name [jdbc.database]. javax.naming.NameNotFoundException; remaining name 'jdbc.database' 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.database] 
+main> [2020-10-10 22:01:15] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.database] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.username] 
+main> [2020-10-10 22:01:15] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.username] not found - trying original name [jdbc.username]. javax.naming.NameNotFoundException; remaining name 'jdbc.username' 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.username] 
+main> [2020-10-10 22:01:15] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.username] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.password] 
+main> [2020-10-10 22:01:15] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.password] not found - trying original name [jdbc.password]. javax.naming.NameNotFoundException; remaining name 'jdbc.password' 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.password] 
+main> [2020-10-10 22:01:15] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.password] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.host] 
+main> [2020-10-10 22:01:15] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.host] not found - trying original name [mail.host]. javax.naming.NameNotFoundException; remaining name 'mail.host' 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.host] 
+main> [2020-10-10 22:01:15] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.host] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.port] 
+main> [2020-10-10 22:01:15] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.port] not found - trying original name [mail.port]. javax.naming.NameNotFoundException; remaining name 'mail.port' 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.port] 
+main> [2020-10-10 22:01:15] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.port] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.username] 
+main> [2020-10-10 22:01:15] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.username] not found - trying original name [mail.username]. javax.naming.NameNotFoundException; remaining name 'mail.username' 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.username] 
+main> [2020-10-10 22:01:15] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.username] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.password] 
+main> [2020-10-10 22:01:15] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.password] not found - trying original name [mail.password]. javax.naming.NameNotFoundException; remaining name 'mail.password' 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.password] 
+main> [2020-10-10 22:01:15] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.password] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.protocol] 
+main> [2020-10-10 22:01:15] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.protocol] not found - trying original name [mail.protocol]. javax.naming.NameNotFoundException; remaining name 'mail.protocol' 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.protocol] 
+main> [2020-10-10 22:01:15] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.protocol] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.smtp.auth] 
+main> [2020-10-10 22:01:15] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.smtp.auth] not found - trying original name [mail.smtp.auth]. javax.naming.NameNotFoundException; remaining name 'mail.smtp.auth' 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.smtp.auth] 
+main> [2020-10-10 22:01:15] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.smtp.auth] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.smtp.starttls.enable] 
+main> [2020-10-10 22:01:15] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.smtp.starttls.enable] not found - trying original name [mail.smtp.starttls.enable]. javax.naming.NameNotFoundException; remaining name 'mail.smtp.starttls.enable' 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.smtp.starttls.enable] 
+main> [2020-10-10 22:01:15] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.smtp.starttls.enable] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:01:15] [UiApplicationContextUtils] [85] [DEBUG] Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.DelegatingThemeSource@75cf0de5] 
+main> [2020-10-10 22:01:15] [LogFactory] [135] [DEBUG] Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+main> [2020-10-10 22:01:15] [DriverManagerDataSource] [133] [DEBUG] Loaded JDBC driver: com.mysql.jdbc.Driver 
+main> [2020-10-10 22:01:15] [SqlSessionFactoryBean] [496] [DEBUG] Parsed configuration file: 'class path resource [mybatis-config.xml]' 
+main> [2020-10-10 22:01:15] [SqlSessionFactoryBean] [528] [DEBUG] Parsed mapper file: 'file [C:\Users\orien\IdeaProjects\animeDB\target\classes\mappers\user\joinMember.xml]' 
+main> [2020-10-10 22:01:15] [SqlSessionFactoryBean] [528] [DEBUG] Parsed mapper file: 'file [C:\Users\orien\IdeaProjects\animeDB\target\classes\mappers\user\member.xml]' 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 22:01:15] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.liveBeansView.mbeanDomain] not found - trying original name [spring.liveBeansView.mbeanDomain]. javax.naming.NameNotFoundException; remaining name 'spring.liveBeansView.mbeanDomain' 
+main> [2020-10-10 22:01:15] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 22:01:15] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.liveBeansView.mbeanDomain] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:01:15] [DispatcherServlet] [546] [INFO] Completed initialization in 1037 ms 
+qtp440926517-26> [2020-10-10 22:06:42] [PageNotFound] [1248] [WARN] No mapping for GET /favicon.ico 
+qtp440926517-17> [2020-10-10 22:08:49] [SqlSessionUtils] [99] [DEBUG] Creating a new SqlSession 
+qtp440926517-17> [2020-10-10 22:08:49] [SqlSessionUtils] [150] [DEBUG] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@53678c69] was not registered for synchronization because synchronization is not active 
+qtp440926517-17> [2020-10-10 22:08:49] [DataSourceUtils] [114] [DEBUG] Fetching JDBC Connection from DataSource 
+qtp440926517-17> [2020-10-10 22:08:49] [DriverManagerDataSource] [143] [DEBUG] Creating new JDBC DriverManager Connection to [jdbc:mysql://18.221.252.62/anime_db?useUnicode=true&characterEncoding=utf8] 
+qtp440926517-17> [2020-10-10 22:08:51] [SpringManagedTransaction] [89] [DEBUG] JDBC Connection [com.mysql.jdbc.JDBC4Connection@1ffcfcff] will not be managed by Spring 
+qtp440926517-17> [2020-10-10 22:08:51] [checkId] [145] [DEBUG] ==>  Preparing: SELECT COUNT(user_id) FROM anime_member WHERE user_id = ?  
+qtp440926517-17> [2020-10-10 22:08:51] [checkId] [145] [DEBUG] ==> Parameters: chino_kafuu(String) 
+qtp440926517-17> [2020-10-10 22:08:51] [checkId] [145] [DEBUG] <==      Total: 1 
+qtp440926517-17> [2020-10-10 22:08:51] [SqlSessionUtils] [193] [DEBUG] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@53678c69] 
+qtp440926517-27> [2020-10-10 22:10:11] [SqlSessionUtils] [99] [DEBUG] Creating a new SqlSession 
+qtp440926517-27> [2020-10-10 22:10:11] [SqlSessionUtils] [150] [DEBUG] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7cd16e40] was not registered for synchronization because synchronization is not active 
+qtp440926517-27> [2020-10-10 22:10:11] [DataSourceUtils] [114] [DEBUG] Fetching JDBC Connection from DataSource 
+qtp440926517-27> [2020-10-10 22:10:11] [DriverManagerDataSource] [143] [DEBUG] Creating new JDBC DriverManager Connection to [jdbc:mysql://18.221.252.62/anime_db?useUnicode=true&characterEncoding=utf8] 
+qtp440926517-27> [2020-10-10 22:10:13] [SpringManagedTransaction] [89] [DEBUG] JDBC Connection [com.mysql.jdbc.JDBC4Connection@4e44ba08] will not be managed by Spring 
+qtp440926517-27> [2020-10-10 22:10:13] [checkEmail] [145] [DEBUG] ==>  Preparing: SELECT COUNT(email) FROM anime_member WHERE email = ?  
+qtp440926517-27> [2020-10-10 22:10:13] [checkEmail] [145] [DEBUG] ==> Parameters: breezeisland8@gmail.com(String) 
+qtp440926517-27> [2020-10-10 22:10:13] [checkEmail] [145] [DEBUG] <==      Total: 1 
+qtp440926517-27> [2020-10-10 22:10:13] [SqlSessionUtils] [193] [DEBUG] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7cd16e40] 
+qtp440926517-26> [2020-10-10 22:10:22] [SqlSessionUtils] [99] [DEBUG] Creating a new SqlSession 
+qtp440926517-26> [2020-10-10 22:10:22] [SqlSessionUtils] [150] [DEBUG] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@678be317] was not registered for synchronization because synchronization is not active 
+qtp440926517-26> [2020-10-10 22:10:22] [DataSourceUtils] [114] [DEBUG] Fetching JDBC Connection from DataSource 
+qtp440926517-26> [2020-10-10 22:10:22] [DriverManagerDataSource] [143] [DEBUG] Creating new JDBC DriverManager Connection to [jdbc:mysql://18.221.252.62/anime_db?useUnicode=true&characterEncoding=utf8] 
+qtp440926517-16> [2020-10-10 22:10:22] [SqlSessionUtils] [99] [DEBUG] Creating a new SqlSession 
+qtp440926517-16> [2020-10-10 22:10:22] [SqlSessionUtils] [150] [DEBUG] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1813e85] was not registered for synchronization because synchronization is not active 
+qtp440926517-16> [2020-10-10 22:10:22] [DataSourceUtils] [114] [DEBUG] Fetching JDBC Connection from DataSource 
+qtp440926517-16> [2020-10-10 22:10:22] [DriverManagerDataSource] [143] [DEBUG] Creating new JDBC DriverManager Connection to [jdbc:mysql://18.221.252.62/anime_db?useUnicode=true&characterEncoding=utf8] 
+qtp440926517-17> [2020-10-10 22:10:22] [SqlSessionUtils] [99] [DEBUG] Creating a new SqlSession 
+qtp440926517-17> [2020-10-10 22:10:22] [SqlSessionUtils] [150] [DEBUG] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3f9eb841] was not registered for synchronization because synchronization is not active 
+qtp440926517-17> [2020-10-10 22:10:22] [DataSourceUtils] [114] [DEBUG] Fetching JDBC Connection from DataSource 
+qtp440926517-17> [2020-10-10 22:10:22] [DriverManagerDataSource] [143] [DEBUG] Creating new JDBC DriverManager Connection to [jdbc:mysql://18.221.252.62/anime_db?useUnicode=true&characterEncoding=utf8] 
+qtp440926517-26> [2020-10-10 22:10:23] [SpringManagedTransaction] [89] [DEBUG] JDBC Connection [com.mysql.jdbc.JDBC4Connection@65d8d021] will not be managed by Spring 
+qtp440926517-26> [2020-10-10 22:10:23] [checkId] [145] [DEBUG] ==>  Preparing: SELECT COUNT(user_id) FROM anime_member WHERE user_id = ?  
+qtp440926517-26> [2020-10-10 22:10:23] [checkId] [145] [DEBUG] ==> Parameters: chino_kafuu(String) 
+qtp440926517-16> [2020-10-10 22:10:23] [SpringManagedTransaction] [89] [DEBUG] JDBC Connection [com.mysql.jdbc.JDBC4Connection@2ae9e3c3] will not be managed by Spring 
+qtp440926517-16> [2020-10-10 22:10:23] [checkEmail] [145] [DEBUG] ==>  Preparing: SELECT COUNT(email) FROM anime_member WHERE email = ?  
+qtp440926517-16> [2020-10-10 22:10:23] [checkEmail] [145] [DEBUG] ==> Parameters: breezeisland8@gmail.com(String) 
+qtp440926517-17> [2020-10-10 22:10:23] [SpringManagedTransaction] [89] [DEBUG] JDBC Connection [com.mysql.jdbc.JDBC4Connection@71e3c9ce] will not be managed by Spring 
+qtp440926517-17> [2020-10-10 22:10:23] [insertNewMember] [145] [DEBUG] ==>  Preparing: INSERT INTO anime_member (user_id, passwd, nickname, first_name, last_name, furi_first, furi_last, gender, birthday, addr1, addr2, addr3, phone, email, user_key) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  
+qtp440926517-17> [2020-10-10 22:10:23] [insertNewMember] [145] [DEBUG] ==> Parameters: chino_kafuu(String), $2a$10$kXKTk6inJG/cF5EydUgcPeLbGfLeWEy/ROzwG.C6AaPy3dKOoc.Hi(String), チノちゃん(String), 香風(String), 智乃(String), カフウ(String), チノ(String), 女性(String), 2008-06-15(String), 013-0013(String), 秋田県(String), 横手市城南町(String), 010-6483-8091(String), breezeisland8@gmail.com(String), 9znFF7lFhUM6S6d8sdgE(String) 
+qtp440926517-26> [2020-10-10 22:10:23] [checkId] [145] [DEBUG] <==      Total: 1 
+qtp440926517-26> [2020-10-10 22:10:23] [SqlSessionUtils] [193] [DEBUG] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@678be317] 
+qtp440926517-16> [2020-10-10 22:10:23] [checkEmail] [145] [DEBUG] <==      Total: 1 
+qtp440926517-16> [2020-10-10 22:10:23] [SqlSessionUtils] [193] [DEBUG] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1813e85] 
+qtp440926517-17> [2020-10-10 22:10:24] [insertNewMember] [145] [DEBUG] <==    Updates: 1 
+qtp440926517-17> [2020-10-10 22:10:24] [SqlSessionUtils] [193] [DEBUG] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3f9eb841] 
+qtp440926517-17> [2020-10-10 22:11:07] [SqlSessionUtils] [99] [DEBUG] Creating a new SqlSession 
+qtp440926517-17> [2020-10-10 22:11:07] [SqlSessionUtils] [150] [DEBUG] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@73731e1f] was not registered for synchronization because synchronization is not active 
+qtp440926517-17> [2020-10-10 22:11:07] [DataSourceUtils] [114] [DEBUG] Fetching JDBC Connection from DataSource 
+qtp440926517-17> [2020-10-10 22:11:07] [DriverManagerDataSource] [143] [DEBUG] Creating new JDBC DriverManager Connection to [jdbc:mysql://18.221.252.62/anime_db?useUnicode=true&characterEncoding=utf8] 
+qtp440926517-17> [2020-10-10 22:11:08] [SpringManagedTransaction] [89] [DEBUG] JDBC Connection [com.mysql.jdbc.JDBC4Connection@bf8ad7a] will not be managed by Spring 
+qtp440926517-17> [2020-10-10 22:11:08] [login] [145] [DEBUG] ==>  Preparing: SELECT * FROM anime_member WHERE user_id = ?  
+qtp440926517-17> [2020-10-10 22:11:08] [login] [145] [DEBUG] ==> Parameters: kyouten20(String) 
+qtp440926517-17> [2020-10-10 22:11:08] [login] [145] [DEBUG] <==      Total: 1 
+qtp440926517-17> [2020-10-10 22:11:08] [SqlSessionUtils] [193] [DEBUG] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@73731e1f] 
+qtp440926517-34> [2020-10-10 22:11:21] [SqlSessionUtils] [99] [DEBUG] Creating a new SqlSession 
+qtp440926517-34> [2020-10-10 22:11:21] [SqlSessionUtils] [150] [DEBUG] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5d3d13c3] was not registered for synchronization because synchronization is not active 
+qtp440926517-34> [2020-10-10 22:11:21] [DataSourceUtils] [114] [DEBUG] Fetching JDBC Connection from DataSource 
+qtp440926517-34> [2020-10-10 22:11:21] [DriverManagerDataSource] [143] [DEBUG] Creating new JDBC DriverManager Connection to [jdbc:mysql://18.221.252.62/anime_db?useUnicode=true&characterEncoding=utf8] 
+qtp440926517-34> [2020-10-10 22:11:23] [SpringManagedTransaction] [89] [DEBUG] JDBC Connection [com.mysql.jdbc.JDBC4Connection@4bce9a84] will not be managed by Spring 
+qtp440926517-34> [2020-10-10 22:11:23] [login] [145] [DEBUG] ==>  Preparing: SELECT * FROM anime_member WHERE user_id = ?  
+qtp440926517-34> [2020-10-10 22:11:23] [login] [145] [DEBUG] ==> Parameters: kyouten20(String) 
+qtp440926517-34> [2020-10-10 22:11:23] [login] [145] [DEBUG] <==      Total: 1 
+qtp440926517-34> [2020-10-10 22:11:23] [SqlSessionUtils] [193] [DEBUG] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5d3d13c3] 
+main> [2020-10-10 22:42:26] [ContextLoader] [270] [INFO] Root WebApplicationContext: initialization started 
+main> [2020-10-10 22:42:27] [UiApplicationContextUtils] [85] [DEBUG] Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@23121d14] 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 22:42:27] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.liveBeansView.mbeanDomain] not found - trying original name [spring.liveBeansView.mbeanDomain]. javax.naming.NameNotFoundException; remaining name 'spring.liveBeansView.mbeanDomain' 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 22:42:27] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.liveBeansView.mbeanDomain] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:42:27] [ContextLoader] [306] [INFO] Root WebApplicationContext initialized in 265 ms 
+main> [2020-10-10 22:42:27] [DispatcherServlet] [524] [INFO] Initializing Servlet 'dispatcher' 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.profiles.active] 
+main> [2020-10-10 22:42:27] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.profiles.active] not found - trying original name [spring.profiles.active]. javax.naming.NameNotFoundException; remaining name 'spring.profiles.active' 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.profiles.active] 
+main> [2020-10-10 22:42:27] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.profiles.active] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.profiles.default] 
+main> [2020-10-10 22:42:27] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.profiles.default] not found - trying original name [spring.profiles.default]. javax.naming.NameNotFoundException; remaining name 'spring.profiles.default' 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.profiles.default] 
+main> [2020-10-10 22:42:27] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.profiles.default] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.url] 
+main> [2020-10-10 22:42:27] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.url] not found - trying original name [jdbc.url]. javax.naming.NameNotFoundException; remaining name 'jdbc.url' 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.url] 
+main> [2020-10-10 22:42:27] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.url] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.database] 
+main> [2020-10-10 22:42:27] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.database] not found - trying original name [jdbc.database]. javax.naming.NameNotFoundException; remaining name 'jdbc.database' 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.database] 
+main> [2020-10-10 22:42:27] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.database] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.username] 
+main> [2020-10-10 22:42:27] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.username] not found - trying original name [jdbc.username]. javax.naming.NameNotFoundException; remaining name 'jdbc.username' 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.username] 
+main> [2020-10-10 22:42:27] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.username] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.password] 
+main> [2020-10-10 22:42:27] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.password] not found - trying original name [jdbc.password]. javax.naming.NameNotFoundException; remaining name 'jdbc.password' 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.password] 
+main> [2020-10-10 22:42:27] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.password] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.host] 
+main> [2020-10-10 22:42:27] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.host] not found - trying original name [mail.host]. javax.naming.NameNotFoundException; remaining name 'mail.host' 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.host] 
+main> [2020-10-10 22:42:27] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.host] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.port] 
+main> [2020-10-10 22:42:27] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.port] not found - trying original name [mail.port]. javax.naming.NameNotFoundException; remaining name 'mail.port' 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.port] 
+main> [2020-10-10 22:42:27] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.port] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.username] 
+main> [2020-10-10 22:42:27] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.username] not found - trying original name [mail.username]. javax.naming.NameNotFoundException; remaining name 'mail.username' 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.username] 
+main> [2020-10-10 22:42:27] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.username] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.password] 
+main> [2020-10-10 22:42:27] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.password] not found - trying original name [mail.password]. javax.naming.NameNotFoundException; remaining name 'mail.password' 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.password] 
+main> [2020-10-10 22:42:27] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.password] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.protocol] 
+main> [2020-10-10 22:42:27] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.protocol] not found - trying original name [mail.protocol]. javax.naming.NameNotFoundException; remaining name 'mail.protocol' 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.protocol] 
+main> [2020-10-10 22:42:27] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.protocol] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.smtp.auth] 
+main> [2020-10-10 22:42:27] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.smtp.auth] not found - trying original name [mail.smtp.auth]. javax.naming.NameNotFoundException; remaining name 'mail.smtp.auth' 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.smtp.auth] 
+main> [2020-10-10 22:42:27] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.smtp.auth] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.smtp.starttls.enable] 
+main> [2020-10-10 22:42:27] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.smtp.starttls.enable] not found - trying original name [mail.smtp.starttls.enable]. javax.naming.NameNotFoundException; remaining name 'mail.smtp.starttls.enable' 
+main> [2020-10-10 22:42:27] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.smtp.starttls.enable] 
+main> [2020-10-10 22:42:27] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.smtp.starttls.enable] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:42:27] [UiApplicationContextUtils] [85] [DEBUG] Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.DelegatingThemeSource@76af51d6] 
+main> [2020-10-10 22:42:27] [LogFactory] [135] [DEBUG] Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+main> [2020-10-10 22:42:27] [DriverManagerDataSource] [133] [DEBUG] Loaded JDBC driver: com.mysql.jdbc.Driver 
+main> [2020-10-10 22:42:27] [SqlSessionFactoryBean] [496] [DEBUG] Parsed configuration file: 'class path resource [mybatis-config.xml]' 
+main> [2020-10-10 22:42:27] [SqlSessionFactoryBean] [528] [DEBUG] Parsed mapper file: 'file [C:\Users\orien\IdeaProjects\animeDB\target\classes\mappers\user\joinMember.xml]' 
+main> [2020-10-10 22:42:27] [SqlSessionFactoryBean] [528] [DEBUG] Parsed mapper file: 'file [C:\Users\orien\IdeaProjects\animeDB\target\classes\mappers\user\member.xml]' 
+main> [2020-10-10 22:42:28] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 22:42:28] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.liveBeansView.mbeanDomain] not found - trying original name [spring.liveBeansView.mbeanDomain]. javax.naming.NameNotFoundException; remaining name 'spring.liveBeansView.mbeanDomain' 
+main> [2020-10-10 22:42:28] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 22:42:28] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.liveBeansView.mbeanDomain] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 22:42:28] [DispatcherServlet] [546] [INFO] Completed initialization in 1218 ms 
+qtp1266759621-25> [2020-10-10 22:42:36] [SqlSessionUtils] [99] [DEBUG] Creating a new SqlSession 
+qtp1266759621-25> [2020-10-10 22:42:36] [SqlSessionUtils] [150] [DEBUG] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1a76512a] was not registered for synchronization because synchronization is not active 
+qtp1266759621-25> [2020-10-10 22:42:36] [DataSourceUtils] [114] [DEBUG] Fetching JDBC Connection from DataSource 
+qtp1266759621-25> [2020-10-10 22:42:36] [DriverManagerDataSource] [143] [DEBUG] Creating new JDBC DriverManager Connection to [jdbc:mysql://18.221.252.62/anime_db?useUnicode=true&characterEncoding=utf8] 
+qtp1266759621-25> [2020-10-10 22:42:38] [SpringManagedTransaction] [89] [DEBUG] JDBC Connection [com.mysql.jdbc.JDBC4Connection@1c292bfb] will not be managed by Spring 
+qtp1266759621-25> [2020-10-10 22:42:38] [login] [145] [DEBUG] ==>  Preparing: SELECT * FROM anime_member WHERE user_id = ?  
+qtp1266759621-25> [2020-10-10 22:42:38] [login] [145] [DEBUG] ==> Parameters: kyouten20(String) 
+qtp1266759621-25> [2020-10-10 22:42:38] [login] [145] [DEBUG] <==      Total: 1 
+qtp1266759621-25> [2020-10-10 22:42:38] [SqlSessionUtils] [193] [DEBUG] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1a76512a] 
+qtp1266759621-19> [2020-10-10 22:43:01] [PageNotFound] [1248] [WARN] No mapping for GET /favicon.ico 
+qtp1266759621-15> [2020-10-10 22:43:58] [PageNotFound] [1248] [WARN] No mapping for GET /favicon.ico 
+qtp1266759621-31> [2020-10-10 22:48:54] [PageNotFound] [1248] [WARN] No mapping for GET /favicon.ico 
+qtp1266759621-33> [2020-10-10 22:49:24] [PageNotFound] [1248] [WARN] No mapping for GET /favicon.ico 
+qtp1266759621-32> [2020-10-10 22:49:50] [PageNotFound] [1248] [WARN] No mapping for GET /favicon.ico 
+qtp1266759621-19> [2020-10-10 22:49:58] [PageNotFound] [1248] [WARN] No mapping for GET /favicon.ico 
+qtp1266759621-16> [2020-10-10 22:50:03] [PageNotFound] [1248] [WARN] No mapping for GET /favicon.ico 
+qtp1266759621-24> [2020-10-10 22:52:30] [PageNotFound] [1248] [WARN] No mapping for GET /favicon.ico 
+qtp1266759621-19> [2020-10-10 23:01:16] [PageNotFound] [1248] [WARN] No mapping for GET /favicon.ico 
+qtp1266759621-40> [2020-10-10 23:01:41] [PageNotFound] [1248] [WARN] No mapping for GET /favicon.ico 
+qtp1266759621-24> [2020-10-10 23:01:41] [PageNotFound] [1248] [WARN] No mapping for GET /favicon.ico 
+qtp1266759621-16> [2020-10-10 23:04:42] [PageNotFound] [1248] [WARN] No mapping for GET /favicon.ico 
+qtp1266759621-60> [2020-10-10 23:19:44] [PageNotFound] [1248] [WARN] No mapping for GET /favicon.ico 
+main> [2020-10-10 23:32:35] [ContextLoader] [270] [INFO] Root WebApplicationContext: initialization started 
+main> [2020-10-10 23:32:35] [UiApplicationContextUtils] [85] [DEBUG] Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@4245bf68] 
+main> [2020-10-10 23:32:35] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 23:32:35] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.liveBeansView.mbeanDomain] not found - trying original name [spring.liveBeansView.mbeanDomain]. javax.naming.NameNotFoundException; remaining name 'spring.liveBeansView.mbeanDomain' 
+main> [2020-10-10 23:32:35] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 23:32:35] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.liveBeansView.mbeanDomain] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:32:35] [ContextLoader] [306] [INFO] Root WebApplicationContext initialized in 266 ms 
+main> [2020-10-10 23:32:35] [DispatcherServlet] [524] [INFO] Initializing Servlet 'dispatcher' 
+main> [2020-10-10 23:32:35] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.profiles.active] 
+main> [2020-10-10 23:32:35] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.profiles.active] not found - trying original name [spring.profiles.active]. javax.naming.NameNotFoundException; remaining name 'spring.profiles.active' 
+main> [2020-10-10 23:32:35] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.profiles.active] 
+main> [2020-10-10 23:32:35] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.profiles.active] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:32:35] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.profiles.default] 
+main> [2020-10-10 23:32:35] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.profiles.default] not found - trying original name [spring.profiles.default]. javax.naming.NameNotFoundException; remaining name 'spring.profiles.default' 
+main> [2020-10-10 23:32:35] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.profiles.default] 
+main> [2020-10-10 23:32:35] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.profiles.default] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.url] 
+main> [2020-10-10 23:32:36] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.url] not found - trying original name [jdbc.url]. javax.naming.NameNotFoundException; remaining name 'jdbc.url' 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.url] 
+main> [2020-10-10 23:32:36] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.url] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.database] 
+main> [2020-10-10 23:32:36] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.database] not found - trying original name [jdbc.database]. javax.naming.NameNotFoundException; remaining name 'jdbc.database' 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.database] 
+main> [2020-10-10 23:32:36] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.database] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.username] 
+main> [2020-10-10 23:32:36] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.username] not found - trying original name [jdbc.username]. javax.naming.NameNotFoundException; remaining name 'jdbc.username' 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.username] 
+main> [2020-10-10 23:32:36] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.username] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.password] 
+main> [2020-10-10 23:32:36] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.password] not found - trying original name [jdbc.password]. javax.naming.NameNotFoundException; remaining name 'jdbc.password' 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.password] 
+main> [2020-10-10 23:32:36] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.password] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.host] 
+main> [2020-10-10 23:32:36] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.host] not found - trying original name [mail.host]. javax.naming.NameNotFoundException; remaining name 'mail.host' 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.host] 
+main> [2020-10-10 23:32:36] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.host] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.port] 
+main> [2020-10-10 23:32:36] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.port] not found - trying original name [mail.port]. javax.naming.NameNotFoundException; remaining name 'mail.port' 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.port] 
+main> [2020-10-10 23:32:36] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.port] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.username] 
+main> [2020-10-10 23:32:36] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.username] not found - trying original name [mail.username]. javax.naming.NameNotFoundException; remaining name 'mail.username' 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.username] 
+main> [2020-10-10 23:32:36] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.username] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.password] 
+main> [2020-10-10 23:32:36] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.password] not found - trying original name [mail.password]. javax.naming.NameNotFoundException; remaining name 'mail.password' 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.password] 
+main> [2020-10-10 23:32:36] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.password] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.protocol] 
+main> [2020-10-10 23:32:36] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.protocol] not found - trying original name [mail.protocol]. javax.naming.NameNotFoundException; remaining name 'mail.protocol' 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.protocol] 
+main> [2020-10-10 23:32:36] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.protocol] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.smtp.auth] 
+main> [2020-10-10 23:32:36] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.smtp.auth] not found - trying original name [mail.smtp.auth]. javax.naming.NameNotFoundException; remaining name 'mail.smtp.auth' 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.smtp.auth] 
+main> [2020-10-10 23:32:36] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.smtp.auth] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.smtp.starttls.enable] 
+main> [2020-10-10 23:32:36] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.smtp.starttls.enable] not found - trying original name [mail.smtp.starttls.enable]. javax.naming.NameNotFoundException; remaining name 'mail.smtp.starttls.enable' 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.smtp.starttls.enable] 
+main> [2020-10-10 23:32:36] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.smtp.starttls.enable] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:32:36] [UiApplicationContextUtils] [85] [DEBUG] Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.DelegatingThemeSource@69e2fe3b] 
+main> [2020-10-10 23:32:36] [LogFactory] [135] [DEBUG] Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+main> [2020-10-10 23:32:36] [DriverManagerDataSource] [133] [DEBUG] Loaded JDBC driver: com.mysql.jdbc.Driver 
+main> [2020-10-10 23:32:36] [SqlSessionFactoryBean] [496] [DEBUG] Parsed configuration file: 'class path resource [mybatis-config.xml]' 
+main> [2020-10-10 23:32:36] [SqlSessionFactoryBean] [528] [DEBUG] Parsed mapper file: 'file [C:\Users\orien\IdeaProjects\animeDB\target\classes\mappers\user\joinMember.xml]' 
+main> [2020-10-10 23:32:36] [SqlSessionFactoryBean] [528] [DEBUG] Parsed mapper file: 'file [C:\Users\orien\IdeaProjects\animeDB\target\classes\mappers\user\member.xml]' 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 23:32:36] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.liveBeansView.mbeanDomain] not found - trying original name [spring.liveBeansView.mbeanDomain]. javax.naming.NameNotFoundException; remaining name 'spring.liveBeansView.mbeanDomain' 
+main> [2020-10-10 23:32:36] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 23:32:36] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.liveBeansView.mbeanDomain] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:32:36] [DispatcherServlet] [546] [INFO] Completed initialization in 1175 ms 
+qtp1155300221-21> [2020-10-10 23:33:27] [SqlSessionUtils] [99] [DEBUG] Creating a new SqlSession 
+qtp1155300221-21> [2020-10-10 23:33:27] [SqlSessionUtils] [150] [DEBUG] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c70aeb2] was not registered for synchronization because synchronization is not active 
+qtp1155300221-21> [2020-10-10 23:33:27] [DataSourceUtils] [114] [DEBUG] Fetching JDBC Connection from DataSource 
+qtp1155300221-21> [2020-10-10 23:33:27] [DriverManagerDataSource] [143] [DEBUG] Creating new JDBC DriverManager Connection to [jdbc:mysql://18.221.252.62/anime_db?useUnicode=true&characterEncoding=utf8] 
+qtp1155300221-21> [2020-10-10 23:33:29] [SpringManagedTransaction] [89] [DEBUG] JDBC Connection [com.mysql.jdbc.JDBC4Connection@764378f2] will not be managed by Spring 
+qtp1155300221-21> [2020-10-10 23:33:29] [login] [145] [DEBUG] ==>  Preparing: SELECT * FROM anime_member WHERE user_id = ?  
+qtp1155300221-21> [2020-10-10 23:33:29] [login] [145] [DEBUG] ==> Parameters: kyouten20(String) 
+qtp1155300221-21> [2020-10-10 23:33:29] [login] [145] [DEBUG] <==      Total: 1 
+qtp1155300221-21> [2020-10-10 23:33:29] [SqlSessionUtils] [193] [DEBUG] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c70aeb2] 
+qtp1155300221-33> [2020-10-10 23:39:03] [PageNotFound] [1248] [WARN] No mapping for GET /favicon.ico 
+qtp1155300221-25> [2020-10-10 23:42:18] [PageNotFound] [1248] [WARN] No mapping for GET /favicon.ico 
+qtp1155300221-26> [2020-10-10 23:44:35] [PageNotFound] [1248] [WARN] No mapping for GET /favicon.ico 
+qtp1155300221-26> [2020-10-10 23:44:36] [PageNotFound] [1248] [WARN] No mapping for GET /favicon.ico 
+main> [2020-10-10 23:50:16] [ContextLoader] [270] [INFO] Root WebApplicationContext: initialization started 
+main> [2020-10-10 23:50:16] [UiApplicationContextUtils] [85] [DEBUG] Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@5b066c33] 
+main> [2020-10-10 23:50:16] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 23:50:16] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.liveBeansView.mbeanDomain] not found - trying original name [spring.liveBeansView.mbeanDomain]. javax.naming.NameNotFoundException; remaining name 'spring.liveBeansView.mbeanDomain' 
+main> [2020-10-10 23:50:16] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 23:50:16] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.liveBeansView.mbeanDomain] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:50:16] [ContextLoader] [306] [INFO] Root WebApplicationContext initialized in 248 ms 
+main> [2020-10-10 23:50:16] [DispatcherServlet] [524] [INFO] Initializing Servlet 'dispatcher' 
+main> [2020-10-10 23:50:16] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.profiles.active] 
+main> [2020-10-10 23:50:16] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.profiles.active] not found - trying original name [spring.profiles.active]. javax.naming.NameNotFoundException; remaining name 'spring.profiles.active' 
+main> [2020-10-10 23:50:16] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.profiles.active] 
+main> [2020-10-10 23:50:16] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.profiles.active] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:50:16] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.profiles.default] 
+main> [2020-10-10 23:50:16] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.profiles.default] not found - trying original name [spring.profiles.default]. javax.naming.NameNotFoundException; remaining name 'spring.profiles.default' 
+main> [2020-10-10 23:50:16] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.profiles.default] 
+main> [2020-10-10 23:50:16] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.profiles.default] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.url] 
+main> [2020-10-10 23:50:17] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.url] not found - trying original name [jdbc.url]. javax.naming.NameNotFoundException; remaining name 'jdbc.url' 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.url] 
+main> [2020-10-10 23:50:17] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.url] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.database] 
+main> [2020-10-10 23:50:17] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.database] not found - trying original name [jdbc.database]. javax.naming.NameNotFoundException; remaining name 'jdbc.database' 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.database] 
+main> [2020-10-10 23:50:17] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.database] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.username] 
+main> [2020-10-10 23:50:17] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.username] not found - trying original name [jdbc.username]. javax.naming.NameNotFoundException; remaining name 'jdbc.username' 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.username] 
+main> [2020-10-10 23:50:17] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.username] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/jdbc.password] 
+main> [2020-10-10 23:50:17] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/jdbc.password] not found - trying original name [jdbc.password]. javax.naming.NameNotFoundException; remaining name 'jdbc.password' 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [jdbc.password] 
+main> [2020-10-10 23:50:17] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [jdbc.password] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.host] 
+main> [2020-10-10 23:50:17] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.host] not found - trying original name [mail.host]. javax.naming.NameNotFoundException; remaining name 'mail.host' 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.host] 
+main> [2020-10-10 23:50:17] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.host] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.port] 
+main> [2020-10-10 23:50:17] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.port] not found - trying original name [mail.port]. javax.naming.NameNotFoundException; remaining name 'mail.port' 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.port] 
+main> [2020-10-10 23:50:17] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.port] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.username] 
+main> [2020-10-10 23:50:17] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.username] not found - trying original name [mail.username]. javax.naming.NameNotFoundException; remaining name 'mail.username' 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.username] 
+main> [2020-10-10 23:50:17] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.username] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.password] 
+main> [2020-10-10 23:50:17] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.password] not found - trying original name [mail.password]. javax.naming.NameNotFoundException; remaining name 'mail.password' 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.password] 
+main> [2020-10-10 23:50:17] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.password] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.protocol] 
+main> [2020-10-10 23:50:17] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.protocol] not found - trying original name [mail.protocol]. javax.naming.NameNotFoundException; remaining name 'mail.protocol' 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.protocol] 
+main> [2020-10-10 23:50:17] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.protocol] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.smtp.auth] 
+main> [2020-10-10 23:50:17] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.smtp.auth] not found - trying original name [mail.smtp.auth]. javax.naming.NameNotFoundException; remaining name 'mail.smtp.auth' 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.smtp.auth] 
+main> [2020-10-10 23:50:17] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.smtp.auth] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/mail.smtp.starttls.enable] 
+main> [2020-10-10 23:50:17] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/mail.smtp.starttls.enable] not found - trying original name [mail.smtp.starttls.enable]. javax.naming.NameNotFoundException; remaining name 'mail.smtp.starttls.enable' 
+main> [2020-10-10 23:50:17] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [mail.smtp.starttls.enable] 
+main> [2020-10-10 23:50:17] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [mail.smtp.starttls.enable] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:50:17] [UiApplicationContextUtils] [85] [DEBUG] Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.DelegatingThemeSource@7bb4ed71] 
+main> [2020-10-10 23:50:17] [LogFactory] [135] [DEBUG] Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter. 
+main> [2020-10-10 23:50:17] [DriverManagerDataSource] [133] [DEBUG] Loaded JDBC driver: com.mysql.jdbc.Driver 
+main> [2020-10-10 23:50:17] [SqlSessionFactoryBean] [496] [DEBUG] Parsed configuration file: 'class path resource [mybatis-config.xml]' 
+main> [2020-10-10 23:50:17] [SqlSessionFactoryBean] [528] [DEBUG] Parsed mapper file: 'file [C:\Users\orien\IdeaProjects\animeDB\target\classes\mappers\user\joinMember.xml]' 
+main> [2020-10-10 23:50:17] [SqlSessionFactoryBean] [528] [DEBUG] Parsed mapper file: 'file [C:\Users\orien\IdeaProjects\animeDB\target\classes\mappers\user\member.xml]' 
+main> [2020-10-10 23:50:18] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [java:comp/env/spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 23:50:18] [JndiLocatorDelegate] [102] [DEBUG] Converted JNDI name [java:comp/env/spring.liveBeansView.mbeanDomain] not found - trying original name [spring.liveBeansView.mbeanDomain]. javax.naming.NameNotFoundException; remaining name 'spring.liveBeansView.mbeanDomain' 
+main> [2020-10-10 23:50:18] [JndiTemplate] [154] [DEBUG] Looking up JNDI object with name [spring.liveBeansView.mbeanDomain] 
+main> [2020-10-10 23:50:18] [JndiPropertySource] [101] [DEBUG] JNDI lookup for name [spring.liveBeansView.mbeanDomain] threw NamingException with message: null. Returning null. 
+main> [2020-10-10 23:50:18] [DispatcherServlet] [546] [INFO] Completed initialization in 1158 ms 
+qtp906397479-23> [2020-10-10 23:50:28] [SqlSessionUtils] [99] [DEBUG] Creating a new SqlSession 
+qtp906397479-23> [2020-10-10 23:50:28] [SqlSessionUtils] [150] [DEBUG] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2f4e24e4] was not registered for synchronization because synchronization is not active 
+qtp906397479-23> [2020-10-10 23:50:29] [DataSourceUtils] [114] [DEBUG] Fetching JDBC Connection from DataSource 
+qtp906397479-23> [2020-10-10 23:50:29] [DriverManagerDataSource] [143] [DEBUG] Creating new JDBC DriverManager Connection to [jdbc:mysql://18.221.252.62/anime_db?useUnicode=true&characterEncoding=utf8] 
+qtp906397479-23> [2020-10-10 23:50:30] [SpringManagedTransaction] [89] [DEBUG] JDBC Connection [com.mysql.jdbc.JDBC4Connection@5508f549] will not be managed by Spring 
+qtp906397479-23> [2020-10-10 23:50:30] [login] [145] [DEBUG] ==>  Preparing: SELECT * FROM anime_member WHERE user_id = ?  
+qtp906397479-23> [2020-10-10 23:50:30] [login] [145] [DEBUG] ==> Parameters: kyouten20(String) 
+qtp906397479-23> [2020-10-10 23:50:31] [login] [145] [DEBUG] <==      Total: 1 
+qtp906397479-23> [2020-10-10 23:50:31] [SqlSessionUtils] [193] [DEBUG] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2f4e24e4] 

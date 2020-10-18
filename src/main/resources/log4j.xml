@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <!--Console log-->
+    <appender name="console" class="org.apache.log4j.ConsoleAppender">
+        <param name="Target" value="System.out"/>
+        <param name="Threshold" value="DEBUG"/>
+        <!--Output pattern-->
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%p] [%d{HH:mm:ss.SSS}] %m%n"/>
+        </layout>
+    </appender>
+
+    <!--File log, that write logs by date. It backs up appended date on log file-->
+    <appender name="rolling" class="org.apache.log4j.DailyRollingFileAppender">
+
+        <!--Path of log file-->
+        <param name="File" value="logs/animedb.log"/>
+
+        <!--Appending date pattern after log file-->
+        <param name="DatePattern" value="'.'yyyyMMdd" />
+
+        <!--When internal server restarts, it decides new writing(false) or appending on existing file(true)-->
+        <param name="Append" value="true"/>
+
+        <!--Output pattern-->
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%t> [%d{yyyy-MM-dd HH:mm:ss}] [%c{1}] [%L] [%p] %m %n"/>
+        </layout>
+    </appender>
+
+    <appender name="file" class="org.apache.log4j.FileAppender">
+        <param name="File" value="logs/test.log"/>
+        <param name="Append" value="false"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%p] [%d{HH:mm:ss.SSS}] %m%n" />
+        </layout>
+    </appender>
+
+    <!-- Application Loggers -->
+    <logger name="com.spring67.upload">
+        <level value="info" />
+    </logger>
+
+    <!-- 3rd party Loggers -->
+    <logger name="org.springframework.core">
+        <level value="info" />
+    </logger>
+
+    <logger name="org.springframework.beans">
+        <level value="info" />
+    </logger>
+
+    <logger name="org.springframework.context">
+        <level value="info" />
+    </logger>
+
+    <logger name="org.springframework.web">
+        <level value="info" />
+    </logger>
+
+    <!-- java.sql Loggers -->
+    <category name="java.sql.Connection">
+        <priority value="debug" />
+        <appender-ref ref="console" />
+    </category>
+    <category name="java.sql.Statment">
+        <priority value="debug" />
+        <appender-ref ref="console" />
+    </category>
+    <category name="java.sql.PreparedStatment">
+        <priority value="debug" />
+        <appender-ref ref="console" />
+    </category>
+    <category name="java.sql.ResultSet">
+        <priority value="debug" />
+        <appender-ref ref="console" />
+    </category>
+
+    <!-- Here we set the packages in which logs will be implemented -->
+    <logger name="com.alfa1lab.logger">
+        <appender-ref ref = "console" />
+        <appender-ref ref = "rolling" />
+    </logger>
+
+
+    <!-- Root Logger -->
+    <root>
+        <!--There are types example error, fatal, info, warn, debug, and etc in log level-->
+        <level value="debug" />
+        <appender-ref ref="console" />
+        <appender-ref ref="rolling" />
+    </root>
+
+</log4j:configuration>

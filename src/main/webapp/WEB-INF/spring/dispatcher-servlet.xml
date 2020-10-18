@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xmlns:tx="http://www.springframework.org/schema/tx"
+             xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		                         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		                         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		                         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <annotation-driven />
+    <context:property-placeholder location="classpath:properties/*.properties" />
+    <resources mapping="/assets/css/**" location="/assets/css/" />
+    <resources mapping="/assets/images/**" location="/assets/images/" />
+    <resources mapping="/assets/js/**" location="/assets/js/" />
+    <resources mapping="/assets/fi/**" location="/assets/fi/" />
+    <resources mapping="/assets/scss/**" location="/assets/scss/" />
+    <resources mapping="/upload/images/**" location="file:/upload/images/" />
+
+    <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <beans:property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+        <beans:property name="prefix" value="/WEB-INF/views/" />
+        <beans:property name="suffix" value=".jsp" />
+        <beans:property name="order" value="2" />
+    </beans:bean>
+
+    <context:component-scan base-package="com.animeDB" />
+
+    <beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <beans:property name="url" value="jdbc:mysql://${jdbc.url}/${jdbc.database}?useUnicode=true&amp;characterEncoding=utf8" />
+        <beans:property name="username" value="${jdbc.username}" />
+        <beans:property name="password" value="${jdbc.password}" />
+    </beans:bean>
+
+    <beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <beans:property name="dataSource" ref="dataSource" />
+        <beans:property name="configLocation" value="classpath:mybatis-config.xml" />
+        <beans:property name="mapperLocations" value="classpath:mappers/**/**.xml" />
+    </beans:bean>
+
+    <beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <beans:constructor-arg index="0" ref="sqlSessionFactory" />
+    </beans:bean>
+
+    <beans:bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <beans:property name="dataSource" ref="dataSource" />
+    </beans:bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager" />
+    
+    <interceptors>
+        <interceptor>
+            <mapping path="/**/"/>
+            <beans:bean id="MemberLoginInterceptor" class="com.animeDB.interceptor.MemberLoginInterceptor" />
+        </interceptor>
+    </interceptors>
+
+    <beans:bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <beans:property name="host" value="${mail.host}" />
+        <beans:property name="port" value="${mail.port}" />
+        <beans:property name="username" value="${mail.username}" />
+        <beans:property name="password" value="${mail.password}" />
+        <beans:property name="protocol" value="${mail.protocol}" />
+        <beans:property name="defaultEncoding" value="utf-8" />
+        <beans:property name="javaMailProperties">
+            <beans:props>
+                <beans:prop key="mail.smtp.auth">${mail.smtp.auth}</beans:prop>
+                <beans:prop key="mail.smtp.starttls.enable">${mail.smtp.starttls.enable}</beans:prop>
+            </beans:props>
+        </beans:property>
+    </beans:bean>
+
+    <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <beans:property name="maxUploadSize" value="10485760" />
+        <beans:property name="defaultEncoding" value="utf-8" />
+    </beans:bean>
+
+    <beans:bean id="uploadTempDir" class="org.springframework.core.io.FileSystemResource">
+        <beans:constructor-arg value="c:/upload/" />
+    </beans:bean>
+
+</beans:beans>

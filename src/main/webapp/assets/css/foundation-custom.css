@@ -1,0 +1,77 @@
+body { font-family: "M PLUS 1p"; }
+.top-bar{background-color : #F86C6C;}
+.top-bar section ul {background-color : #F86C6C;}
+.top-bar-right p{color: antiquewhite}
+
+.linkedBanner img {width: 50%}
+
+.input-group {margin-top: 5%;}
+
+.indexList h3 a {color: crimson;font-size: 22px;}
+.indexList ul {list-style:none;padding:0;margin: 0;}
+.indexList ul li a {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;display: block;margin-bottom: 2%;}
+
+.indexShop {margin-top: 10%;}
+.indexShop h3 a {color: crimson;font-size: 22px;}
+
+.indexLogin {border: blueviolet 2px solid;}
+.indexLogin .loginInput {margin-top: 5%}
+.indexLogin .loginInput input {width: 80%;margin-left: 10%}
+.indexLogin .loginBtn {margin-top: 5%; width: 80%; margin-left: 10%}
+.indexLogin .rememberBtn {margin-left: 10%; margin-top: 2%}
+.indexLogin .memberOption {margin: 0 0 5% 0}
+.indexLogin .memberOption a {padding-left: 5%;}
+
+.indexMember {border: blueviolet 2px solid;}
+.indexMember .memberImage {margin: 5% auto; height: 9.750em; width: 9.750em; border: grey 2px solid; overflow: hidden}
+.indexMember .memberInfo {text-align: center}
+.indexMember .memberBtn {width: 90%; margin-left: 5%}
+.indexMember .memberBtn .small-12 {margin-top: -5%}
+.indexMember .memberBtn button {border: #0a0a0a solid 2px}
+
+.indexRank {border: blueviolet 2px solid;margin-top: 5%}
+.indexRank p {font-size: 20px; text-align: center}
+.indexRank .rankList {padding-left: 10%}
+.indexRank .rankList a{text-overflow: ellipsis;overflow: hidden;white-space: nowrap;display: block;margin-bottom: 2%;}
+
+.breadcrumbs {margin-top: 5%; width: 51%; padding: 1% 1% 1% 1%; text-align: center; background: #007fff}
+.breadcrumbs li {font-size: 25px; color: floralwhite}
+.breadcrumbs li:not(:last-child)::after {content:">";}
+.breadcrumbs li .active {background: #F54040}
+
+.joinAgree textarea {margin-top: 2%; resize: none}
+.joinAgree button {margin: 1%}
+
+.newMember {border: black 1px solid}
+.newMember label {font-size: 20px; margin-right: 8%}
+.newMember button {margin: 2%}
+
+.joinComplete {border: black 1px solid; margin-bottom: 1%}
+.joinComplete h3 {margin-top: 2%}
+.joinComplete p {margin-top: 5%}
+
+.memberProfile {margin-top: 5%; background: #007fff; color: white; font-size: 20px}
+.memberProfile .small-8 {margin-left: auto; margin-top: 3%; margin-bottom: 3%}
+.memberProfile .info {margin-top: 3%}
+.memberProfile .memberImage {margin-left: 10%; border: grey 2px solid; height: 9.750em; width: 9.750em; overflow: hidden}
+.memberProfileBtn {margin-top: 3%; text-align: center}
+.deleteMember {margin-top: 5%; background: #007fff; color: white}
+.deleteMember .notice {margin-top: 3%; margin-left: 40%}
+.deleteMember .info {margin-left: 5%; font-size: 20px}
+.deleteMember .announce {margin-top: 2%; margin-left: 7%; font-size: 18px}
+.deleteMember .lastPwd {margin-top: 3%; margin-left: 7%; margin-bottom: 2%; font-size: 18px}
+.deleteMember .lastPwd label {color: white; font-size: 18px; margin-bottom: 5%}
+.deleteMember .lastPwd input {width: 40%}
+.deleteMember .lastPwd button {margin-top: 5%}
+.deleteBtn {margin-top: 3%; text-align: center}
+
+.modifyMember {margin-top: 5%; background: #007fff; color: white; font-size: 20px}
+.modifyMember label {color: white; font-size: 20px}
+.modifyMember p {font-size: 16px}
+.modifyMember .small-8 {margin-left: 20%; margin-top: 3%; margin-bottom: 3%}
+.modifyMember .info {margin-top: 3%}
+.modifyMember .memberImage {display: flex; height: 9.750em; width: 9.750em; border: grey 2px solid; overflow: hidden; background-color: white; justify-content: center; align-items: center;}
+.modifyMember .imageBtn {margin-top: 3%}
+.modifyMember .imageBtn input[type="file"] {display: none}
+.modifyMember .imageBtn label {font-size: 15px;}
+.modifyBtn {margin-top: 3%; text-align: center}
