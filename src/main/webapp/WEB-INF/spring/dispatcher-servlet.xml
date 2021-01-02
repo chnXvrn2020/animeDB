@@ -16,8 +16,7 @@
     <resources mapping="/assets/js/**" location="/assets/js/" />
     <resources mapping="/assets/fi/**" location="/assets/fi/" />
     <resources mapping="/assets/scss/**" location="/assets/scss/" />
-    <resources mapping="/upload/images/**" location="file:/upload/images/" />
-
+    
     <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <beans:property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
         <beans:property name="prefix" value="/WEB-INF/views/" />
@@ -53,8 +52,9 @@
     <interceptors>
         <interceptor>
             <mapping path="/**/"/>
-            <beans:bean id="MemberLoginInterceptor" class="com.animeDB.interceptor.MemberLoginInterceptor" />
+            <beans:bean id="MemberLoginInterceptor" class="com.animeDB.configuration.MemberLoginInterceptor" />
         </interceptor>
+        <beans:bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
     </interceptors>
 
     <beans:bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
@@ -75,10 +75,6 @@
     <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <beans:property name="maxUploadSize" value="10485760" />
         <beans:property name="defaultEncoding" value="utf-8" />
-    </beans:bean>
-
-    <beans:bean id="uploadTempDir" class="org.springframework.core.io.FileSystemResource">
-        <beans:constructor-arg value="c:/upload/" />
     </beans:bean>
 
 </beans:beans>

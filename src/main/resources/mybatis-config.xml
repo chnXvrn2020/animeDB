@@ -6,7 +6,7 @@
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
     <typeAliases>
-        <typeAlias type="com.animeDB.join.vo.JoinVO" alias="JoinVO" />
-        <typeAlias type="com.animeDB.member.vo.MemberVO" alias="MemberVO" />
+        <typeAlias type="com.animeDB.common.vo.MemberVO" alias="MemberVO" />
+        <typeAlias type="com.animeDB.common.vo.MemberAttachmentVO" alias="MemberAttachmentVO" />
     </typeAliases>
 </configuration>

@@ -1,11 +1,12 @@
 package com.animeDB.join.controller;
 
+import com.animeDB.common.vo.MemberVO;
 import com.animeDB.join.service.JoinService;
-import com.animeDB.join.vo.JoinVO;
-import com.animeDB.mailSender.MailSendService;
+import com.animeDB.common.service.MailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,10 +15,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Locale;
+import java.util.UUID;
 
 @Controller
+@RequestMapping(value = "/signup")
 public class JoinController {
 
     private static final Logger logger = LoggerFactory.getLogger(JoinController.class);
@@ -26,72 +31,77 @@ public class JoinController {
     JoinService joinService;
 
     @Autowired
-    MailSendService mailSendService;
+    MailService mailSendService;
+
+    @Autowired
+    MessageSource messageSource;
 
     //Output checking agree display before output inputting new member information to join
-    @RequestMapping(value = "/join/new_join")
+    @RequestMapping(value = "/newSign")
     public String newJoin() {
         return "join/agree";
     }
 
     //Output display that inputting new member information
-    @RequestMapping(value = "join/confirm")
-    public String inputNewMember() {
+    @RequestMapping(value = "/confirm")
+    public String insertNewMember() {
         return "join/confirm";
     }
 
     //Checking userId if it's duplicated
-    @RequestMapping(value = "join/check_id", method = RequestMethod.GET)
+    @RequestMapping(value = "/check_id", method = RequestMethod.GET)
     @ResponseBody
-    public HashMap<String, Object> checkId(String userId) {
+    public HashMap<String, Object> checkId(String userId, Locale locale) {
         HashMap<String, Object> response = new HashMap<>();
         try {
             if (joinService.checkId(userId) <= 0) {
                 response.put("result", "pass");
-                response.put("msg", "ご利用できるIDです。");
+                response.put("msg", messageSource.getMessage("signup.checkUnusedId", null, locale));
             } else {
-                response.put("result", "duple");
-                response.put("msg", "既に使用中のIDです。");
+                response.put("result", "used");
+                response.put("msg", messageSource.getMessage("alert.redundantId", null, locale));
             }
         } catch (Exception e) {
             logger.error("join - checkId : " + e.getMessage());
             response.put("result", "error");
-            response.put("msg", "サーバーエラーが発生しました。");
+            response.put("msg", messageSource.getMessage("alert.serverError", null, locale));
         }
         return response;
     }
 
     //Checking email if it's duplicated
-    @RequestMapping(value = "join/check_email", method = RequestMethod.GET)
+    @RequestMapping(value = "/check_email", method = RequestMethod.GET)
     @ResponseBody
-    public HashMap<String, Object> checkEmail(String email) {
+    public HashMap<String, Object> checkEmail(String email, Locale locale) {
         HashMap<String, Object> response = new HashMap<>();
         try {
             if (joinService.checkEmail(email) <= 0) {
                 response.put("result", "pass");
             } else {
-                response.put("result", "duple");
-                response.put("msg", "既に使用中のメールアドレスです。");
+                response.put("result", "used");
+                response.put("msg", messageSource.getMessage("alert.redundantEmail", null, locale));
             }
         } catch (Exception e) {
             logger.error("join - checkEmail : " + e.getMessage());
             response.put("result", "error");
-            response.put("msg", "サーバーエラーが発生しました。");
+            response.put("msg", messageSource.getMessage("alert.serverError", null, locale));
         }
         return response;
     }
 
     //Inserting new member to DB and return join complete display
-    @RequestMapping(value = "join/confirm", method = RequestMethod.POST)
-    public String insertNewMember(JoinVO jvo, Model m, HttpServletRequest request) {
+    @RequestMapping(value = "/confirm", method = RequestMethod.POST)
+    public String insertNewMember(MemberVO mvo, Model m, HttpServletRequest request, Locale locale) {
         String redirectPage = "";
+        String[] birthday = new String[]
+                {request.getParameter("birthYear"), request.getParameter("birthMonth"), request.getParameter("birthDay")};
         try {
-            joinService.insertNewMember(jvo);
-            mailSendService.mailSendWithUserKey(jvo.getEmail(), jvo.getUserId(), jvo.getNickname(),jvo.getUserKey(), request);
+            joinService.insertNewMember(mvo, birthday);
+            mailSendService.mailSendWithUserKey(mvo.getEmail(), mvo.getUserId(), mvo.getNickname(),mvo.getUserKey(), request, locale);
             redirectPage = "join/complete";
         } catch (Exception e) {
             logger.error("join - insertNewMember : " + e.getMessage());
-            m.addAttribute("msg", "サーバーエラーが発生しました。");
+            m.addAttribute("msg", messageSource.getMessage("alert.serverError", null, locale));
             redirectPage = "common/alert";
         }
 
@@ -99,8 +109,8 @@ public class JoinController {
     }
 
     //Complete to authenticate new member with email
-    @RequestMapping(value = "/join/key_alter", method = RequestMethod.GET)
-    public String keyAlterConfirm(@RequestParam String userid, @RequestParam String key, Model m) throws IOException {
+    @RequestMapping(value = "/key_alter", method = RequestMethod.GET)
+    public String keyAlterConfirm(@RequestParam String userid, @RequestParam String key, Model m, Locale locale) throws IOException {
         try {
             HashMap<String, Object> map = new HashMap<>();
 
@@ -108,17 +118,16 @@ public class JoinController {
             map.put("userKey", key);
 
             if (joinService.AlterUserKey(map) >= 1) {
-                m.addAttribute("msg", "認証が完了されました。これからログインができます。");
+                m.addAttribute("msg", messageSource.getMessage("alert.mailAuthen", null, locale));
             } else {
-                m.addAttribute("msg", "既に認証しました。");
+                m.addAttribute("msg", messageSource.getMessage("alert.alreadyMailAuthen", null, locale));
             }
 
         } catch (Exception e) {
             logger.error("join - keyAlterConfirm : " + e.getMessage());
-            m.addAttribute("msg", "サーバーエラーが発生しました。");
+            m.addAttribute("msg", messageSource.getMessage("alert.serverError", null, locale));
         }
         m.addAttribute("returnUrl", "/");
-
         return "common/alert";
     }
 }

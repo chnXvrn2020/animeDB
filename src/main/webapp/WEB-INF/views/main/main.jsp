@@ -4,17 +4,16 @@
 </head>
 <body>
 <%@include file="../inc/gnb.jsp"%>
-<c:set var="member" value="${sessionScope.member}" />
 <div class="main-section">
     <div class="grid-container">
         <%--人気の書き込み、アニメ情報、ショッピング情報を出力、修正必要--%>
         <div class="grid-x grid-padding-y">
-            <div class="small-9 cell">
+            <div id="mainIndex" class="cell">
                 <section class="indexList">
                     <div class="grid-x">
                         <%--人気の書き込み出力、修正必要--%>
-                        <div class="small-6 cell">
-                            <h3><a>人気の書き込み集め</a></h3>
+                        <div id="indexPopular" class="cell">
+                            <h3><a><spring:message code="animedb.popular" /></a></h3>
                             <hr>
                             <ul>
                                 <li>
@@ -50,8 +49,8 @@
                             </ul>
                         </div>
                         <%--アニメ情報出力、修正必要--%>
-                        <div class="small-6 cell">
-                            <h3><a>アニメ情報</a></h3>
+                        <div id="indexAnimeInfo" class="cell">
+                            <h3><a><spring:message code="animedb.animeNews" /></a></h3>
                             <hr>
                             <ul>
                                 <li>
@@ -88,55 +87,53 @@
                         </div>
                     </div>
                 </section>
-                <section class="indexShop">
-                    <%--ショッピング情報出力、修正必要--%>
-                    <div class="cell">
-                        <h3><a>ショッピング情報</a></h3>
-                        <hr>
-                    </div>
-                </section>
             </div>
             <%--ログイン、イアルタイム検索出力、修正必要--%>
-            <div class="small-3 cell">
+            <div id="main-right" class="small-3 cell">
                 <c:if test="${empty member}">
-                    <form class="indexLogin" method="post" onsubmit="return validate(this);" action="${contextPath}/login">
+                    <form class="indexLogin" method="post" onsubmit="return validate(this);" action="${animedbUrl}/login">
                         <div class="loginInput">
-                            <input class="input-group-field" type="text" id="uid" name="id" placeholder="ID入力">
-                            <input class="input-group-field" type="password" id="pwd" name="pw" placeholder="パスワード入力">
+                            <input class="input-group-field" type="text" id="uid" name="id" placeholder="<spring:message code="animedb.inputId" />">
+                            <input class="input-group-field" type="password" id="pwd" name="pw" placeholder="<spring:message code="animedb.inputPwd" />">
                         </div>
                         <div class="grid-y loginBtn">
-                            <button class="button" id="loginBtn">ログイン</button>
+                            <button class="button" id="loginBtn"><spring:message code="animedb.signIn" /></button>
                         </div>
                         <div class="rememberBtn">
                             <input type="checkbox" class="check-box-table-cell" id="rememberMe" name="rememberMe" value="true">
-                            <label for="rememberMe">ログイン状態を保持する</label>
+                            <label for="rememberMe"><spring:message code="animedb.stayLoggedIn" /></label>
                         </div>
                         <hr>
                         <div class="text-center memberOption">
-                            <a href="${contextPath}/join/new_join">新規登録</a>
-                            <a>ID・パスワードを忘れた</a>
+                            <a href="${animedbUrl}/signup/newSign"><spring:message code="animedb.signUp" /></a>
+                            <a><spring:message code="animedb.findMember" /></a>
                         </div>
                     </form>
                 </c:if>
                 <c:if test="${not empty member}">
                     <div class="indexMember">
                         <div class="memberImage">
-                            <%--イメージなし時とある時の分岐の設定必要--%>
-                            <img src="${contextPath}/assets/images/img/profile_image.png">
+                            <c:choose>
+                                <c:when test="${memberAttachment.attachment eq null}">
+                                    <img src="<c:out value="${imgPath}default_image.png" />">
+                                </c:when>
+                                <c:otherwise>
+                                    <img src="<c:out value="${imgPath}${memberAttachment.attachment}" />">
+                                </c:otherwise>
+                            </c:choose>
                         </div>
                         <div class="memberInfo">
-                            <p><b>${member.nickname}</b><br>
-                                (${member.userId})</p>
+                            <p><b onclick="location.href = '${animedbUrl}/member/profile'"><c:out value="${member.nickname}" /></b><br>
+                                (<c:out value="${member.userId}" />)</p>
                         </div>
                         <div class="grid-x memberBtn">
-                            <button class="small-6 button">通知</button>
-                            <button class="small-6 button" onclick="location.href='${contextPath}/member/profile'">プロフィール</button>
-                            <button class="small-12 button" onclick="logout()">ログアウト</button>
+                            <button class="small-6 button"><spring:message code="animedb.myBlog" /></button>
+                            <button class="small-6 button" onclick="logout()"><spring:message code="animedb.signOut" /></button>
                         </div>
                     </div>
                 </c:if>
                 <section class="indexRank">
-                    <p>リアルタイム検索</p>
+                    <p><spring:message code="animedb.realTime" /></p>
                     <ol class="rankList">
                         <li>
                             <a>検索１</a>
@@ -177,20 +174,20 @@
 <script>
     function validate(frm) {
         if (frm.id.value === '') {
-            alert('IDをご入力ください。');
+            alert('<spring:message code="alert.inputId" />');
             return false;
         }
         if (frm.pw.value === '') {
-            alert('パスワードをご入力ください。');
+            alert('<spring:message code="alert.inputPwd" />');
             return false;
         }
-        $('#loginBtn').html('<img src="${contextPath}/assets/images/img/login-ing.gif">')
+        $('#loginBtn').html('<img src="${animedbImg}signin.gif">')
         return true;
     }
 
     function logout() {
         $.ajax({
-            url : "${contextPath}/logout",
+            url : "${animedbUrl}/logout",
             success : function (data) {
                 if (data.result === 'Y') {
                     alert(data.msg);
@@ -200,7 +197,7 @@
                 }
             },
             error : function () {
-                alert("サーバーエラーが発生しました。E");
+                alert("<spring:message code="alert.serverError" />");
             }
         })
     }

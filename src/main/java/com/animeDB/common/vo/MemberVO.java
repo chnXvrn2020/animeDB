@@ -1,4 +1,4 @@
-package com.animeDB.member.vo;
+package com.animeDB.common.vo;
 
 import java.util.Date;
 
@@ -9,27 +9,21 @@ public class MemberVO {
     private String nickname;
     private String firstName;
     private String lastName;
-    private String furiFirst;
-    private String furiLast;
-    private String addr1;
-    private String addr2;
-    private String addr3;
     private String gender;
     private Date birthday;
     private String phone;
     private String email;
     private Date regDate;
     private String userKey;
-    private Date sessionLimit;
     private String deleteYn;
     private String role;
     private Date updateDate;
     private Date deleteDate;
-    private String attachment;
-    private String attachmentOrg;
+
+    //session
+    private Date sessionLimit;
 
     public MemberVO() {
-
     }
 
     public int getIdx() {
@@ -80,46 +74,6 @@ public class MemberVO {
         this.lastName = lastName;
     }
 
-    public String getFuriFirst() {
-        return furiFirst;
-    }
-
-    public void setFuriFirst(String furiFirst) {
-        this.furiFirst = furiFirst;
-    }
-
-    public String getFuriLast() {
-        return furiLast;
-    }
-
-    public void setFuriLast(String furiLast) {
-        this.furiLast = furiLast;
-    }
-
-    public String getAddr1() {
-        return addr1;
-    }
-
-    public void setAddr1(String addr1) {
-        this.addr1 = addr1;
-    }
-
-    public String getAddr2() {
-        return addr2;
-    }
-
-    public void setAddr2(String addr2) {
-        this.addr2 = addr2;
-    }
-
-    public String getAddr3() {
-        return addr3;
-    }
-
-    public void setAddr3(String addr3) {
-        this.addr3 = addr3;
-    }
-
     public String getGender() {
         return gender;
     }
@@ -168,14 +122,6 @@ public class MemberVO {
         this.userKey = userKey;
     }
 
-    public Date getSessionLimit() {
-        return sessionLimit;
-    }
-
-    public void setSessionLimit(Date sessionLimit) {
-        this.sessionLimit = sessionLimit;
-    }
-
     public String getDeleteYn() {
         return deleteYn;
     }
@@ -208,19 +154,11 @@ public class MemberVO {
         this.deleteDate = deleteDate;
     }
 
-    public String getAttachment() {
-        return attachment;
+    public Date getSessionLimit() {
+        return sessionLimit;
     }
 
-    public void setAttachment(String attachment) {
-        this.attachment = attachment;
-    }
-
-    public String getAttachmentOrg() {
-        return attachmentOrg;
-    }
-
-    public void setAttachmentOrg(String attachmentOrg) {
-        this.attachmentOrg = attachmentOrg;
+    public void setSessionLimit(Date sessionLimit) {
+        this.sessionLimit = sessionLimit;
     }
 }

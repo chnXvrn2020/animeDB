@@ -4,10 +4,9 @@
 </head>
 <body>
 <%@include file="../inc/gnb.jsp"%>
-<c:set value="${sessionScope.member}" var="member" />
 <c:if test="${empty member}">
     <script>
-        location.href = '${contextPath}/';
+        location.href = '${animedbUrl}';
     </script>
 </c:if>
 <div class="main-section">
@@ -16,65 +15,66 @@
             <div class="grid-x grid-padding-y">
                 <div class="small-8 cell">
                     <div class="grid-x memberImage">
-                        <img src="${contextPath}/assets/images/img/profile_image.png">
+                        <c:choose>
+                            <c:when test="${memberAttachment.attachment eq null}">
+                                <img src="<c:out value="${imgPath}default_image.png" />">
+                            </c:when>
+                            <c:otherwise>
+                                <img src="<c:out value="${imgPath}${memberAttachment.attachment}" />">
+                            </c:otherwise>
+                        </c:choose>
                     </div>
                     <div class="grid-x info">
                         <span class="small-3">ID</span>
-                        <span class="small-4">${member.userId}</span>
+                        <span class="small-4"><c:out value="${member.userId}" /></span>
                     </div>
                     <div class="grid-x info">
-                        <span class="small-3">ニックネーム</span>
-                        <span class="small-4">${member.nickname}</span>
+                        <span class="small-3"><spring:message code="member.nickname" /></span>
+                        <span class="small-4"><c:out value="${member.nickname}" /></span>
                     </div>
                     <div class="grid-x info">
-                        <span class="small-3">お名前</span>
+                        <span class="small-3"><spring:message code="member.name" /></span>
                         <div class="small-4">
                             <div class="grid-x">
                                 <div class="small-3">
-                                    <span style="font-size: 12px">${member.furiFirst}</span><br>
-                                    <span>${member.firstName}</span><br>
+                                    <span><c:out value="${member.firstName}" /></span><br>
                                 </div>
-                                <span class="small-1">　</span>
                                 <div class="small-3">
-                                    <span style="font-size: 12px">${member.furiLast}</span><br>
-                                    <span>${member.lastName}</span><br>
+                                    <span><c:out value="${member.lastName}" /></span><br>
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
                     <div class="grid-x info">
-                        <span class="small-3">性別</span>
-                        <span class="small-4">${member.gender}</span>
+                        <span class="small-3"><spring:message code="member.gender" /></span>
+                        <span class="small-4">
+                            <c:if test="${member.gender eq 'male'}">
+                                <spring:message code="member.male" />
+                            </c:if>
+                            <c:if test="${member.gender eq 'female'}">
+                                <spring:message code="member.female" />
+                            </c:if>
+                        </span>
                     </div>
                     <div class="grid-x info">
-                        <span class="small-3">生年月日</span>
+                        <span class="small-3"><spring:message code="member.birthday" /></span>
                         <span class="small-4"><fmt:formatDate value="${member.birthday}" pattern="yyyy-MM-dd" /></span>
                     </div>
                     <div class="grid-x info">
-                        <span class="small-3">メールアドレス</span>
-                        <span class="small-4">${member.email}</span>
+                        <span class="small-3"><spring:message code="member.email" /></span>
+                        <span class="small-4"><c:out value="${member.email}" /></span>
                     </div>
                     <div class="grid-x info">
-                        <span class="small-3">郵便番号</span>
-                        <span class="small-4">${member.addr1}</span>
-                    </div>
-                    <div class="grid-x info">
-                        <span class="small-3">住所</span>
-                        <span class="small-4">${member.addr2}<br>${member.addr3}</span>
-                    </div>
-                    <div class="grid-x info">
-                        <span class="small-3">携帯番号</span>
-                        <span class="small-4">${member.phone}</span>
+                        <span class="small-3"><spring:message code="member.phone" /></span>
+                        <span class="small-4"><c:out value="${member.phone}" /></span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="memberProfileBtn">
-            <button class="button primary" type="button" onclick="location.href = '${contextPath}modify'">会員情報変更</button>
-            <button class="button alert" type="button">パスワード変更</button>
-            <button class="button secondary" type="button" onclick="location.href = '${contextPath}leaveId'">会員解除</button>
+            <button class="button primary" type="button" onclick="location.href = '${animedbUrl}/member/modify'"><spring:message code="member.changeMember" /></button>
+            <button class="button alert" type="button"><spring:message code="member.changePwd" /></button>
+            <button class="button secondary" type="button" onclick="location.href = '${animedbUrl}/member/leaveId'"><spring:message code="member.withdraw" /></button>
         </div>
     </div>
 </div>

@@ -1,17 +1,22 @@
 package com.animeDB.member.service;
 
-import com.animeDB.member.vo.MemberVO;
+import com.animeDB.common.vo.MemberAttachmentVO;
+import com.animeDB.common.vo.MemberVO;
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 
 public interface MemberService {
-    MemberVO login(String userId);
-    void keepAutoLogin(String userId, String sessionKey, Date sessionLimit);
-    MemberVO checkUserWithSessionKey(String value);
-    void renewalLimit(String userId, String sessionId, Date sessionLimit);
-    void logout(HttpSession session, HttpServletRequest request, HttpServletResponse response);
-    String selectMember(String userId);
+    MemberVO selectMemberInfo(String userId);
+    MemberAttachmentVO selectMemberAttachment(int userIdx);
+    void keepAutoLogin(int userIdx, String sessionKey, String browser);
+    MemberVO checkUserWithSessionKey(String sessionKey, String browser);
+    void renewalLimit(int userIdx, String sessionId, Date sessionLimit);
+    void logout(HttpSession session, HttpServletRequest request, HttpServletResponse response, int userIdx);
+    String selectMemberPwd(String userId);
     void deleteMember(String userId);
+    void updateMember(MemberVO mvo, MemberAttachmentVO mavo, MultipartFile memberImageFile);
 }

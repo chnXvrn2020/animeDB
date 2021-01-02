@@ -1,12 +1,11 @@
 package com.animeDB.join.service;
 
+import com.animeDB.common.vo.MemberVO;
 import com.animeDB.join.dao.JoinDao;
-import com.animeDB.join.vo.JoinVO;
-import com.animeDB.util.utils;
+import com.animeDB.util.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import java.util.HashMap;
 
 @Service
@@ -28,13 +27,12 @@ public class JoinServiceImpl implements JoinService {
     }
 
     @Override
-    public void insertNewMember(JoinVO jvo) {
-        jvo.setPasswd(pwdEncoder.encode(jvo.getPasswd()));
-        jvo.setPhone(utils.phoneNumberWithHyphen(jvo.getPhone()));
-        jvo.setAddr1(utils.postNumberWithHyphen(jvo.getAddr1()));
-        jvo.setBirthday(utils.mergeBirthday(jvo.getBirthYear(), jvo.getBirthMonth(), jvo.getBirthday()));
-        jvo.setUserKey(utils.randomUserKey(false,20));
-        joinDao.insertNewMember(jvo);
+    public void insertNewMember(MemberVO mvo, String[] birthday) {
+        mvo.setPasswd(pwdEncoder.encode(mvo.getPasswd()));
+        mvo.setPhone(Utils.phoneNumberWithHyphen(mvo.getPhone()));
+        mvo.setBirthday(Utils.mergeBirthday(birthday[0], birthday[1], birthday[2]));
+        mvo.setUserKey(Utils.randomUserKey(false,20));
+        joinDao.insertNewMember(mvo);
     }
 
     @Override

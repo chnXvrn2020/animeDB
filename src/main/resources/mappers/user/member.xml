@@ -1,32 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.animeDB.member">
-    <!--SQL that first level to login-->
-    <select id="login" parameterType="string" resultType="MemberVO">
+    <!--SQL that to login-->
+    <select id="selectMemberInfo" parameterType="string" resultType="MemberVO">
         SELECT *
         FROM anime_member
         WHERE user_id = #{userId}
+    </select>
+    <!--SQL that select attachment login user-->
+    <select id="selectMemberAttachment" parameterType="int" resultType="MemberAttachmentVO">
+        SELECT *
+        FROM anime_member_attachment
+        WHERE use_yn = 'Y' AND user_idx = #{userIdx}
     </select>
     <!--SQL that check session key to keep login-->
-    <select id="checkUserWithSessionKey" parameterType="string" resultType="MemberVO">
-        SELECT *
-        FROM anime_member
-        WHERE session_key = #{value}
+    <select id="checkUserWithSessionKey" parameterType="hashmap" resultType="MemberVO">
+        SELECT m.*, s.session_limit
+        FROM anime_member m
+            INNER JOIN anime_member_session s ON m.idx = s.user_idx
+        WHERE s.session_key = #{sessionKey} AND s.browser = #{browser}
     </select>
     <!--SQL that update session key to keep login-->
-    <update id="renewalLimit" parameterType="hashmap">
-        UPDATE anime_member
+    <update id="updateSessionLimit" parameterType="hashmap">
+        UPDATE anime_member_session
         SET session_limit = #{sessionLimit}
-        WHERE user_id = #{userId} AND session_key = #{value}
+        WHERE user_idx = #{userIdx} AND session_key = #{sessionKey}
     </update>
     <!--SQL that keep to auto-Login-->
-    <update id="keepAutoLogin" parameterType="hashmap">
-        UPDATE anime_member
-        SET session_key = #{sessionKey}, session_limit = #{sessionLimit}
-        WHERE user_id = #{userId}
-    </update>
+    <insert id="keepAutoLogin" parameterType="hashmap">
+        INSERT INTO anime_member_session
+        (user_idx, session_key, session_limit, browser)
+        VALUES (#{userIdx}, #{sessionKey}, #{sessionLimit}, #{browser})
+    </insert>
+    <delete id="deleteSession" parameterType="hashmap">
+        DELETE FROM anime_member_session
+        WHERE user_idx = #{userIdx} AND session_key = #{sessionKey} AND browser = #{browser}
+    </delete>
     <!--Authenticate member ID with password-->
-    <select id="selectMember" parameterType="string" resultType="string">
+    <select id="selectMemberPwd" parameterType="string" resultType="string">
         SELECT passwd
         FROM anime_member
         WHERE user_id = #{userId}
@@ -37,4 +48,31 @@
         SET session_key = 'none', session_limit = null, delete_yn = 'Y', delete_date = now()
         WHERE user_id = #{userId}
     </update>
+    <!--Update member information-->
+    <update id="updateMember" parameterType="MemberVO">
+        UPDATE anime_member
+        SET
+            nickname = #{nickname},
+            first_name = #{firstName},
+            last_name = #{lastName},
+            phone = #{phone},
+            update_date = NOW()
+        WHERE idx = #{idx}
+    </update>
+    <!--SQL that insert member attachment-->
+    <insert id="insertMemberAttachment" parameterType="MemberAttachmentVO">
+        INSERT INTO anime_member_attachment
+        (user_idx, attachment, attachment_org)
+        VALUES (#{userIdx},
+                #{attachment},
+                #{attachmentOrg})
+    </insert>
+    <!--SQL that update to set not use attachment-->
+    <update id="updateMemberAttachment" parameterType="int">
+        UPDATE anime_member_attachment
+        SET
+            use_yn = 'N'
+        WHERE use_yn = 'Y' AND user_idx = #{userIdx}
+    </update>
+
 </mapper>

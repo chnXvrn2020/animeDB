@@ -7,79 +7,79 @@
 </head>
 <body>
 <%@include file="../inc/gnb.jsp"%>
+<c:if test="${not empty member}">
+    <script>
+        location.href = '${animedbUrl}';
+    </script>
+</c:if>
 <div class="main-section">
     <div class="grid-container">
         <nav aria-label="breadCrumb" role="navigation">
             <ul class="breadcrumbs">
                 <li class="breadcrumb-item active">
-                    <span>利用規約に同意</span>
+                    <span><spring:message code="signup.accept" /></span>
                 </li>
                 <li class="breadcrumb-item">
-                    <span class="active">新規情報入力</span>
+                    <span class="active"><spring:message code="signup.newInfo" /></span>
                 </li>
                 <li class="breadcrumb-item">
-                    <span>新規登録完了</span>
+                    <span><spring:message code="signup.completed" /></span>
                 </li>
             </ul>
         </nav>
         <hr style="margin-top: 3%">
-        <form class="newMember" name="joinFrm" method="post" action="${contextPath}confirm">
+        <form class="newMember" name="joinFrm" method="post" action="${animedbUrl}/signup/confirm">
             <div class="grid-x grid-padding-y">
                 <div class="small-10 cell">
                     <div class="grid-x input-group">
                         <label for="uid" class="small-4 text-right">ID</label>
                         <div class="small-5">
-                            <input type="text" id="uid" name="userId" class="input-group-field" maxlength="16" placeholder="6～16長さの半角の英字小文字、数字　記号は_のみ">
-                            <p id="idMsg" aria-live="assertive"></p>
+                            <input type="text" id="uid" name="userId" class="input-group-field" maxlength="16">
+                            <p id="idMsg" aria-live="assertive"><spring:message code="signup.idRule" /></p>
                         </div>
-                        <label for="nickname" class="small-4 text-right">ニックネーム</label>
+                        <label for="nickname" class="small-4 text-right"><spring:message code="member.nickname" /></label>
                         <div class="small-5">
-                            <input type="text" id="nickname" name="nickname" class="input-group-field" maxlength="9" placeholder="2～9長さのニックネーム入力">
-                            <p id="nicknameMsg" aria-live="assertive"></p>
+                            <input type="text" id="nickname" name="nickname" class="input-group-field" maxlength="9">
+                            <p id="nicknameMsg" aria-live="assertive"><spring:message code="member.nicknameRule" /></p>
                         </div>
-                        <label for="pwd1" class="small-4 text-right">パスワード</label>
+                        <label for="pwd1" class="small-4 text-right"><spring:message code="member.pwd" /></label>
                         <div class="small-5">
-                            <input type="password" id="pwd1" name="passwd" class="input-group-field" placeholder="8～16長さの英字の大小文字、数字及び記号">
+                            <input type="password" id="pwd1" name="passwd" class="input-group-field" placeholder="">
                         </div>
-                        <label for="pwd2" class="small-4 text-right">パスワード確認</label>
+                        <label for="pwd2" class="small-4 text-right"><spring:message code="member.checkPwd" /></label>
                         <div class="small-5">
                             <input type="password" id="pwd2" class="input-group-field">
-                            <p id="pwdMsg" aria-live="assertive"></p>
+                            <p id="pwdMsg" aria-live="assertive"><spring:message code="member.pwdRule" /></p>
                             <p id="pwdMsg2" aria-live="assertive"></p>
                         </div>
-                        <label for="firstName" class="small-4 text-right">お名前</label>
-                        <div>
-                            <input type="text" id="firstName" name="firstName" class="input-group-field" maxlength="10" placeholder="姓（漢字）">
-                            <p id="firstNameMsg" aria-live="assertive"></p>
+                        <label for="firstName" class="small-4 text-right"><spring:message code="member.name" /></label>
+                        <div class="small-5">
+                            <div class="grid-x">
+                                <div class="small-6">
+                                    <input type="text" id="firstName" name="firstName" class="input-group-field" maxlength="10" placeholder="<spring:message code="member.firstName" />">
+                                    <p id="firstNameMsg" aria-live="assertive"></p>
+                                </div>
+                                <div class="small-6">
+                                    <input type="text" id="lastName" name="lastName" style="margin-left: 9%" class="input-group-field" maxlength="10" placeholder="<spring:message code="member.lastName" />">
+                                    <p id="lastNameMsg" style="margin-left: 9%" aria-live="assertive"></p>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <input type="text" id="lastName" name="lastName" style="margin-left: 9%" class="input-group-field" maxlength="10" placeholder="名（漢字）">
-                            <p id="lastNameMsg" style="margin-left: 9%" aria-live="assertive"></p>
-                        </div>
-                        <label for="furiFirstName" class="small-4 text-right">フリガナ</label>
-                        <div>
-                            <input type="text" id="furiFirstName" name="furiFirst" class="input-group-field" maxlength="10" placeholder="セイ（カナ）">
-                            <p id="furiFirstNameMsg" aria-live="assertive"></p>
-                        </div>
-                        <div>
-                            <input type="text" id="furiLastName" name="furiLast" style="margin-left: 9%" class="input-group-field" maxlength="10" placeholder="メイ（カナ）">
-                            <p id="furiLastNameMsg" style="margin-left: 9%" aria-live="assertive"></p>
-                        </div>
-                        <label for="gender" class="small-4 text-right">性別</label>
+                        <label for="gender" class="small-4 text-right"><spring:message code="member.gender" /></label>
                         <div class="small-5">
                             <select id="gender" name="gender" class="input-group-field">
-                                <option selected disabled hidden>お選びください。</option>
-                                <option value="男性">男性</option>
-                                <option value="女性">女性</option>
+                                <option selected disabled hidden><spring:message code="animedb.select" /></option>
+                                <option value="male"><spring:message code="member.male" /></option>
+                                <option value="female"><spring:message code="member.female" /></option>
                             </select>
                             <p id="genderMsg" aria-live="assertive"></p>
                         </div>
-                        <label for="birthYear" class="small-4 text-right">生年月日</label>
+                        <label for="birthYear" class="small-4 text-right"><spring:message code="member.birthday" /></label>
                         <div class="small-5">
                             <div class="grid-x">
                                 <div class="small-3">
                                     <select id="birthYear" name="birthYear" class="input-group-field">
-                                        <option selected disabled hidden>年</option>
+                                        <option selected disabled hidden><spring:message code="signup.year" /></option>
                                         <c:forEach var="i" begin="1900" end="${sysYear}" step="1">
                                             <option value="${sysYear - i + 1900}">${sysYear - i + 1900}</option>
                                         </c:forEach>
@@ -87,12 +87,12 @@
                                 </div>
                                 <div class="small-3">
                                     <select id="birthMonth" name="birthMonth" class="input-group-field">
-                                        <option selected disabled hidden>月</option>
+                                        <option selected disabled hidden><spring:message code="signup.month" /></option>
                                     </select>
                                 </div>
                                 <div class="small-3">
-                                    <select id="birthday" name="birthday" class="input-group-field">
-                                        <option selected disabled hidden>日</option>
+                                    <select id="birthDay" name="birthDay" class="input-group-field">
+                                        <option selected disabled hidden><spring:message code="signup.day" /></option>
                                     </select>
                                 </div>
                             </div>
@@ -100,40 +100,26 @@
                                 <p id="birthMsg" aria-live="assertive"></p>
                             </div>
                         </div>
-                        <label for="email" class="small-4 text-right">メールアドレス</label>
+                        <label for="email" class="small-4 text-right"><spring:message code="member.email" /></label>
                         <div class="small-5">
                             <input type="text" id="email" name="email" class="input-group-field" placeholder="animeDB@animedb.com">
                             <p id="emailMsg" aria-live="assertive"></p>
                         </div>
-                        <label for="addr1" class="small-4 text-right">郵便番号</label>
+                        <label for="phone" class="small-4 text-right"><spring:message code="member.phone" /></label>
                         <div class="small-5">
-                            <input type="text" id="addr1" name="addr1" class="input-group-field" maxlength="7" placeholder="７桁をハイフン（-）なしで入力" onkeypress="inNumber()" onkeyup="AjaxZip3.zip2addr(this, '', 'addr2', 'addr3')">
-                        </div>
-                        <label for="addr2" class="small-4 text-right">都道府県</label>
-                        <div class="small-5">
-                            <input type="text" id="addr2" name="addr2" class="input-group-field" readonly>
-                        </div>
-                        <label for="addr3" class="small-4 text-right">以降の住所</label>
-                        <div class="small-5">
-                            <input type="text" id="addr3" name="addr3" class="input-group-field">
-                            <p id="addrMsg" aria-live="assertive"></p>
-                        </div>
-                        <label for="phone" class="small-4 text-right">携帯番号</label>
-                        <div class="small-5">
-                            <input type="text" id="phone" name="phone" class="input-group-field" placeholder="ハイフン（-）なしで入力" maxlength="12" onkeypress="inNumber()">
-                            <p id="phoneMsg" aria-live="assertive"></p>
+                            <input type="text" id="phone" name="phone" class="input-group-field" maxlength="12" onkeypress="inNumber()">
+                            <p id="phoneMsg" aria-live="assertive"><spring:message code="member.phoneRule" /></p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="text-center">
-                <button type="button" class="button alert" id="backBtn" onclick="history.go(-2)"><i class="fi-x"></i> 戻る</button>
-                <button type="button" class="button primary" id="newJoinBtn"><i class="fi-check"></i> 会員登録</button>
+                <button type="button" class="button alert" id="backBtn" onclick="history.go(-2)"><i class="fi-x"></i> <spring:message code="animedb.back" /></button>
+                <button type="button" class="button primary" id="newJoinBtn"><i class="fi-check"></i> <spring:message code="signup.join" /></button>
             </div>
         </form>
     </div>
 </div>
-
 <script>
     var joinFrm = document.joinFrm;
 
@@ -146,11 +132,11 @@
         });
         $('#pwd1').off("focus").on("focus", function () {
             if ($(this).val() !== '') {
-                validetePwd();
+                validetePwd($('#pwd1').val(), $('#pwdMsg'));
             }
         }).off("click").on("click", function () {
             if ($(this).val() !== '') {
-                validetePwd();
+                validetePwd($('#pwd1').val(), $('#pwdMsg'));
             }
         }).off('keyup').on('keyup', function () {
             $(this).blur();
@@ -162,16 +148,16 @@
         }).keydown(function (event) {
             checkShiftDown(event);
         }).blur(function (){
-            isPwdNull();
+            checkUserPwd();
         });
 
         $('#pwd2').off("focus").on("focus", function () {
             if ($(this).val() !== '') {
-                checkPwdCorrect();
+                checkPwdMatched();
             }
         }).off("click").on("click", function () {
             if ($(this).val() !== '') {
-                checkPwdCorrect();
+                checkPwdMatched();
             }
         }).off('keyup').on('keyup', function () {
             $(this).blur();
@@ -183,19 +169,13 @@
         }).keydown(function (event) {
             checkShiftDown(event);
         }).blur(function () {
-            checkPwdCorrect();
+            checkPwdMatched();
         });
         $('#firstName').blur(function () {
             checkFirstName();
         });
         $('#lastName').blur(function () {
             checkLastName();
-        });
-        $('#furiFirstName').blur(function () {
-            checkFuriFirst();
-        });
-        $('#furiLastName').blur(function () {
-            checkFuriLast();
         });
         $('#gender').blur(function () {
             checkGender();
@@ -206,56 +186,39 @@
         $('#birthMonth').blur(function () {
             selectedBirthMonth();
         })
-        $('#birthday').blur(function () {
+        $('#birthDay').blur(function () {
             checkBirthday();
         })
         $('#email').blur(function () {
             checkEmail();
         });
-        $('#addr1').off("focus").on("focus", function () {
-            setAddrClear();
-        }).off('keyup').on('keyup', function () {
-            $(this).focus();
-        }).blur(function () {
-            checkAddr();
-        })
-        $('#addr3').blur(function () {
-            checkAddr();
-        })
         $('#phone').blur(function () {
             checkPhone();
         });
     })
 
     function checkId() {
-        var uid = $('#uid')
-        var msg = $('#idMsg');
-        var regId = /^[a-z0-9][a-z0-9_]{6,16}$/g;
+        var uid = $('#uid').val();
+        var obj = $('#idMsg');
 
-        if(uid.val() === "") {
-            showErrorMsg(msg, "入力されておりません。");
-            return false;
-        }
-
-        if (!regId.test(uid.val())) {
-            showErrorMsg(msg, "正しくない形式のIDです。");
-            return false;
-        }
+        if (formInput(uid, obj, "<spring:message code="alert.noInput" />")) return false;
+        if (formId(uid, obj, "<spring:message code="alert.noId" />。")) return false;
+        hideMsg(obj);
 
         $.ajax({
             type : "GET",
-            url : "${contextPath}check_id",
-            data : {"userId" : uid.val()},
+            url : "${animedbUrl}/signup/check_id",
+            data : {"userId" : uid},
             success : function (data) {
                 if (data.result === 'pass') {
-                    showSuccessMsg(msg, data.msg);
+                    showSuccessMsg(obj, data.msg);
                 } else {
-                    showErrorMsg(msg, data.msg);
+                    showErrorMsg(obj, data.msg);
                     return false;
                 }
             },
             error : function () {
-                showErrorMsg(msg, "サーバーエラーが発生しました。")
+                showErrorMsg(obj, "<spring:message code="alert.serverError" />")
                 return false;
             }
         })
@@ -263,182 +226,100 @@
     }
 
     function checkNickname(){
-        var nickname = $('#nickname');
-        var msg = $('#nicknameMsg');
+        var nickname = $('#nickname').val();
+        var obj = $('#nicknameMsg');
 
-        if (nickname.val() === '') {
-            showErrorMsg(msg, "入力されておりません。");
-            return false;
-        }
-        if (nickname.val().length <= 1 || nickname.val().length > 9) {
-            showErrorMsg(msg, "正しくない形式のニックネームです。");
-            return false;
-        }
+        if (formInput(nickname, obj, "<spring:message code="alert.noInput" />")) return false;
+        if (formNickname(nickname, obj, "<spring:message code="alert.noNickname" />")) return false;
 
-        hideMsg(msg);
+        hideMsg(obj);
+
         return true;
     }
 
-    function isPwdNull() {
-        var pwd = $('#pwd1');
-        var msg = $('#pwdMsg');
+    function checkUserPwd() {
+        var pwd = $('#pwd1').val();
+        var obj = $('#pwdMsg');
 
-        if (pwd.val() === '') {
-            showErrorMsg(msg, "パスワードが入力されておりません。");
-            return false;
-        }
-
-        if (checkPwdCorrect()) {
-            checkPwdCorrect();
-        } else if (validetePwd()) {
-            hideMsg(msg);
+        if (formInput(pwd, obj, "<spring:message code="alert.notInsertPwd" />")) return false;
+        if (checkPwdMatched()) {
+            checkPwdMatched();
+        } else if (validetePwd(pwd, obj)) {
+            hideMsg(obj);
         }
         return true;
     }
 
-    function checkPwdCorrect() {
-        var curPwd = $('#pwd1');
-        var checkPwd = $('#pwd2');
-        var msg = $('#pwdMsg');
+    function checkPwdMatched() {
+        var curPwd = $('#pwd1').val();
+        var checkPwd = $('#pwd2').val();
+        var obj = $('#pwdMsg');
 
-        if (curPwd.val() === '') {
-            showErrorMsg(msg, "パスワードが入力されておりません。");
-            return false;
-        }
+        if (formInput(curPwd, obj, "<spring:message code="alert.notInsertPwd" />")) return false;
+        if (validetePwd(curPwd, obj) && formInput(checkPwd, obj, "<spring:message code="alert.emptyPwd" />")) return false;
+        if (validetePwd(curPwd, obj) && formPwdMatched(curPwd, checkPwd, obj)) return false;
 
-        if (validetePwd() && checkPwd.val() === '') {
-            showErrorMsg(msg, "パスワード確認欄が空欄です。");
-            return false;
-        }
-
-        if (validetePwd() && curPwd.val() === checkPwd.val()) {
-            showSuccessMsg(msg, "ご入力のパスワードが一致します。");
-        } else if (validetePwd() && curPwd.val() !== checkPwd.val()){
-            showErrorMsg(msg, "ご入力のパスワードを再度ご確認ください。");
-            return false;
-        }
         return true;
     }
 
     function checkFirstName() {
-        var firstName = $('#firstName');
-        var msg = $('#firstNameMsg');
-        var regFirstName = /[\u3040-\u309f]$|[\u30a0-\u30ff]$|[\u4e00-\u9fff]$/g;
+        var firstName = $('#firstName').val();
+        var obj = $('#firstNameMsg');
 
-        if (firstName.val() === '') {
-            showErrorMsg(msg, "入力されておりません。");
-            return false;
-        }
+        if (formInput(firstName, obj, "<spring:message code="alert.noInput" />")) return false;
 
-        if (!regFirstName.test(firstName.val())) {
-            showErrorMsg(msg, "正しくない形式です。")
-            return false;
-        }
-
-        hideMsg(msg);
+        hideMsg(obj);
 
         return true;
     }
 
     function checkLastName() {
-        var lastName = $('#lastName');
-        var msg = $('#lastNameMsg');
-        var regLastName = /[\u3040-\u309f]$|[\u30a0-\u30ff]$|[\u4e00-\u9fff]$/g;
+        var lastName = $('#lastName').val();
+        var obj = $('#lastNameMsg');
 
-        if (lastName.val() === '') {
-            showErrorMsg(msg, "入力されておりません。");
-            return false;
-        }
+        if (formInput(lastName, obj, "<spring:message code="alert.noInput" />")) return false;
 
-        if (!regLastName.test(lastName.val())) {
-            showErrorMsg(msg, "正しくない形式です。")
-            return false;
-        }
-
-        hideMsg(msg);
-
-        return true;
-    }
-
-    function checkFuriFirst() {
-        var furiFirst = $('#furiFirstName');
-        var msg = $('#furiFirstNameMsg');
-        var regFuriFirst = /[\u30a0-\u30ff]$/g;
-
-        if (furiFirst.val() === '') {
-            showErrorMsg(msg, "入力されておりません。");
-            return false;
-        }
-
-        if (!regFuriFirst.test(furiFirst.val())) {
-            showErrorMsg(msg, "正しくない形式です。")
-            return false;
-        }
-
-        hideMsg(msg);
-
-        return true;
-    }
-
-    function checkFuriLast() {
-        var furiLast = $('#furiLastName');
-        var msg = $('#furiLastNameMsg');
-        var regFuriLast = /[\u30a0-\u30ff]$/g;
-
-        if (furiLast.val() === '') {
-            showErrorMsg(msg, "入力されておりません。");
-            return false;
-        }
-
-        if (!regFuriLast.test(furiLast.val())) {
-            showErrorMsg(msg, "正しくない形式です。")
-            return false;
-        }
-
-        hideMsg(msg);
+        hideMsg(obj);
 
         return true;
     }
 
     function checkGender() {
-        var gender = $('#gender');
-        var msg = $('#genderMsg');
+        var gender = $('#gender').val();
+        var obj = $('#genderMsg');
 
-        if (gender.val() == null) {
-            showErrorMsg(msg, "性別をお選びください。")
-            return false;
-        }
+        if (formSelect(gender, obj, "<spring:message code="alert.unselectedGender" />")) return false;
 
-        hideMsg(msg);
+        hideMsg(obj);
         return true;
     }
 
     function selectedBirthYear() {
         var birthYear = $('#birthYear');
         var birthMonth = $('#birthMonth');
-        var birthday = $('#birthday');
+        var birthDay = $('#birthDay');
 
         if (birthYear.val() !== null) {
-            birthMonth.html('<option selected disabled hidden>月</option>' +
+            birthMonth.html('<option selected disabled hidden><spring:message code="signup.month" /></option>' +
                             '<c:forEach var="i" begin="1" end="12" step="1">' +
                             '<fmt:formatNumber value="${i}" var="month" pattern="00" />' +
                             '<option value="${month}">${month}</option>' +
                             '</c:forEach>')
         }
 
-        if (birthday.val() !== null) {
-            birthday.html('<option selected disabled hidden>日</option>');
+        if (birthDay.val() !== null) {
+            birthDay.html('<option selected disabled hidden><spring:message code="signup.day" /></option>');
         }
     }
 
     function selectedBirthMonth() {
         var birthYear = $('#birthYear');
         var birthMonth = $('#birthMonth');
-        var birthday = $('#birthday');
+        var birthDay = $('#birthDay');
 
         if (birthMonth.val() !== null) {
             if (birthMonth.val() === '02' && ((birthYear.val() % 4 === 0 && birthYear.val() % 100 !== 0) || birthYear.val() % 400 === 0)) {
-                birthday.html('<option selected disabled hidden>日</option>' +
+                birthDay.html('<option selected disabled hidden><spring:message code="signup.day" /></option>' +
                     '<c:forEach var="i" begin="1" end="29" step="1">' +
                     '<fmt:formatNumber value="${i}" var="day" pattern="00" />' +
                     '<option value="${day}">${day}</option>' +
@@ -446,7 +327,7 @@
                     '</option>')
             }
             else if (birthMonth.val() === '02' && !((birthYear.val() % 4 === 0 && birthYear.val() % 100 !== 0) || birthYear.val() % 400 === 0)) {
-                birthday.html('<option selected disabled hidden>日</option>' +
+                birthDay.html('<option selected disabled hidden><spring:message code="signup.day" /></option>' +
                     '<c:forEach var="i" begin="1" end="28" step="1">' +
                     '<fmt:formatNumber value="${i}" var="day" pattern="00" />' +
                     '<option value="${day}">${day}</option>' +
@@ -454,7 +335,7 @@
                     '</option>')
             }
             else if (birthMonth.val() < 8 && birthMonth.val() % 2 === 1 || birthMonth.val() >= 8 && birthMonth.val() % 2 === 0) {
-                birthday.html('<option selected disabled hidden>日</option>' +
+                birthDay.html('<option selected disabled hidden><spring:message code="signup.day" /></option>' +
                     '<c:forEach var="i" begin="1" end="31" step="1">' +
                     '<fmt:formatNumber value="${i}" var="day" pattern="00" />' +
                     '<option value="${day}">${day}</option>' +
@@ -462,7 +343,7 @@
                     '</option>')
             }
             else {
-                birthday.html('<option selected disabled hidden>日</option>' +
+                birthDay.html('<option selected disabled hidden><spring:message code="signup.day" /></option>' +
                     '<c:forEach var="i" begin="1" end="30" step="1">' +
                     '<fmt:formatNumber value="${i}" var="day" pattern="00" />' +
                     '<option value="${day}">${day}</option>' +
@@ -470,236 +351,60 @@
                     '</option>')
             }
         }
-
     }
 
     function checkBirthday() {
-        var birthYear = $('#birthYear');
-        var birthMonth = $('#birthMonth');
-        var birthday = $('#birthday');
-        var msg = $('#birthMsg');
+        var birthYear = $('#birthYear').val();
+        var birthMonth = $('#birthMonth').val();
+        var birthDay = $('#birthDay').val();
+        var obj = $('#birthMsg');
 
-        if (birthYear.val() === null || birthMonth.val() === null || birthday.val() === null) {
-            showErrorMsg(msg, "生年月日が入力されておりません。")
-            return false;
-        }
+        if (formBirthday(birthYear, birthMonth, birthDay, obj, "<spring:message code="alert.unselectedBirthday" />")) return false;
 
-        hideMsg(msg);
+        hideMsg(obj);
+
         return true;
     }
 
     function checkEmail() {
-        var email = $('#email');
-        var msg = $('#emailMsg');
-        var regEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        var email = $('#email').val();
+        var obj = $('#emailMsg');
 
-        if (email.val() === '') {
-            showErrorMsg(msg, "入力されておりません。");
-            return false;
-        }
-
-        if (!regEmail.test(email.val())) {
-            showErrorMsg(msg, "正しくないメールアドレス形式です。");
-            return false;
-        }
+        if (formInput(email, obj, "<spring:message code="alert.noInput" />")) return false;
+        if (formEmail(email, obj, "<spring:message code="alert.noEmail" />")) return false;
 
         $.ajax({
             type : "GET",
-            data : {"email" : email.val()},
-            url : "${contextPath}check_email",
+            data : {"email" : email},
+            url : "${animedbUrl}/signup/check_email",
             success : function (data) {
                 if (data.result !== 'pass') {
-                    showErrorMsg(msg, data.msg);
+                    showErrorMsg(obj, data.msg);
                     return false;
                 }
             },
             error : function () {
-                showErrorMsg(msg, "サーバーエラーが発生しました。")
+                showErrorMsg(obj, "<spring:message code="alert.serverError" />")
                 return false;
             }
         })
 
-        hideMsg(msg);
+        hideMsg(obj);
+
         return true;
-    }
-
-    function checkAddr() {
-        var addr1 = $('#addr1');
-        var addr2 = $('#addr2');
-        var addr3 = $('#addr3');
-        var msg = $('#addrMsg');
-
-        if (addr1.val() === '' && addr2.val() === '' && addr3.val() === '') {
-            showErrorMsg(msg, "入力されておりません。");
-            return false;
-        }
-
-        if (addr2.val() === '' || addr1.val().length < 7) {
-            showErrorMsg(msg, "正しくない郵便番号です。");
-            return false;
-        }
-
-        if (addr3.val() === '') {
-            showErrorMsg(msg, "入力されておりません。");
-            return false;
-        }
-
-        hideMsg(msg);
-        return true;
-    }
-
-    function setAddrClear() {
-        var addr1 = $('#addr1');
-        var addr2 = $('#addr2');
-        var addr3 = $('#addr3');
-
-        if (addr1.val() === '' && (addr2.val() !== '' || addr3.val() !== '')) {
-            addr2.val('');
-            addr3.val('');
-        }
     }
 
     function checkPhone() {
-        var phone = $('#phone');
-        var msg = $('#phoneMsg');
-        var regPhone = /^[0-9]{9,12}$/g
+        var phone = $('#phone').val();
+        var obj = $('#phoneMsg');
 
-        if (phone.val() === '') {
-            showErrorMsg(msg, "入力されておりません。");
-            return false;
-        }
+        if (formInput(phone, obj, "<spring:message code="alert.noInput" />")) return false;
+        if (formPhoneNumber(phone, obj, "<spring:message code="alert.noPhone" />")) return false;
 
-        if (!regPhone.test(phone.val())) {
-            showErrorMsg(msg, "正しくない携帯番号形式です。");
-            return false;
-        }
+        hideMsg(obj);
 
-        hideMsg(msg);
         return true;
     }
-
-    function validetePwd() {
-        var o = {
-            length : [8,16],
-            lower : 1,
-            upper : 1,
-            alpha : 1,
-            numeric : 1,
-            special : 1,
-            custom : [],
-            badWords : [],
-            badSequenceLength : 5,
-            noQwertySequences : true,
-            spaceChk : true,
-            noSequential : false
-        };
-        var pwd = $('#pwd1');
-        var msg = $('#pwdMsg');
-
-        if (o.spaceChk && /\s/g.test(pwd.val())) {
-            showErrorMsg(msg, "8～16長さの英字の大小文字、数字及び記号をご入力ください。");
-            return false;
-        }
-
-        if (pwd.val().length < o.length[0]) {
-            showErrorMsg(msg, "パスワードを " + o.length[0] + "長さ以上ご入力ください。");
-            return false;
-        }
-
-        if (pwd.val().length > o.length[1]) {
-            showErrorMsg(msg, "パスワードは " + o.length[1] + "長さ以内に入力すべきです。");
-            return false;
-        }
-
-        if (o.badSequenceLength && pwd.val().length >= o.length[0]) {
-            var lower = "abcdefghijklmnopqrstuvwxyz";
-            var upper = lower.toUpperCase();
-            var numbers = "0123456789";
-            var qwerty = "qwertyuiopasdfghjklzxcvbnm";
-            var start = o.badSequenceLength - 1;
-            var seq = "_" + pwd.val().slice(0, start);
-
-            for (var i = start; i < pwd.val().length; i++) {
-                seq = seq.slice(1) + pwd.val().charAt(i);
-                if (
-                    lower.indexOf(seq) > -1 ||
-                    upper.indexOf(seq) > -1 ||
-                    numbers.indexOf(seq) > -1 ||
-                    (o.noQwertySequences && qwerty.indexOf(seq) > 1)
-                ) {
-                    pwdSafetyLow(msg);
-                    return false;
-                }
-            }
-        }
-
-        var re = {
-            lower : /[a-z]/g,
-            upper : /[A-Z]/g,
-            alpha : /[A-Z]/gi,
-            numeric : /[0-9]/g,
-            special : /[\W_]/g
-        };
-
-        var lower = (pwd.val().match(re['lower']) || []).length > 0 ? 1 : 0;
-        var upper = (pwd.val().match(re['upper']) || []).length > 0 ? 1 : 0;
-        var numeric = (pwd.val().match(re['numeric']) || []).length > 0 ? 1 : 0;
-        var special = (pwd.val().match(re['special']) || []).length > 0 ? 1 : 0;
-
-        if ((pwd.val().match(re['numeric']) || []).length === pwd.val().length) {
-            showErrorMsg(msg, "8～16長さの英字の大小文字、数字及び記号をご入力ください。");
-            return false;
-        }
-
-        if (lower + upper + numeric + special <= 2) {
-            pwdSafetyLow(msg);
-            return false;
-        }
-
-        if (lower + upper + numeric + special <= 3) {
-            pwdSafetyMedium(msg);
-            return true;
-        }else if (lower + upper + numeric + special <= 4) {
-            pwdSafetyHigh(msg);
-            return true;
-        }
-
-    }
-
-    function pwdSafetyLow(obj) {
-        var html = "<span style='color: black'>パスワード強度 </span><span style='color:#E5E5E5'>|</span> <span style='color:#E3691E; font-weight:bold;'>弱い</span> "
-            + "<span style='color:#E3691E; font-weight:bold; font-size:20px; position: relative; top: 1.5px;'>―</span>"
-            + "<span style='color:#E5E5E5; font-weight:bold; font-size:20px; position: relative; top: 1.5px;''>―</span>"
-            + "<span style='color:#E5E5E5; font-weight:bold; font-size:20px; position: relative; top: 1.5px;''>―</span>"
-            + "<br>"
-            + "<span style='color: red'>より強固なパスワードをご入力ください。</span>"
-        obj.html(html);
-    }
-
-    function pwdSafetyMedium(obj) {
-        var html = "<span style='color: black'>パスワード強度 </span><span style='color:#E5E5E5'>|</span> <span style='color:#E3691E; font-weight:bold;'>強固</span>"
-            + "<span style='color:#E3691E; font-weight:bold; font-size:20px; position: relative; top: 1.5px;'>―</span>"
-            + "<span style='color:#E3691E; font-weight:bold; font-size:20px; position: relative; top: 1.5px;''>―</span>"
-            + "<span style='color:#E5E5E5; font-weight:bold; font-size:20px; position: relative; top: 1.5px;''>―</span>"
-            + "<br>"
-            + "<span style='color: green'>強固なパスワードです。</span>"
-        obj.html(html);
-    }
-
-    function pwdSafetyHigh(obj) {
-        var html = "<span style='color: black'>パスワード強度 </span><span style='color:#E5E5E5'>|</span> <span style='color:#E3691E; font-weight:bold;'>完璧</span>"
-            + "<span style='color:#E3691E; font-weight:bold; font-size:20px; position: relative; top: 1.5px;'>―</span>"
-            + "<span style='color:#E3691E; font-weight:bold; font-size:20px; position: relative; top: 1.5px;''>―</span>"
-            + "<span style='color:#E3691E; font-weight:bold; font-size:20px; position: relative; top: 1.5px;''>―</span>"
-            + "<br>"
-            + "<span style='color: green'>予測できないパスワードでもっと強固です。</span>"
-        obj.html(html);
-    }
-
-    $(function () {
-        $.fn.autoKana('#firstName', '#furiFirstName', {katakana: true})
-        $.fn.autoKana('#lastName', '#furiLastName', {katakana: true})
-    })
 
     function inNumber(){
         if (event.keyCode < 48 || event.keyCode > 57) {
@@ -733,62 +438,55 @@
 
         var Msg = $("#pwdMsg2");
         if ((myKeyCode >= 65 && myKeyCode <= 90) && !myShiftKey) {
-            showErrorMsg(Msg,"Caps Lockがオンになっております。");
+            showErrorMsg(Msg,"<spring:message code="alert.capsLockOn" />");
         } else if ((myKeyCode >= 97 && myKeyCode <= 122) && myShiftKey) {
-            showErrorMsg(Msg,"CCaps Lockがオンになっております。");
+            showErrorMsg(Msg,"<spring:message code="alert.capsLockOn" />");
         } else {
             hideMsg(Msg);
         }
     }
 
-    function showErrorMsg(obj, msg) {
-        obj.css('color', 'red');
-        obj.html(msg);
-        obj.show();
-    }
-
-    function showSuccessMsg(obj, msg) {
-        obj.css('color', 'green');
-        obj.html(msg);
-        obj.show();
-    }
-
-    function hideMsg(obj) {
-        obj.html('');
-    }
-
     function checkAll() {
-        if (
-            checkId() &
+        return !!(checkId() &
             checkNickname() &
-            validetePwd() &
-            isPwdNull() &
-            checkPwdCorrect() &
+            validetePwd($('#pwd1').val(), $('#pwdMsg')) &
+            checkUserPwd() &
+            checkPwdMatched() &
             checkFirstName() &
             checkLastName() &
-            checkFuriFirst() &
-            checkFuriLast() &
             checkGender() &
             checkBirthday() &
             checkEmail() &
-            checkAddr() &
-            checkPhone()
-        ) {
-            return true;
-        } else {
-            return false;
-        }
+            checkPhone());
     }
 
     $('#newJoinBtn').click(function () {
 
         if (checkAll()) {
-            $('#newJoinBtn').prop("disabled", true).html('<img src="${contextPath}/assets/images/img/ajax_loader.gif">');
+            $('#newJoinBtn').prop("disabled", true).html('<img src="${animedbImg}ajax_loader.gif">');
             $('#backBtn').prop("disabled", true);
             joinFrm.submit();
         }
     })
 </script>
+<script>
+    var strings = new Array();
 
+    strings['pwd.matched'] = "<spring:message code="alert.pwdMatched" />"
+    strings['pwd.unmatched'] = "<spring:message code="alert.pwdUnmatched"/>"
+    strings['pwd.notAllowed'] = "<spring:message code="alert.noPwd" />"
+    strings['pwd.short'] = "<spring:message code="alert.shortPwd" />"
+    strings['pwd.long'] = "<spring:message code="alert.longPwd" />"
+    strings['pwd.safety'] = "<spring:message code="pwd.safety" />"
+    strings['pwd.low'] = "<spring:message code="pwd.safetyLow" />"
+    strings['pwd.medium'] = "<spring:message code="pwd.safetyMedium" />"
+    strings['pwd.high'] = "<spring:message code="pwd.safetyHigh" />"
+    strings['pwd.weak'] = "<spring:message code="alert.weakPwd" />"
+    strings['pwd.strong'] = "<spring:message code="alert.strongPwd" />"
+    strings['pwd.perfect'] = "<spring:message code="alert.perfectPwd" />"
+
+</script>
+<script src="${js}common.js" defer crossorigin="anonymous"></script>
+<script src="${js}validatePwd.js" defer crossorigin="anonymous"></script>
 <%@include file="../inc/footer.jsp"%>
 </body>

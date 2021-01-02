@@ -4,24 +4,29 @@
 </head>
 <body>
 <%@include file="../inc/gnb.jsp"%>
+<c:if test="${not empty member}">
+    <script>
+        location.href = '${animedbUrl}';
+    </script>
+</c:if>
 <div class="main-section">
     <div class="grid-container">
         <nav aria-label="breadCrumb" role="navigation">
             <ul class="breadcrumbs">
                 <li class="breadcrumb-item active">
-                    <span class="active">利用規約に同意</span>
+                    <span class="active"><spring:message code="signup.accept" /></span>
                 </li>
                 <li class="breadcrumb-item">
-                    <span>新規情報入力</span>
+                    <span><spring:message code="signup.newInfo" /></span>
                 </li>
                 <li class="breadcrumb-item">
-                    <span>新規登録完了</span>
+                    <span><spring:message code="signup.completed" /></span>
                 </li>
             </ul>
         </nav>
         <hr style="margin-top: 3%">
         <div class="joinAgree">
-            <b>サービス利用規約について</b>
+            <b><spring:message code="signup.service" /></b>
             <textarea wrap="hard" rows="10" class="control-box" readonly>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ex eros, ultricies sed sodales nec, sodales sit amet diam. Aliquam aliquet quis massa ut imperdiet. Morbi feugiat non risus nec auctor. Ut ut est rhoncus, mattis urna ac, condimentum lorem. Nam aliquam arcu quis porta sodales. In id iaculis tellus. Fusce efficitur aliquet urna, vitae varius purus tincidunt sit amet. Aliquam pulvinar arcu et eros posuere luctus. Etiam in ex risus. Nulla ac massa lorem. Nunc elit elit, malesuada eget cursus non, dignissim ac quam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus iaculis aliquet risus, eget auctor ex pharetra a. Fusce a justo eu lorem sollicitudin molestie. Donec aliquet ut ligula a dapibus. Morbi massa sapien, porttitor sed sem ac, porttitor tincidunt felis.
 
@@ -35,10 +40,10 @@ Sed a enim viverra, malesuada sapien vitae, faucibus magna. Nunc scelerisque ege
             </textarea>
             <div class="text-right">
                 <input type="checkbox" id="agree1" class="check-box">
-                <label for="agree1">利用規約に同意します。</label>
+                <label for="agree1"><spring:message code="signup.agreeService" /></label>
             </div>
             <hr>
-            <b>個人情報取扱いについて</b>
+            <b><spring:message code="signup.personal" /></b>
             <textarea wrap="hard" rows="10" class="control-box" readonly>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ex eros, ultricies sed sodales nec, sodales sit amet diam. Aliquam aliquet quis massa ut imperdiet. Morbi feugiat non risus nec auctor. Ut ut est rhoncus, mattis urna ac, condimentum lorem. Nam aliquam arcu quis porta sodales. In id iaculis tellus. Fusce efficitur aliquet urna, vitae varius purus tincidunt sit amet. Aliquam pulvinar arcu et eros posuere luctus. Etiam in ex risus. Nulla ac massa lorem. Nunc elit elit, malesuada eget cursus non, dignissim ac quam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus iaculis aliquet risus, eget auctor ex pharetra a. Fusce a justo eu lorem sollicitudin molestie. Donec aliquet ut ligula a dapibus. Morbi massa sapien, porttitor sed sem ac, porttitor tincidunt felis.
 
@@ -52,12 +57,12 @@ Sed a enim viverra, malesuada sapien vitae, faucibus magna. Nunc scelerisque ege
             </textarea>
             <div class="text-right">
                 <input type="checkbox" id="agree2" class="check-box">
-                <label for="agree2">個人情報取扱いについて同意します。</label>
+                <label for="agree2"><spring:message code="signup.agreePersonal" /></label>
             </div>
             <hr>
             <div class="text-center">
-                <button type="button" class="button alert" onclick="history.go(-1)"><i class="fi-x"></i> 戻る</button>
-                <button type="button" class="button primary" id="agreeBtn"><i class="fi-check"></i> 次に進む</button>
+                <button type="button" class="button alert" onclick="history.go(-1)"><i class="fi-x"></i> <spring:message code="animedb.back" /></button>
+                <button type="button" class="button primary" id="agreeBtn"><i class="fi-check"></i> <spring:message code="signup.next" /></button>
             </div>
         </div>
     </div>
@@ -65,10 +70,10 @@ Sed a enim viverra, malesuada sapien vitae, faucibus magna. Nunc scelerisque ege
 <script>
     $('#agreeBtn').click(function (){
         if ($('#agree1').is(":checked") === false || $('#agree2').is(":checked") === false) {
-            alert('すべての利用規約に同意するべきです。');
+            alert('<spring:message code="alert.allAgree" />');
             return false;
         }
-        location.href = "${contextPath}confirm";
+        location.href = "${animedbUrl}/signup/confirm";
     })
 </script>
 <%@include file="../inc/footer.jsp"%>

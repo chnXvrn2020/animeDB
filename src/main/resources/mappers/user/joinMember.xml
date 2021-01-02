@@ -16,10 +16,10 @@
     </select>
 
     <!--SQL that inserting one of the new member-->
-    <insert id="insertNewMember" parameterType="JoinVO">
+    <insert id="insertNewMember" parameterType="MemberVO">
         INSERT INTO anime_member
-        (user_id, passwd, nickname, first_name, last_name, furi_first, furi_last, gender, birthday, addr1, addr2, addr3, phone, email, user_key)
-        VALUES (#{userId}, #{passwd}, #{nickname}, #{firstName}, #{lastName}, #{furiFirst}, #{furiLast}, #{gender}, #{birthday}, #{addr1}, #{addr2}, #{addr3}, #{phone}, #{email}, #{userKey})
+        (user_id, passwd, nickname, first_name, last_name, gender, birthday, phone, email, user_key)
+        VALUES (#{userId}, #{passwd}, #{nickname}, #{firstName}, #{lastName}, #{gender}, #{birthday}, #{phone}, #{email}, #{userKey})
     </insert>
 
     <update id="updateUserKey" parameterType="hashmap">

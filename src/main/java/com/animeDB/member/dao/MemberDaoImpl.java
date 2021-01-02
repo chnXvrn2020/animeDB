@@ -1,11 +1,11 @@
 package com.animeDB.member.dao;
 
-import com.animeDB.member.vo.MemberVO;
+import com.animeDB.common.vo.MemberAttachmentVO;
+import com.animeDB.common.vo.MemberVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.Date;
 import java.util.HashMap;
 
 @Repository
@@ -17,32 +17,57 @@ public class MemberDaoImpl implements MemberDao {
     private static String MEMBER = "com.animeDB.member.";
 
     @Override
-    public MemberVO login(String userId) {
-        return sqlSession.selectOne(MEMBER + "login", userId);
+    public MemberVO selectMemberInfo(String userId) {
+        return sqlSession.selectOne(MEMBER + "selectMemberInfo", userId);
     }
 
     @Override
-    public MemberVO checkUserWithSessionKey(String value) {
-        return sqlSession.selectOne(MEMBER + "checkUserWithSessionKey", value);
+    public MemberAttachmentVO selectMemberAttachment(int userIdx) {
+        return sqlSession.selectOne(MEMBER + "selectMemberAttachment", userIdx);
     }
 
     @Override
-    public void renewalLimit(HashMap<String, Object> map) {
-        sqlSession.update(MEMBER + "renewalLimit", map);
+    public MemberVO checkUserWithSessionKey(HashMap<String, Object> map) {
+        return sqlSession.selectOne(MEMBER + "checkUserWithSessionKey", map);
+    }
+
+    @Override
+    public void updateSessionLimit(HashMap<String, Object> map) {
+        sqlSession.update(MEMBER + "updateSessionLimit", map);
     }
 
     @Override
     public void keepAutoLogin(HashMap<String, Object> map) {
-        sqlSession.update(MEMBER + "keepAutoLogin", map);
+        sqlSession.insert(MEMBER + "keepAutoLogin", map);
     }
 
     @Override
-    public String selectMember(String userId) {
-        return sqlSession.selectOne(MEMBER + "selectMember", userId);
+    public void deleteSession(HashMap<String, Object> map) {
+        sqlSession.delete(MEMBER + "deleteSession", map);
+    }
+
+    @Override
+    public String selectMemberPwd(String userId) {
+        return sqlSession.selectOne(MEMBER + "selectMemberPwd", userId);
     }
 
     @Override
     public void deleteMember(String userId) {
         sqlSession.update(MEMBER + "deleteMember", userId);
+    }
+
+    @Override
+    public void updateMember(MemberVO mvo) {
+        sqlSession.update(MEMBER + "updateMember", mvo);
+    }
+
+    @Override
+    public void insertMemberAttachment(MemberAttachmentVO mavo) {
+        sqlSession.insert(MEMBER + "insertMemberAttachment", mavo);
+    }
+
+    @Override
+    public void updateMemberAttachment(int userIdx) {
+        sqlSession.update(MEMBER + "updateMemberAttachment", userIdx);
     }
 }

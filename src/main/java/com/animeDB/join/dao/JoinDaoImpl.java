@@ -1,6 +1,6 @@
 package com.animeDB.join.dao;
 
-import com.animeDB.join.vo.JoinVO;
+import com.animeDB.common.vo.MemberVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -26,8 +26,8 @@ public class JoinDaoImpl implements JoinDao {
     }
 
     @Override
-    public void insertNewMember(JoinVO jvo) {
-        sqlSession.insert(JOIN_MEMBER + "insertNewMember", jvo);
+    public void insertNewMember(MemberVO mvo) {
+        sqlSession.insert(JOIN_MEMBER + "insertNewMember", mvo);
     }
 
     @Override

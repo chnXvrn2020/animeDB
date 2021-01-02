@@ -3,9 +3,11 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common/slideMenu.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/common" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/join/confirm.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/join" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main/main.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/leaveId.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/modifyMember.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member" />
       </map>
     </option>
   </component>
