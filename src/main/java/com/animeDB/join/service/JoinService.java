@@ -9,6 +9,6 @@ import java.util.HashMap;
 public interface JoinService {
     int checkId(String userId);
     int checkEmail(String email);
-    void insertNewMember(MemberVO mvo, String[] birthday);
+    void insertNewMember(MemberVO mvo, String birthday);
     int AlterUserKey(HashMap<String, Object> map);
 }

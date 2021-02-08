@@ -5,6 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <% pageContext.setAttribute("newChar", "\n"); %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <c:set var="animedbUrl" value="https://www.animedb.site" />
@@ -13,6 +14,7 @@
 <c:set value="${SessionLocaleResolver.resolveLocale(pageContext.request)}" var="locale" />
 <c:set value="https://www.animedb.site/member_img/" var="imgPath" />
 <c:set value="https://www.animedb.site/animedb_img/" var="animedbImg" />
+<c:set value="https://www.animedb.site/community_img/" var="communityImg" />
 <c:set value="https://www.animedb.site/css/" var="css" />
 <c:set value="https://www.animedb.site/js/" var="js" />
 <c:set value="https://www.animedb.site/fi/" var="fi" />
@@ -31,8 +33,10 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <link rel="stylesheet" href="${fi}foundation-icons.css">
 <link rel="stylesheet" href="${css}foundation-style.css">
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="${js}jquery-3.5.1.min.js"></script>
 <script src="${js}jquery-ui.min.js"></script>
-<script src="${js}layout.js" defer></script>
-<script src="${js}foundation.min.js" defer></script>
+<script src="${js}foundation.min.js"></script>
+<script src="${js}foundation-datepicker.min.js"></script>
+<script src="${js}foundation-datepicker.${fn:substringBefore(locale, '_')}.js"></script>
+<script src="${js}commons.js"></script>

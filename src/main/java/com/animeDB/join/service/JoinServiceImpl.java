@@ -27,10 +27,10 @@ public class JoinServiceImpl implements JoinService {
     }
 
     @Override
-    public void insertNewMember(MemberVO mvo, String[] birthday) {
+    public void insertNewMember(MemberVO mvo, String birthday) {
         mvo.setPasswd(pwdEncoder.encode(mvo.getPasswd()));
+        mvo.setBirthday(Utils.castBirthday(birthday));
         mvo.setPhone(Utils.phoneNumberWithHyphen(mvo.getPhone()));
-        mvo.setBirthday(Utils.mergeBirthday(birthday[0], birthday[1], birthday[2]));
         mvo.setUserKey(Utils.randomUserKey(false,20));
         joinDao.insertNewMember(mvo);
     }

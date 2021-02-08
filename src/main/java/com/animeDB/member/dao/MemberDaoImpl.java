@@ -14,7 +14,7 @@ public class MemberDaoImpl implements MemberDao {
     @Autowired
     SqlSessionTemplate sqlSession;
 
-    private static String MEMBER = "com.animeDB.member.";
+    private final String MEMBER = "com.animeDB.member.";
 
     @Override
     public MemberVO selectMemberInfo(String userId) {
@@ -52,8 +52,8 @@ public class MemberDaoImpl implements MemberDao {
     }
 
     @Override
-    public void deleteMember(String userId) {
-        sqlSession.update(MEMBER + "deleteMember", userId);
+    public void deleteMember(int idx) {
+        sqlSession.update(MEMBER + "deleteMember", idx);
     }
 
     @Override
@@ -69,5 +69,10 @@ public class MemberDaoImpl implements MemberDao {
     @Override
     public void updateMemberAttachment(int userIdx) {
         sqlSession.update(MEMBER + "updateMemberAttachment", userIdx);
+    }
+
+    @Override
+    public void deleteAllSession(int idx) {
+        sqlSession.delete(MEMBER + "deleteAllSession", idx);
     }
 }

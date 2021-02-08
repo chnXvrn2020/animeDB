@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="deleteBtn">
-            <button type="button" id="backBtn" class="button primary" onclick="history.go(-1)"><spring:message code="animedb.back" /></button>
+            <button type="button" id="backBtn" class="button primary" onclick="location.href = '${animedbUrl}/member/profile'"><spring:message code="animedb.back" /></button>
         </div>
     </div>
 </div>

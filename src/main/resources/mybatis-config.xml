@@ -8,5 +8,9 @@
     <typeAliases>
         <typeAlias type="com.animeDB.common.vo.MemberVO" alias="MemberVO" />
         <typeAlias type="com.animeDB.common.vo.MemberAttachmentVO" alias="MemberAttachmentVO" />
+        <typeAlias type="com.animeDB.common.vo.CommunityKindVO" alias="CommunityKindVO" />
+        <typeAlias type="com.animeDB.common.vo.CommunityListVO" alias="CommunityListVO" />
+        <typeAlias type="com.animeDB.common.vo.CommunityPostVO" alias="CommunityPostVO" />
+        <typeAlias type="com.animeDB.common.vo.CommunityCommentVO" alias="CommunityCommentVO" />
     </typeAliases>
 </configuration>

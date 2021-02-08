@@ -4,6 +4,11 @@
 </head>
 <body>
 <%@include file="../inc/gnb.jsp"%>
+<c:if test="${not empty member}">
+    <script>
+        location.href = '${animedbUrl}';
+    </script>
+</c:if>
 <div class="main-section">
     <div class="grid-container">
         <form class="indexSignIn" method="post" onsubmit="return validate(this);" action="${animedbUrl}/login">
@@ -25,7 +30,7 @@
             </div>
         </form>
     </div>
-    <%@include file="../common/slideMenu.jsp"%>
+    <%@include file="../inc/slideMenu.jsp"%>
 </div>
 <script>
     function validate(frm) {
@@ -39,23 +44,6 @@
         }
         $('#loginBtn').html('<img src="${animedbImg}signin.gif">')
         return true;
-    }
-
-    function logout() {
-        $.ajax({
-            url : "${animedbUrl}/logout",
-            success : function (data) {
-                if (data.result === 'Y') {
-                    alert(data.msg);
-                    location.reload();
-                } else {
-                    alert(data.msg);
-                }
-            },
-            error : function () {
-                alert("<spring:message code="alert.serverError" />。");
-            }
-        })
     }
 </script>
 <%@include file="../inc/footer.jsp"%>

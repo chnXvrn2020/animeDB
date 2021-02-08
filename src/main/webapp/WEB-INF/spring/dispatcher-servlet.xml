@@ -11,11 +11,6 @@
 
     <annotation-driven />
     <context:property-placeholder location="classpath:properties/*.properties" />
-    <resources mapping="/assets/css/**" location="/assets/css/" />
-    <resources mapping="/assets/images/**" location="/assets/images/" />
-    <resources mapping="/assets/js/**" location="/assets/js/" />
-    <resources mapping="/assets/fi/**" location="/assets/fi/" />
-    <resources mapping="/assets/scss/**" location="/assets/scss/" />
     
     <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <beans:property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
@@ -28,7 +23,7 @@
 
     <beans:bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <beans:property name="url" value="jdbc:mysql://${jdbc.url}/${jdbc.database}?useUnicode=true&amp;characterEncoding=utf8" />
+        <beans:property name="url" value="jdbc:mysql://${jdbc.url}/${jdbc.database}?useUnicode=true&amp;characterEncoding=utf8&amp;allowMultiQueries=true" />
         <beans:property name="username" value="${jdbc.username}" />
         <beans:property name="password" value="${jdbc.password}" />
     </beans:bean>
@@ -55,6 +50,10 @@
             <beans:bean id="MemberLoginInterceptor" class="com.animeDB.configuration.MemberLoginInterceptor" />
         </interceptor>
         <beans:bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+        <interceptor>
+            <mapping path="/admin/**"/>
+            <beans:bean id="AdminLoginInterceptor" class="com.animeDB.admin.interceptor.AdminLoginInterceptor" />
+        </interceptor>
     </interceptors>
 
     <beans:bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">

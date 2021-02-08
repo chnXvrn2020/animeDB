@@ -32,6 +32,7 @@
         (user_idx, session_key, session_limit, browser)
         VALUES (#{userIdx}, #{sessionKey}, #{sessionLimit}, #{browser})
     </insert>
+    <!--delete member session-->
     <delete id="deleteSession" parameterType="hashmap">
         DELETE FROM anime_member_session
         WHERE user_idx = #{userIdx} AND session_key = #{sessionKey} AND browser = #{browser}
@@ -43,11 +44,16 @@
         WHERE user_id = #{userId}
     </select>
     <!--Update member to unused-->
-    <update id="deleteMember" parameterType="string">
+    <update id="deleteMember" parameterType="int">
         UPDATE anime_member
-        SET session_key = 'none', session_limit = null, delete_yn = 'Y', delete_date = now()
-        WHERE user_id = #{userId}
+        SET delete_yn = 'Y', delete_date = now(), email = ''
+        WHERE idx = #{idx}
     </update>
+    <!--Delete all session-->
+    <delete id="deleteAllSession" parameterType="int">
+        DELETE FROM anime_member_session
+        WHERE user_idx = #{idx}
+    </delete>
     <!--Update member information-->
     <update id="updateMember" parameterType="MemberVO">
         UPDATE anime_member

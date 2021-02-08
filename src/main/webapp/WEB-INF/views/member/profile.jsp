@@ -17,10 +17,10 @@
                     <div class="grid-x memberImage">
                         <c:choose>
                             <c:when test="${memberAttachment.attachment eq null}">
-                                <img src="<c:out value="${imgPath}default_image.png" />">
+                                <img class="imgLandscape" src="<c:out value="${imgPath}default_image.png" />">
                             </c:when>
                             <c:otherwise>
-                                <img src="<c:out value="${imgPath}${memberAttachment.attachment}" />">
+                                <img class="imgLandscape" src="<c:out value="${imgPath}${memberAttachment.attachment}" />" alt="image">
                             </c:otherwise>
                         </c:choose>
                     </div>
@@ -36,29 +36,34 @@
                         <span class="small-3"><spring:message code="member.name" /></span>
                         <div class="small-4">
                             <div class="grid-x">
-                                <div class="small-3">
-                                    <span><c:out value="${member.firstName}" /></span><br>
-                                </div>
-                                <div class="small-3">
-                                    <span><c:out value="${member.lastName}" /></span><br>
-                                </div>
+                                <c:choose>
+                                    <c:when test="${locale eq 'ko_KR' || locale eq 'ja_JP'}">
+                                        <div class="small-3">
+                                            <span><c:out value="${member.lastName}" /></span><br>
+                                        </div>
+                                        <div class="small-3">
+                                            <span><c:out value="${member.firstName}" /></span><br>
+                                        </div>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <div class="small-3">
+                                            <span><c:out value="${member.firstName}" /></span><br>
+                                        </div>
+                                        <div class="small-3">
+                                            <span><c:out value="${member.lastName}" /></span><br>
+                                        </div>
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
                         </div>
                     </div>
                     <div class="grid-x info">
                         <span class="small-3"><spring:message code="member.gender" /></span>
-                        <span class="small-4">
-                            <c:if test="${member.gender eq 'male'}">
-                                <spring:message code="member.male" />
-                            </c:if>
-                            <c:if test="${member.gender eq 'female'}">
-                                <spring:message code="member.female" />
-                            </c:if>
-                        </span>
+                        <span class="small-4"><spring:message code="member.${member.gender}" /></span>
                     </div>
                     <div class="grid-x info">
                         <span class="small-3"><spring:message code="member.birthday" /></span>
-                        <span class="small-4"><fmt:formatDate value="${member.birthday}" pattern="yyyy-MM-dd" /></span>
+                        <span class="small-4"><fmt:formatDate value="${member.birthday}" pattern="${locale eq 'ko_KR' || locale eq 'ja_JP' ? 'yyyy-MM-dd' : 'MMMM dd, yyyy'}" /></span>
                     </div>
                     <div class="grid-x info">
                         <span class="small-3"><spring:message code="member.email" /></span>

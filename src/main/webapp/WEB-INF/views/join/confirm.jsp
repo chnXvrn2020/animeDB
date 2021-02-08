@@ -55,14 +55,28 @@
                         <label for="firstName" class="small-4 text-right"><spring:message code="member.name" /></label>
                         <div class="small-5">
                             <div class="grid-x">
-                                <div class="small-6">
-                                    <input type="text" id="firstName" name="firstName" class="input-group-field" maxlength="10" placeholder="<spring:message code="member.firstName" />">
-                                    <p id="firstNameMsg" aria-live="assertive"></p>
-                                </div>
-                                <div class="small-6">
-                                    <input type="text" id="lastName" name="lastName" style="margin-left: 9%" class="input-group-field" maxlength="10" placeholder="<spring:message code="member.lastName" />">
-                                    <p id="lastNameMsg" style="margin-left: 9%" aria-live="assertive"></p>
-                                </div>
+                                <c:choose>
+                                    <c:when test="${locale eq 'ko_KR' || locale eq 'ja_JP'}">
+                                        <div class="small-6">
+                                            <input type="text" id="lastName" name="lastName" class="input-group-field" maxlength="10" placeholder="<spring:message code="member.lastName" />">
+                                            <p id="lastNameMsg" aria-live="assertive"></p>
+                                        </div>
+                                        <div class="small-6">
+                                            <input type="text" id="firstName" name="firstName" class="input-group-field" maxlength="10" placeholder="<spring:message code="member.firstName" />">
+                                            <p id="firstNameMsg" aria-live="assertive"></p>
+                                        </div>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <div class="small-6">
+                                            <input type="text" id="firstName" name="firstName" class="input-group-field" maxlength="10" placeholder="<spring:message code="member.firstName" />">
+                                            <p id="firstNameMsg" aria-live="assertive"></p>
+                                        </div>
+                                        <div class="small-6">
+                                            <input type="text" id="lastName" name="lastName" class="input-group-field" maxlength="10" placeholder="<spring:message code="member.lastName" />">
+                                            <p id="lastNameMsg" aria-live="assertive"></p>
+                                        </div>
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
                         </div>
                         <label for="gender" class="small-4 text-right"><spring:message code="member.gender" /></label>
@@ -74,31 +88,10 @@
                             </select>
                             <p id="genderMsg" aria-live="assertive"></p>
                         </div>
-                        <label for="birthYear" class="small-4 text-right"><spring:message code="member.birthday" /></label>
+                        <label for="birthday" class="small-4 text-right"><spring:message code="member.birthday" /></label>
                         <div class="small-5">
-                            <div class="grid-x">
-                                <div class="small-3">
-                                    <select id="birthYear" name="birthYear" class="input-group-field">
-                                        <option selected disabled hidden><spring:message code="signup.year" /></option>
-                                        <c:forEach var="i" begin="1900" end="${sysYear}" step="1">
-                                            <option value="${sysYear - i + 1900}">${sysYear - i + 1900}</option>
-                                        </c:forEach>
-                                    </select>
-                                </div>
-                                <div class="small-3">
-                                    <select id="birthMonth" name="birthMonth" class="input-group-field">
-                                        <option selected disabled hidden><spring:message code="signup.month" /></option>
-                                    </select>
-                                </div>
-                                <div class="small-3">
-                                    <select id="birthDay" name="birthDay" class="input-group-field">
-                                        <option selected disabled hidden><spring:message code="signup.day" /></option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="small-5">
-                                <p id="birthMsg" aria-live="assertive"></p>
-                            </div>
+                            <input type="text" id="birthday" name="birthDay" class="input-group-field" readonly>
+                            <p id="birthMsg" aria-live="assertive"></p>
                         </div>
                         <label for="email" class="small-4 text-right"><spring:message code="member.email" /></label>
                         <div class="small-5">
@@ -114,7 +107,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <button type="button" class="button alert" id="backBtn" onclick="history.go(-2)"><i class="fi-x"></i> <spring:message code="animedb.back" /></button>
+                <button type="button" class="button alert" id="backBtn" onclick="location.href = '${animedbUrl}'"><i class="fi-x"></i> <spring:message code="animedb.back" /></button>
                 <button type="button" class="button primary" id="newJoinBtn"><i class="fi-check"></i> <spring:message code="signup.join" /></button>
             </div>
         </form>
@@ -180,14 +173,9 @@
         $('#gender').blur(function () {
             checkGender();
         })
-        $('#birthYear').blur(function () {
-            selectedBirthYear();
-        })
-        $('#birthMonth').blur(function () {
-            selectedBirthMonth();
-        })
-        $('#birthDay').blur(function () {
-            checkBirthday();
+        $('#birthday').blur(function () {
+            var obj = $('#birthMsg');
+            hideMsg(obj);
         })
         $('#email').blur(function () {
             checkEmail();
@@ -294,72 +282,11 @@
         return true;
     }
 
-    function selectedBirthYear() {
-        var birthYear = $('#birthYear');
-        var birthMonth = $('#birthMonth');
-        var birthDay = $('#birthDay');
-
-        if (birthYear.val() !== null) {
-            birthMonth.html('<option selected disabled hidden><spring:message code="signup.month" /></option>' +
-                            '<c:forEach var="i" begin="1" end="12" step="1">' +
-                            '<fmt:formatNumber value="${i}" var="month" pattern="00" />' +
-                            '<option value="${month}">${month}</option>' +
-                            '</c:forEach>')
-        }
-
-        if (birthDay.val() !== null) {
-            birthDay.html('<option selected disabled hidden><spring:message code="signup.day" /></option>');
-        }
-    }
-
-    function selectedBirthMonth() {
-        var birthYear = $('#birthYear');
-        var birthMonth = $('#birthMonth');
-        var birthDay = $('#birthDay');
-
-        if (birthMonth.val() !== null) {
-            if (birthMonth.val() === '02' && ((birthYear.val() % 4 === 0 && birthYear.val() % 100 !== 0) || birthYear.val() % 400 === 0)) {
-                birthDay.html('<option selected disabled hidden><spring:message code="signup.day" /></option>' +
-                    '<c:forEach var="i" begin="1" end="29" step="1">' +
-                    '<fmt:formatNumber value="${i}" var="day" pattern="00" />' +
-                    '<option value="${day}">${day}</option>' +
-                    '</c:forEach>' +
-                    '</option>')
-            }
-            else if (birthMonth.val() === '02' && !((birthYear.val() % 4 === 0 && birthYear.val() % 100 !== 0) || birthYear.val() % 400 === 0)) {
-                birthDay.html('<option selected disabled hidden><spring:message code="signup.day" /></option>' +
-                    '<c:forEach var="i" begin="1" end="28" step="1">' +
-                    '<fmt:formatNumber value="${i}" var="day" pattern="00" />' +
-                    '<option value="${day}">${day}</option>' +
-                    '</c:forEach>' +
-                    '</option>')
-            }
-            else if (birthMonth.val() < 8 && birthMonth.val() % 2 === 1 || birthMonth.val() >= 8 && birthMonth.val() % 2 === 0) {
-                birthDay.html('<option selected disabled hidden><spring:message code="signup.day" /></option>' +
-                    '<c:forEach var="i" begin="1" end="31" step="1">' +
-                    '<fmt:formatNumber value="${i}" var="day" pattern="00" />' +
-                    '<option value="${day}">${day}</option>' +
-                    '</c:forEach>' +
-                    '</option>')
-            }
-            else {
-                birthDay.html('<option selected disabled hidden><spring:message code="signup.day" /></option>' +
-                    '<c:forEach var="i" begin="1" end="30" step="1">' +
-                    '<fmt:formatNumber value="${i}" var="day" pattern="00" />' +
-                    '<option value="${day}">${day}</option>' +
-                    '</c:forEach>' +
-                    '</option>')
-            }
-        }
-    }
-
     function checkBirthday() {
-        var birthYear = $('#birthYear').val();
-        var birthMonth = $('#birthMonth').val();
-        var birthDay = $('#birthDay').val();
+        var birthday = $('#birthday').val();
         var obj = $('#birthMsg');
 
-        if (formBirthday(birthYear, birthMonth, birthDay, obj, "<spring:message code="alert.unselectedBirthday" />")) return false;
+        if (formInput(birthday, obj, "<spring:message code="alert.noInputBirthday" />")) return false;
 
         hideMsg(obj);
 
@@ -485,6 +412,13 @@
     strings['pwd.strong'] = "<spring:message code="alert.strongPwd" />"
     strings['pwd.perfect'] = "<spring:message code="alert.perfectPwd" />"
 
+    $(function () {
+        $('#birthday').fdatepicker({
+            language : '${fn:substringBefore(locale, '_')}',
+            format : 'yyyy-mm-dd',
+            endDate : new Date()
+        });
+    })
 </script>
 <script src="${js}common.js" defer crossorigin="anonymous"></script>
 <script src="${js}validatePwd.js" defer crossorigin="anonymous"></script>

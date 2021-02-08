@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.animeDB.community">
+    <!--SQL that select 10 popular posts-->
+    <select id="selectPopularPosts" parameterType="CommunityPostVO" resultType="CommunityPostVO">
+        SELECT p.idx, p.list_idx, p.title, l.cname_kr, l.cname_jp, l.cname_en
+        FROM anime_community_post p
+                 JOIN anime_community_list l ON p.list_idx = l.idx
+        WHERE l.use_yn = 'Y' AND p.delete_yn = 'N' AND p.locale = #{locale} AND p.thumbs >= 10
+        ORDER BY p.insert_date DESC
+        LIMIT 0, 10
+    </select>
+    <!--SQL that select 10 new posts-->
+    <select id="selectNewPosts" resultType="CommunityPostVO" parameterType="CommunityPostVO">
+        SELECT p.idx, p.list_idx, p.title, l.cname_kr, l.cname_jp, l.cname_en
+        FROM anime_community_post p
+                 JOIN anime_community_list l ON p.list_idx = l.idx
+        WHERE l.use_yn = 'Y' AND p.delete_yn = 'N' AND p.locale = #{locale}
+        ORDER BY p.insert_date DESC
+        LIMIT 0, 10
+    </select>
+    <!--SQL that select community kind-->
+    <select id="selectCommunityKind" resultType="CommunityKindVO">
+        SELECT k.idx, k.name_kr, k.name_jp, k.name_en,
+               (SELECT COUNT(l.idx)
+                FROM anime_community_list l
+                WHERE l.kind_idx = k.idx AND use_yn = 'Y') AS listCnt
+        FROM anime_community_kind k
+        WHERE k.use_yn = 'Y'
+        GROUP BY k.idx, k.name_kr, k.name_jp, k.name_en HAVING listCnt > 0
+    </select>
+    <!--SQL that select community list-->
+    <select id="selectCommunityList" resultType="CommunityListVO">
+        SELECT idx, kind_idx, cname_kr, cname_jp, cname_en
+        FROM anime_community_list
+        WHERE use_yn = 'Y'
+    </select>
+    <!--SQL that select community post for Admin-->
+    <select id="selectCommunityPost" parameterType="CommunityPostVO" resultType="CommunityPostVO">
+        SELECT p.idx, p.title, p.hit, p.thumbs, m.nickname, m.role, p.insert_date, p.list_idx,
+            (SELECT COUNT(c.idx)
+            FROM anime_community_comment c
+            WHERE c.post_idx = p.idx) AS commentCnt
+        FROM anime_community_post p
+        JOIN anime_member m ON p.member_idx = m.idx
+        <include refid="postWhere" />
+        ORDER BY p.idx DESC
+        LIMIT #{offset}, #{rows}
+    </select>
+    <!--SQL that select count of community post-->
+    <select id="selectCommunityPostCnt" parameterType="CommunityPostVO" resultType="int">
+        SELECT COUNT(p.idx)
+        FROM anime_community_post p
+        <include refid="postWhere" />
+    </select>
+    <!--SQL that select community list name-->
+    <select id="selectCommunityListName" parameterType="CommunityPostVO" resultType="CommunityPostVO">
+        SELECT l.cname_kr, l.cname_en, l.cname_jp
+        FROM anime_community_list l
+        WHERE idx = #{listIdx}
+    </select>
+
+    <insert id="insertCommunityPost" parameterType="CommunityPostVO">
+        INSERT INTO anime_community_post
+        (list_idx, member_idx, title, content, locale)
+        VALUES (#{listIdx}, #{memberIdx}, #{title}, #{content}, #{locale})
+    </insert>
+    
+    <select id="selectOneCommunityPost" parameterType="CommunityPostVO" resultType="CommunityPostVO">
+        SELECT p.idx, p.list_idx, p.member_idx, p.title, p.content, p.hit, p.thumbs, p.dislike, p.insert_date,
+               m.user_id, m.nickname, m.role, ma.attachment, l.cname_kr, l.cname_jp, l.cname_en
+        FROM anime_community_post p
+                 JOIN anime_member m ON m.idx = p.member_idx
+                 JOIN anime_member_attachment ma ON m.idx = ma.user_idx
+                 JOIN anime_community_list l ON l.idx = p.list_idx
+        WHERE p.idx = #{idx}
+    </select>
+
+    <update id="updateCommunityPostHit" parameterType="CommunityPostVO">
+        UPDATE anime_community_post
+        SET hit = hit + 1
+        WHERE idx = #{idx}
+    </update>
+
+    <select id="selectCommunityComment" parameterType="CommunityCommentVO" resultType="CommunityCommentVO">
+        SELECT c.idx, c.parent_idx, c.comment_content, c.locale, c.insert_date, c.depth, c.member_idx, c.parent_member,
+               m.nickname, m.user_id, m.role, ma.attachment AS memberAttachment, ca.attachment AS commentAttachment
+        FROM anime_community_comment c
+                 JOIN anime_community_comment_attachment ca ON ca.comment_idx = c.idx
+                 JOIN anime_member m ON c.member_idx = m.idx
+                 JOIN anime_member_attachment ma ON m.idx = ma.user_idx
+        WHERE c.delete_yn = 'N' AND c.post_idx = #{postIdx} AND c.locale = #{locale}
+        ORDER BY c.idx DESC
+        LIMIT #{offset}, #{rows}
+    </select>
+
+    <select id="selectCommunityCnt" parameterType="CommunityCommentVO" resultType="int">
+        SELECT COUNT(c.idx)
+        FROM anime_community_comment c
+        WHERE c.delete_yn = 'N' AND c.post_idx = #{postIdx} AND c.locale = #{locale}
+    </select>
+
+    <update id="updateCommunityPostVote" parameterType="hashmap">
+        <selectKey resultType="string" keyProperty="vote_type" order="BEFORE">
+            SELECT vote_type
+            FROM anime_community_vote
+            WHERE post_idx = #{idx} AND member_idx = #{memberIdx}
+            UNION
+            SELECT NULL AS vote_type
+            FROM dual
+            WHERE NOT EXISTS(SELECT vote_type
+            FROM anime_community_vote
+            WHERE post_idx = #{idx} AND member_idx = #{memberIdx})
+        </selectKey>
+        UPDATE anime_community_post
+        SET
+        <choose>
+            <when test="vote_type == null or vote_type == ''">
+                <if test='mode == "U"'>
+                    thumbs = thumbs + 1
+                    <include refid="voteWhere" />
+                </if>
+                <if test='mode == "D"'>
+                    dislike = dislike + 1
+                    <include refid="voteWhere" />
+                </if>
+            </when>
+            <otherwise>
+                <choose>
+                    <when test='mode == "U" and vote_type == "U"'>
+                        thumbs = thumbs - 1
+                        <include refid="voteWhere" />
+                    </when>
+                    <when test='mode == "D" and vote_type == "D"'>
+                        dislike = dislike - 1
+                        <include refid="voteWhere" />
+                    </when>
+                    <when test='mode == "U" and vote_type == "D"'>
+                        thumbs = thumbs + 1, dislike = dislike - 1
+                        <include refid="voteWhere" />
+                    </when>
+                    <when test='mode == "D" and vote_type == "U"'>
+                        thumbs = thumbs - 1, dislike = dislike + 1
+                        <include refid="voteWhere" />
+                    </when>
+                </choose>
+            </otherwise>
+        </choose>
+    </update>
+
+    <select id="selectOnePostVoteCnt" resultType="hashmap" parameterType="hashmap">
+        SELECT thumbs AS U, dislike AS D
+        FROM anime_community_post
+        WHERE idx = #{idx}
+    </select>
+
+    <update id="deleteCommunityPost" parameterType="CommunityPostVO">
+        UPDATE anime_community_post
+        SET delete_yn = 'Y', delete_date = NOW()
+        WHERE idx = #{idx}
+    </update>
+
+    <select id="selectCommunityPost2Update" parameterType="CommunityPostVO" resultType="CommunityPostVO">
+        SELECT idx, list_idx, title, content
+        FROM anime_community_post
+        WHERE idx = #{idx}
+    </select>
+
+    <update id="updateCommunityPost" parameterType="CommunityPostVO">
+        UPDATE anime_community_post
+        SET title = #{title}, content = #{content}
+        WHERE idx = #{idx}
+    </update>
+
+    <sql id="voteWhere">
+        <choose>
+            <when test="vote_type == null or vote_type == ''">
+                WHERE idx = #{idx};
+                INSERT INTO anime_community_vote
+                (post_idx, member_idx, vote_type)
+                VALUES (#{idx}, #{memberIdx}, #{mode});
+            </when>
+            <when test="mode == vote_type">
+                WHERE idx = #{idx};
+                DELETE FROM anime_community_vote
+                WHERE post_idx = #{idx} AND member_idx = #{memberIdx};
+            </when>
+            <when test="mode != vote_type">
+                WHERE idx = #{idx};
+                UPDATE anime_community_vote
+                SET vote_type = #{mode}
+                WHERE post_idx = #{idx} AND member_idx = #{memberIdx};
+            </when>
+        </choose>
+    </sql>
+
+    <sql id="postWhere">
+        WHERE p.delete_yn = 'N' AND p.list_idx = #{listIdx}
+        <if test="searchKeyword != null and searchKeyword != ''">
+            <choose>
+                <when test="searchBy == 'title'">
+                    AND p.title REGEXP #{searchKeyword}
+                </when>
+                <when test="searchBy == 'content'">
+                    AND p.content REGEXP #{searchKeyword}
+                </when>
+                <when test="searchBy == 'userId'">
+                    AND m.user_id REGEXP #{searchKeyword}
+                </when>
+                <when test="searchBy == 'nickname'">
+                    AND m.nickname REGEXP #{searchKeyword}
+                </when>
+                <otherwise>
+                    AND (
+                    p.title REGEXP #{searchKeyword}
+                    OR p.content REGEXP #{searchKeyword}
+                    OR m.user_id REGEXP #{searchKeyword}
+                    OR m.nickname REGEXP #{searchKeyword}
+                    )
+                </otherwise>
+            </choose>
+        </if>
+        <choose>
+            <when test="selectedLocale == 'all'">
+            </when>
+            <when test="selectedLocale != null and selectedLocale != ''">
+                AND p.locale = #{selectedLocale}
+            </when>
+            <otherwise>
+                AND p.locale = #{locale}
+            </otherwise>
+        </choose>
+    </sql>
+</mapper>

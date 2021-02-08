@@ -15,10 +15,10 @@
             <div class="memberImage">
                 <c:choose>
                     <c:when test="${memberAttachment.attachment eq null}">
-                        <img src="<c:out value="${imgPath}default_image.png" />">
+                        <img class="imgLandscape" src="<c:out value="${imgPath}default_image.png" />">
                     </c:when>
                     <c:otherwise>
-                        <img src="<c:out value="${imgPath}${memberAttachment.attachment}" />">
+                        <img class="imgLandscape" src="<c:out value="${imgPath}${memberAttachment.attachment}" />" alt="image">
                     </c:otherwise>
                 </c:choose>
             </div>
@@ -41,7 +41,7 @@
     <nav class="slideSelector">
         <a><spring:message code="animedb.about" /></a>
         <a><spring:message code="animedb.info" /></a>
-        <a><spring:message code="animedb.community" /></a>
+        <a href="/community/"><spring:message code="animedb.community" /></a>
     </nav>
 </div>
 <script>

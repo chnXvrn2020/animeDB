@@ -27,11 +27,6 @@ public class MemberController {
 
     private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
-    @Value("${memberImage.uploadDir}")
-    private String uploadDir;
-    @Value("${forLinux.serverDir}")
-    private String serverDir;
-
     @Autowired
     MemberService memberService;
 
@@ -44,23 +39,17 @@ public class MemberController {
     //Login member with their own ID and PW
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String login(Model m, @RequestParam("id") String userId, @RequestParam("pw") String passwd, @RequestParam(defaultValue = "false") String rememberMe, HttpSession session, HttpServletResponse response, HttpServletRequest request, Locale locale) {
-        MemberVO mvo = new MemberVO();
-        MemberAttachmentVO mavo = new MemberAttachmentVO();
-        String redirectPage = "";
-        boolean pwdMatched = false;
-        boolean mailAuth = false;
-        boolean isMemberDeleted = false;
-
+        String redirectPage = "redirect:" + request.getHeader("Referer");
         try {
-            mvo = memberService.selectMemberInfo(userId);
+            MemberVO mvo = memberService.selectMemberInfo(userId);
 
             if (mvo != null) {
-                pwdMatched = pwdEncoder.matches(passwd, mvo.getPasswd());
-                mailAuth = mvo.getUserKey().equals("Y");
-                isMemberDeleted = mvo.getDeleteYn().equals("N");
+                boolean pwdMatched = pwdEncoder.matches(passwd, mvo.getPasswd());
+                boolean mailAuth = mvo.getUserKey().equals("Y");
+                boolean isMemberDeleted = mvo.getDeleteYn().equals("N");
 
                 if (pwdMatched && mailAuth && isMemberDeleted) {
-                    mavo = memberService.selectMemberAttachment(mvo.getIdx());
+                    MemberAttachmentVO mavo = memberService.selectMemberAttachment(mvo.getIdx());
                     //Keeping auto login
                     if (rememberMe.equals("true")) {
                         Cookie loginCookie = new Cookie("loginCookie", session.getId());
@@ -77,28 +66,25 @@ public class MemberController {
                     if (session.getAttribute("prevPage") != null) {
                         redirectPage = "redirect:" + session.getAttribute("prevPage");
                         session.removeAttribute("prevPage");
-                    } else {
-                        redirectPage = "redirect:/";
                     }
                 } else if (!mailAuth) {
-                    redirectPage = "common/alert";
                     m.addAttribute("msg", messageSource.getMessage("signin.notAuthenMail", null, locale));
+                    return "common/alert";
                 } else if (!pwdMatched) {
-                    redirectPage = "common/alert";
                     m.addAttribute("msg", messageSource.getMessage("signin.noMember", null, locale));
+                    return "common/alert";
                 } else if (!isMemberDeleted) {
-                    redirectPage = "common/alert";
                     m.addAttribute("msg", messageSource.getMessage("signin.deleted", null, locale));
+                    return "common/alert";
                 }
             } else {
-                redirectPage = "common/alert";
                 m.addAttribute("msg", messageSource.getMessage("signin.noMember", null, locale));
+                return "common/alert";
             }
-
         } catch (Exception e) {
-            redirectPage = "common/alert";
             logger.error("member - login : " + e.getMessage());
             m.addAttribute("msg", messageSource.getMessage("alert.serverError", null, locale));
+            return "common/alert";
         }
         return redirectPage;
     }
@@ -131,66 +117,60 @@ public class MemberController {
     //Output member profile
     @RequestMapping(value = "member/profile")
     public String memberProfile(HttpSession session, Model model, Locale locale) {
-        String redirectPage = null;
-
         try {
-            if (session.getAttribute("member") != null) {
-                redirectPage = "member/profile";
-            } else {
+            if (session.getAttribute("member") == null) {
                 model.addAttribute("msg", messageSource.getMessage("alert.unauthorized", null, locale));
                 model.addAttribute("returnUrl", "/");
-                redirectPage = "common/alert";
+                return "common/alert";
             }
         } catch (Exception e) {
             logger.error("member - profile : " + e.getMessage());
             model.addAttribute("msg", messageSource.getMessage("alert.serverError", null, locale));
+            return "common/alert";
         }
 
-        return redirectPage;
+        return "member/profile";
     }
 
     //Output delete member confirm viewing
     @RequestMapping(value = "member/leaveId")
     public String deleteMember(HttpSession session, Model model, Locale locale) {
-        String redirectPage = null;
-
         try {
             if (session.getAttribute("member") != null) {
                 session.setAttribute("CSRF_TOKEN", UUID.randomUUID().toString());
-                redirectPage = "member/leaveId";
             } else {
                 model.addAttribute("msg", messageSource.getMessage("alert.unauthorized", null, locale));
                 model.addAttribute("returnUrl", "/");
-                redirectPage = "common/alert";
+                return "common/alert";
             }
         } catch (Exception e) {
             logger.error("member - deleteViewing : " + e.getMessage());
             model.addAttribute("msg", messageSource.getMessage("alert.serverError", null, locale));
-            redirectPage = "common/alert";
+            return "common/alert";
         }
 
-        return redirectPage;
+        return "member/leaveId";
 
     }
 
     //Delete member
     @RequestMapping(value = "member/leaveId", method = RequestMethod.POST)
     public String deleteMember(HttpServletRequest request, Model model, Locale locale) {
-        String userId = request.getParameter("userId");
+        MemberVO sessionMember = (MemberVO)request.getSession().getAttribute("member");
         String passwd = request.getParameter("passwd");
         String csrf = request.getParameter("_csrf");
 
         try {
             if (request.getSession().getAttribute("CSRF_TOKEN").equals(csrf)) {
-                if (pwdEncoder.matches(passwd, memberService.selectMemberPwd(userId))) {
-                    memberService.deleteMember(userId);
+                if (pwdEncoder.matches(passwd, memberService.selectMemberPwd(sessionMember.getUserId()))) {
+                    memberService.deleteMember(sessionMember.getIdx());
                     request.getSession().invalidate();
                     model.addAttribute("msg", messageSource.getMessage("alert.deleteSuccess", null, locale));
                     model.addAttribute("returnUrl", "/");
                 } else {
                     model.addAttribute("msg", messageSource.getMessage("alert.deleteFail", null, locale));
                 }
-            } else {
+            } else if (request.getSession().getAttribute("CSRF_TOKEN") == null){
                 model.addAttribute("msg", messageSource.getMessage("alert.unauthorized", null, locale));
                 model.addAttribute("returnUrl", "/");
             }
@@ -205,23 +185,21 @@ public class MemberController {
     //Output modify member viewing
     @RequestMapping(value = "member/modify")
     public String modifyMember(HttpSession session, Model model, Locale locale) {
-        String redirectPage = null;
-
         try {
             if (session.getAttribute("member") != null) {
                 session.setAttribute("CSRF_TOKEN", UUID.randomUUID().toString());
-                redirectPage = "member/modifyMember";
             } else {
                 model.addAttribute("msg", messageSource.getMessage("alert.unauthorized", null, locale));
                 model.addAttribute("returnUrl", "/");
-                redirectPage = "common/alert";
+                return "common/alert";
             }
         } catch (Exception e) {
             logger.info("member - modifyMember : " + e.getMessage());
             model.addAttribute("msg", messageSource.getMessage("alert.serverError", null, locale));
+            return "common/alert";
         }
 
-        return redirectPage;
+        return "member/modifyMember";
     }
 
     //Complete to modify member and update DB
@@ -247,7 +225,7 @@ public class MemberController {
                 session.removeAttribute("CSRF_TOKEN");
                 model.addAttribute("msg", messageSource.getMessage("alert.memberChange", null, locale));
                 model.addAttribute("returnUrl", "/member/profile");
-            } else {
+            } else if (session.getAttribute("CSRF_TOKEN") == null){
                 model.addAttribute("msg", messageSource.getMessage("alert.unauthorized", null, locale));
                 model.addAttribute("returnUrl", "/");
             }

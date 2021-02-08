@@ -1,5 +1,3 @@
-body { font-family: "M PLUS 1p"; }
-
 /*PC*/
 @media screen and (min-width: 1024px) {
     .top-bar{background-color : #003458;}
@@ -20,12 +18,64 @@ body { font-family: "M PLUS 1p"; }
     .top-bar .input-group {margin-top: 5%;}
 
     .indexList h3 a {color: crimson;font-size: 22px;}
-    .indexList ul {list-style:none;padding:0;margin: 0;}
+    .indexList ul {list-style:none;padding:0;margin: 0;height: 350px}
     .indexList ul li a {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;display: block;margin-bottom: 2%;}
 
     #mainIndex {width: 75%}
     #indexPopular {width: 50%}
     #indexAnimeInfo {width: 50%}
+    #main-right {width: 25%}
+
+    #community {width: 75%}
+    #communityPopular {width: 50%}
+    #communityNewPost {width: 50%}
+    #communityList {width: 100%; margin-top: 5%}
+    .community-list {height: auto; margin-bottom: 3%; float: left; border: rgba(70,81,185,0.11) solid 2px; min-width: 110px; max-width: 100%}
+    .community-kind {padding: 10px; border-bottom: rgba(70,81,185,0.11) solid 2px}
+    .list-box {padding: 10px; height: 275px; max-height: 275px}
+    .list-box ul {float: left; margin: 0 10px 0 10px; height: auto}
+
+    .index-community-list .selectLang {width: 95%; margin: auto}
+    .index-community-list .selectLang select {width: 160px}
+    .index-community-list table {width: 95%; margin: 1% auto; table-layout:fixed}
+    .index-community-list table tr th {text-align: center; font-size: 12px}
+    .index-community-list table tr td {font-size: 12px}
+    .index-community-list table tr td a {display:inline-block; max-width: 90%; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; color: #2e9ad0}
+    .index-community-list h3 {margin: 2% auto}
+    .index-community-list nav {width: 95%}
+    .index-community-list .community-index {width: 95%; margin: 1% auto}
+    .index-community-list .community-index .community-search {float: left; display: -webkit-box; width: 20%}
+    .index-community-list .community-index .community-write-btn {float: right}
+
+    .community-write {width: 80%; margin: 3% auto}
+    .community-write .input-group-field {margin-bottom: 2%}
+    .community-write .community-write-btn {margin: 5% 40%}
+
+    .index-community-view {width: 95%; margin: 3% auto}
+    .index-community-view h3 {text-align: center}
+    .index-community-view .post-btn {margin-top: 3%; text-align: right}
+
+    .view-box {border-top: 3px solid #0a0a0a; border-bottom: 2px solid #0a0a0a;}
+    .view-box .view-member {margin: 4%; width: 85%; display: inline-flex}
+    .view-box .view-member .view-member-img {height: 9.750em; width: 9.750em; border: grey 2px solid; overflow: hidden; background-color: white}
+    .view-box .view-member .view-member-info {margin-left: 3%; width: 40%; border: solid 2px chocolate}
+    .view-box .view-member .view-member-info p {margin-bottom: 1px}
+    .view-box .view-title {padding: 20px 20px 21px; border-top: 2px solid #c8c8c8; border-bottom: 1px solid #c8c8c8}
+    .view-box .view-title .view-title-fr {float: right}
+    .view-box .view-content {margin-top: 3%; margin-bottom: 3%}
+    .view-box .view-content img {height: auto !important; max-width: 70%}
+    .view-box .view-rate {text-align: center}
+    .view-comment {margin-top: 2%; border-top: 1px solid #3b3b3b}
+    .view-comment .comment-line {margin-top: 2%;}
+    .view-comment .comment-box {width: 100%; display: inline-flex}
+    .view-comment .comment-box .comment-img  {height: 9.750em; width: 9.750em; border: grey 2px solid; overflow: hidden; background-color: white}
+    .view-comment .comment-box .comment-info {margin-left: 3%; width: 80%; border: solid 1px #0a0a0a;}
+    .view-comment .comment-box .comment-content-img {height: 7em; width: 7em; border: grey 2px solid; overflow: hidden; background-color: white}
+    .view-comment .comment-box .comment-info p {border-bottom: #3b3b3b solid 1px}
+    .view-comment .comment-box .comment-info i {float: right}
+    .view-comment .comment-box .comment-info .comment-content {display: -webkit-box}
+    .view-comment .comment-box .comment-info .comment-content i {float: left}
+    .view-comment .comment-box .comment-info .comment-content p {border-bottom: none}
 
     .indexLogin {border: blueviolet 2px solid;}
     .indexLogin .loginInput {margin-top: 5%}
@@ -36,7 +86,7 @@ body { font-family: "M PLUS 1p"; }
     .indexLogin .memberOption a {padding-left: 5%;}
 
     .indexMember {border: blueviolet 2px solid;}
-    .indexMember .memberImage {margin: 5% auto; height: 9.750em; width: 9.750em; border: grey 2px solid; overflow: hidden}
+    .indexMember .memberImage {margin: 5% auto; height: 9.750em; width: 9.750em; border: grey 2px solid; overflow: hidden; background-color: white}
     .indexMember .memberInfo {text-align: center}
     .indexMember .memberInfo p b:hover {color: #1779ba; text-decoration-line: underline; cursor: pointer}
     .indexMember .memberBtn {width: 90%; margin-left: 5%}
@@ -66,7 +116,7 @@ body { font-family: "M PLUS 1p"; }
     .memberProfile {margin-top: 5%; background: #007fff; color: white; font-size: 20px}
     .memberProfile .small-8 {margin-left: auto; margin-top: 3%; margin-bottom: 3%}
     .memberProfile .info {margin-top: 3%}
-    .memberProfile .memberImage {margin-left: 10%; border: grey 2px solid; height: 9.750em; width: 9.750em; overflow: hidden}
+    .memberProfile .memberImage {margin-left: 10%; border: grey 2px solid; height: 9.750em; width: 9.750em; overflow: hidden; background-color: white}
     .memberProfileBtn {margin-top: 3%; text-align: center}
     .deleteMember {margin-top: 5%; background: #007fff; color: white}
     .deleteMember .notice {margin-top: 3%; margin-left: 40%}
@@ -83,7 +133,7 @@ body { font-family: "M PLUS 1p"; }
     .modifyMember p {font-size: 16px}
     .modifyMember .small-8 {margin-left: 20%; margin-top: 3%; margin-bottom: 3%}
     .modifyMember .info {margin-top: 3%}
-    .modifyMember .memberImage {display: flex; height: 9.750em; width: 9.750em; border: grey 2px solid; overflow: hidden; background-color: white; justify-content: center; align-items: center;}
+    .modifyMember .memberImage {height: 9.750em; width: 9.750em; border: grey 2px solid; overflow: hidden; background-color: white;}
     .modifyMember .imageBtn {margin-top: 3%}
     .modifyMember .imageBtn input[type="file"] {display: none}
     .modifyMember .imageBtn label {font-size: 15px;}
@@ -111,12 +161,21 @@ body { font-family: "M PLUS 1p"; }
     #main-right {width: 0 !important; display: none !important;}
 
     .indexList h3 a {color: crimson;font-size: 22px;}
-    .indexList ul {list-style:none;padding:0;margin: 0;}
+    .indexList ul {list-style:none;padding:0;margin: 0; height: 350px}
     .indexList ul li a {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;display: block;margin-bottom: 2%;}
 
     #mainIndex {width: 100%}
     #indexPopular {width: 50%}
     #indexAnimeInfo {width: 50%}
+
+    #community {width: 100%}
+    #communityPopular {width: 50%}
+    #communityNewPost {width: 50%}
+    #communityList {width: 100%; margin-top: 5%}
+    .community-list {height: auto; margin-bottom: 3%; float: left; border: rgba(70,81,185,0.11) solid 2px; min-width: 110px; max-width: 100%}
+    .community-kind {padding: 10px; border-bottom: rgba(70,81,185,0.11) solid 2px}
+    .list-box {padding: 10px; height: 275px; max-height: 275px}
+    .list-box ul {float: left; margin: 0 10px 0 10px; height: auto}
 
     .indexLogin {border: black 2px solid;}
     .indexLogin .slideLoginBtn {margin-top: 5%}
@@ -163,12 +222,21 @@ body { font-family: "M PLUS 1p"; }
     #main-right {width: 0 !important; display: none !important;}
 
     .indexList h3 a {color: crimson;font-size: 22px;}
-    .indexList ul {list-style:none;padding:0;margin: 0;}
+    .indexList ul {list-style:none;padding:0;margin: 0;height: 350px}
     .indexList ul li a {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;display: block;margin-bottom: 2%;}
 
     #mainIndex {width: 100%}
     #indexPopular {width: 50%}
     #indexAnimeInfo {width: 50%}
+
+    #community {width: 100%}
+    #communityPopular {width: 50%}
+    #communityNewPost {width: 50%}
+    #communityList {width: 100%; margin-top: 5%}
+    .community-list {height: auto; margin-bottom: 3%; float: left; border: rgba(70,81,185,0.11) solid 2px; min-width: 110px; max-width: 100%}
+    .community-kind {padding: 10px; border-bottom: rgba(70,81,185,0.11) solid 2px}
+    .list-box {padding: 10px; height: 275px; max-height: 275px}
+    .list-box ul {float: left; margin: 0 10px 0 10px; height: auto}
 
     .indexLogin {border: black 2px solid;}
     .indexLogin .slideLoginBtn {margin-top: 5%}
@@ -211,12 +279,21 @@ body { font-family: "M PLUS 1p"; }
     #main-right {width: 0 !important; display: none !important;}
 
     .indexList h3 a {color: crimson;font-size: 22px;}
-    .indexList ul {list-style:none;padding:0;margin: 0;}
+    .indexList ul {list-style:none;padding:0;margin: 0;height: 350px}
     .indexList ul li a {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;display: block;margin-bottom: 2%;}
 
     #mainIndex {width: 100%}
     #indexPopular {width: 100%}
     #indexAnimeInfo {width: 100%}
+
+    #community {width: 100%}
+    #communityPopular {width: 100%}
+    #communityNewPost {width: 100%}
+    #communityList {width: 100%; margin-top: 5%}
+    .community-list {height: auto; margin-bottom: 3%; float: left; border: rgba(70,81,185,0.11) solid 2px; min-width: 110px; max-width: 100%}
+    .community-kind {padding: 10px; border-bottom: rgba(70,81,185,0.11) solid 2px}
+    .list-box {padding: 10px; height: 275px; max-height: 275px}
+    .list-box ul {float: left; margin: 0 10px 0 10px; height: auto}
 
     .indexLogin {border: black 2px solid;}
     .indexLogin .slideLoginBtn {margin-top: 5%}
@@ -281,3 +358,5 @@ body { font-family: "M PLUS 1p"; }
 .languages label {font-size: 16px; margin-right: 2%}
 .languages select {height: 35px; width: 160px}
 .languages input {height: 35px; width: 90px}
+
+.imgLandscape {position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); width: auto; height: 100%; visibility: visible; max-width: none}

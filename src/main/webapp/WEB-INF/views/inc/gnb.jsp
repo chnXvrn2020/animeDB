@@ -9,12 +9,12 @@
             <ul class="menu">
                 <li><a class="button alert"><spring:message code="animedb.about" /></a></li>
                 <li><a class="button alert"><spring:message code="animedb.info" /></a></li>
-                <li><a class="button alert"><spring:message code="animedb.community" /></a></li>
+                <li><a class="button alert" href="${contextPath}/community"><spring:message code="animedb.community" /></a></li>
             </ul>
         </section>
         <section class="top-bar-right">
             <div class="alertIcon">
-                <a><i class="fi-sound"></i></a>
+                <a><i class="fi-rss"></i></a>
             </div>
             <div class="userLoginIcon">
                 <c:if test="${empty member}">
@@ -38,4 +38,4 @@
         </section>
     </nav>
 </header>
-<%@include file="../common/slideMenu.jsp"%>
+<%@include file="slideMenu.jsp"%>

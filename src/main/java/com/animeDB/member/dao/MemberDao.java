@@ -12,8 +12,9 @@ public interface MemberDao {
     void keepAutoLogin(HashMap<String, Object> map);
     void deleteSession(HashMap<String, Object> map);
     String selectMemberPwd(String userId);
-    void deleteMember(String userId);
+    void deleteMember(int idx);
     void updateMember(MemberVO mvo);
     void insertMemberAttachment(MemberAttachmentVO mavo);
     void updateMemberAttachment(int userIdx);
+    void deleteAllSession(int idx);
 }

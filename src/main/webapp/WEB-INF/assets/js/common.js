@@ -1,6 +1,6 @@
 // Check blank
 function formInput(tag, obj, msg) {
-    if ($.trim(tag) !== '') return false;
+    if (trim.val !== '') return false;
     showErrorMsg(obj, msg);
     return true;
 }
@@ -71,3 +71,4 @@ function showSuccessMsg(obj, msg) {
 function hideMsg(obj) {
     obj.html('');
 }
+

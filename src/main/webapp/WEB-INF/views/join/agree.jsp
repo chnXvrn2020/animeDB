@@ -61,7 +61,7 @@ Sed a enim viverra, malesuada sapien vitae, faucibus magna. Nunc scelerisque ege
             </div>
             <hr>
             <div class="text-center">
-                <button type="button" class="button alert" onclick="history.go(-1)"><i class="fi-x"></i> <spring:message code="animedb.back" /></button>
+                <button type="button" class="button alert" onclick="location.href = '${animedbUrl}'"><i class="fi-x"></i> <spring:message code="animedb.back" /></button>
                 <button type="button" class="button primary" id="agreeBtn"><i class="fi-check"></i> <spring:message code="signup.next" /></button>
             </div>
         </div>
@@ -73,7 +73,7 @@ Sed a enim viverra, malesuada sapien vitae, faucibus magna. Nunc scelerisque ege
             alert('<spring:message code="alert.allAgree" />');
             return false;
         }
-        location.href = "${animedbUrl}/signup/confirm";
+        location.href = "${contextPath}/signup/confirm";
     })
 </script>
 <%@include file="../inc/footer.jsp"%>

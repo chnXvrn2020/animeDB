@@ -1,3 +1,5 @@
 @import "foundation.min.css";
 @import "_settings.scss";
 @import "foundation-custom.css";
+@import "foundation-datepicker.min.css";
+@import "foundation-datepicker.scss";

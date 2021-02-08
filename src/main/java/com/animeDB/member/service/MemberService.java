@@ -17,6 +17,6 @@ public interface MemberService {
     void renewalLimit(int userIdx, String sessionId, Date sessionLimit);
     void logout(HttpSession session, HttpServletRequest request, HttpServletResponse response, int userIdx);
     String selectMemberPwd(String userId);
-    void deleteMember(String userId);
+    void deleteMember(int idx);
     void updateMember(MemberVO mvo, MemberAttachmentVO mavo, MultipartFile memberImageFile);
 }

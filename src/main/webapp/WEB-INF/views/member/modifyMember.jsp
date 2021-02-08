@@ -17,15 +17,15 @@
                     <div class="memberImage">
                         <c:choose>
                             <c:when test="${memberAttachment.attachment eq null}">
-                                <img id="memberImg" src="<c:out value="${imgPath}default_image.png" />">
+                                <img id="memberImg" class="imgLandscape" src="<c:out value="${imgPath}default_image.png" />">
                             </c:when>
                             <c:otherwise>
-                                <img id="memberImg" src="<c:out value="${imgPath}${memberAttachment.attachment}" />">
+                                <img id="memberImg" class="imgLandscape" src="<c:out value="${imgPath}${memberAttachment.attachment}" />" alt="image">
                             </c:otherwise>
                         </c:choose>
                     </div>
                     <div class="imageBtn">
-                        <input type="file" id="inputImage" name="memberImageFile" accept="image/jpg, image/gif, image/png">
+                        <input type="file" id="inputImage" name="memberImageFile" accept="image/jpeg, image/gif, image/png">
                         <label for="inputImage" class="button alert">
                             <span><spring:message code="member.changeImg" /></span>
                         </label>
@@ -40,18 +40,11 @@
                     </div>
                     <div class="grid-x info">
                         <span class="small-3"><spring:message code="member.gender" /></span>
-                        <span class="small-6">
-                            <c:if test="${member.gender eq 'male'}">
-                                <spring:message code="member.male" />
-                            </c:if>
-                            <c:if test="${member.gender eq 'female'}">
-                                <spring:message code="member.female" />
-                            </c:if>
-                        </span>
+                        <span class="small-6"><spring:message code="member.${member.gender}" /></span>
                     </div>
                     <div class="grid-x info">
                         <span class="small-3"><spring:message code="member.birthday" /></span>
-                        <span class="small-6"><fmt:formatDate value="${member.birthday}" pattern="yyyy-MM-dd" /></span>
+                        <span class="small-6"><fmt:formatDate value="${member.birthday}" pattern="${locale eq 'ko_KR' || locale eq 'ja_JP' ? 'yyyy-MM-dd' : 'MMMM dd, yyyy'}" /></span>
                     </div>
                     <div class="grid-x info">
                         <span class="small-3"><spring:message code="member.email" /></span>
@@ -68,14 +61,28 @@
                         <label class="small-3" for="firstName"><spring:message code="member.name" /></label>
                         <div class="small-6">
                             <div class="grid-x">
-                                <div class="small-6">
-                                    <input type="text" class="input-group-field" id="firstName" name="firstName" value="<c:out value="${member.firstName}" />" maxlength="10" placeholder="<spring:message code="member.firstName" />">
-                                    <p id="firstNameMsg" aria-live="assertive"></p>
-                                </div>
-                                <div class="small-6">
-                                    <input type="text" class="input-group-field" id="lastName" name="lastName" value="<c:out value="${member.lastName}" />" maxlength="10" placeholder="<spring:message code="member.lastName" />">
-                                    <p id="lastNameMsg" style="margin-left: 9%" aria-live="assertive"></p>
-                                </div>
+                                <c:choose>
+                                    <c:when test="${locale eq 'ko_KR' || locale eq 'ja_JP'}">
+                                        <div class="small-6">
+                                            <input type="text" class="input-group-field" id="lastName" name="lastName" value="<c:out value="${member.lastName}" />" maxlength="10" placeholder="<spring:message code="member.lastName" />">
+                                            <p id="lastNameMsg" style="margin-left: 9%" aria-live="assertive"></p>
+                                        </div>
+                                        <div class="small-6">
+                                            <input type="text" class="input-group-field" id="firstName" name="firstName" value="<c:out value="${member.firstName}" />" maxlength="10" placeholder="<spring:message code="member.firstName" />">
+                                            <p id="firstNameMsg" aria-live="assertive"></p>
+                                        </div>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <div class="small-6">
+                                            <input type="text" class="input-group-field" id="firstName" name="firstName" value="<c:out value="${member.firstName}" />" maxlength="10" placeholder="<spring:message code="member.firstName" />">
+                                            <p id="firstNameMsg" aria-live="assertive"></p>
+                                        </div>
+                                        <div class="small-6">
+                                            <input type="text" class="input-group-field" id="lastName" name="lastName" value="<c:out value="${member.lastName}" />" maxlength="10" placeholder="<spring:message code="member.lastName" />">
+                                            <p id="lastNameMsg" style="margin-left: 9%" aria-live="assertive"></p>
+                                        </div>
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
                         </div>
                     </div>
@@ -93,7 +100,7 @@
         </div>
         <div class="modifyBtn">
             <button type="button" class="button primary" id="modifyMemberBtn"><i class="fi-check"></i> <spring:message code="animedb.change" /></button>
-            <button type="button" class="button alert" id="backBtn" onclick="history.go(-1)"><i class="fi-x"></i> <spring:message code="animedb.back" /></button>
+            <button type="button" class="button alert" id="backBtn" onclick="location.href = '${animedbUrl}/member/profile'"><i class="fi-x"></i> <spring:message code="animedb.back" /></button>
         </div>
     </div>
 </div>
@@ -183,7 +190,7 @@
             return;
         }
 
-        if(!(files[0].type.match("image/jpg") || files[0].type.match("image/png") || files[0].type.match("image/gif")) ) {
+        if(!(files[0].type.match("image/jpeg") || files[0].type.match("image/png") || files[0].type.match("image/gif")) ) {
             alert("<spring:message code="file.onlyImg" />");
             return;
         }

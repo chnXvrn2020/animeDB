@@ -22,14 +22,16 @@ public class Utils {
         return s;
     }
 
-    //Merge birth year, month and day to birthday
-    public static Date mergeBirthday(String year, String month, String day) {
-        String strBirthday = year + month + day;
-        if (!strBirthday.matches("^[0-9]*$"))
-            return null;
+    //Cast birthday string to date
+    public static Date castBirthday(String birthday) {
+        String[] strBirthday = birthday.split("-");
+        for (int i = 1; i >= strBirthday.length; ++i) {
+            if (!strBirthday[i].matches("^[0-9]*$"))
+                return null;
+        }
         try {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
-            return dateFormat.parse(strBirthday);
+            return dateFormat.parse(strBirthday[0] + strBirthday[1] + strBirthday[2]);
         } catch (Exception e) {
             return null;
         }
@@ -127,6 +129,16 @@ public class Utils {
         boolean isMobile = request.getHeader("User-Agent").contains("Mobile");
         return isMobile;
     }
+
+    //Check PC
+    public static boolean checkPc(HttpServletRequest request) {
+        boolean isPc = request.getHeader("User-Agent").contains("Windows") ||
+                request.getHeader("User-Agent").contains("CrOS") ||
+                request.getHeader("User-Agent").contains("Macintosh") ||
+                request.getHeader("User-Agent").contains("X11");
+        return isPc;
+    }
+
 
     //Check browser
     public static String checkBrowser(HttpServletRequest request) {

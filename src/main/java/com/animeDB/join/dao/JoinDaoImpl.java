@@ -13,7 +13,7 @@ public class JoinDaoImpl implements JoinDao {
     @Autowired
     SqlSessionTemplate sqlSession;
 
-    private static String JOIN_MEMBER = "com.animeDB.joinMember.";
+    private final String JOIN_MEMBER = "com.animeDB.joinMember.";
 
     @Override
     public int selectUserId(String userId) {

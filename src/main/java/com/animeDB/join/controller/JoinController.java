@@ -52,60 +52,57 @@ public class JoinController {
     @RequestMapping(value = "/check_id", method = RequestMethod.GET)
     @ResponseBody
     public HashMap<String, Object> checkId(String userId, Locale locale) {
-        HashMap<String, Object> response = new HashMap<>();
+        HashMap<String, Object> map = new HashMap<>();
         try {
             if (joinService.checkId(userId) <= 0) {
-                response.put("result", "pass");
-                response.put("msg", messageSource.getMessage("signup.checkUnusedId", null, locale));
+                map.put("result", "pass");
+                map.put("msg", messageSource.getMessage("signup.checkUnusedId", null, locale));
             } else {
-                response.put("result", "used");
-                response.put("msg", messageSource.getMessage("alert.redundantId", null, locale));
+                map.put("result", "used");
+                map.put("msg", messageSource.getMessage("alert.redundantId", null, locale));
             }
         } catch (Exception e) {
             logger.error("join - checkId : " + e.getMessage());
-            response.put("result", "error");
-            response.put("msg", messageSource.getMessage("alert.serverError", null, locale));
+            map.put("result", "error");
+            map.put("msg", messageSource.getMessage("alert.serverError", null, locale));
         }
-        return response;
+        return map;
     }
 
     //Checking email if it's duplicated
     @RequestMapping(value = "/check_email", method = RequestMethod.GET)
     @ResponseBody
     public HashMap<String, Object> checkEmail(String email, Locale locale) {
-        HashMap<String, Object> response = new HashMap<>();
+        HashMap<String, Object> map = new HashMap<>();
         try {
             if (joinService.checkEmail(email) <= 0) {
-                response.put("result", "pass");
+                map.put("result", "pass");
             } else {
-                response.put("result", "used");
-                response.put("msg", messageSource.getMessage("alert.redundantEmail", null, locale));
+                map.put("result", "used");
+                map.put("msg", messageSource.getMessage("alert.redundantEmail", null, locale));
             }
         } catch (Exception e) {
             logger.error("join - checkEmail : " + e.getMessage());
-            response.put("result", "error");
-            response.put("msg", messageSource.getMessage("alert.serverError", null, locale));
+            map.put("result", "error");
+            map.put("msg", messageSource.getMessage("alert.serverError", null, locale));
         }
-        return response;
+        return map;
     }
 
     //Inserting new member to DB and return join complete display
     @RequestMapping(value = "/confirm", method = RequestMethod.POST)
     public String insertNewMember(MemberVO mvo, Model m, HttpServletRequest request, Locale locale) {
-        String redirectPage = "";
-        String[] birthday = new String[]
-                {request.getParameter("birthYear"), request.getParameter("birthMonth"), request.getParameter("birthDay")};
+        String birthday = request.getParameter("birthDay");
         try {
             joinService.insertNewMember(mvo, birthday);
             mailSendService.mailSendWithUserKey(mvo.getEmail(), mvo.getUserId(), mvo.getNickname(),mvo.getUserKey(), request, locale);
-            redirectPage = "join/complete";
         } catch (Exception e) {
             logger.error("join - insertNewMember : " + e.getMessage());
             m.addAttribute("msg", messageSource.getMessage("alert.serverError", null, locale));
-            redirectPage = "common/alert";
+            return "common/alert";
         }
 
-        return redirectPage;
+        return "join/complete";
     }
 
     //Complete to authenticate new member with email
