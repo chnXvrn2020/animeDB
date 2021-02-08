@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.animeDB.adminCommunity">
+    <!--SQL that select counts of community status-->
+    <select id="selectCommunityStatusCnt" resultType="hashmap">
+        SELECT COUNT(idx) AS kind_cnt,
+               (SELECT COUNT(l.idx)
+               FROM anime_community_list l
+               WHERE use_yn = 'Y') AS list_cnt,
+               (SELECT COUNT(p.idx)
+                FROM anime_community_post p
+                WHERE delete_yn = 'N') AS post_cnt
+        FROM anime_community_kind
+        WHERE use_yn = 'Y'
+    </select>
+    <!--SQL that select kind of community-->
+    <select id="selectCommunityKind" resultType="CommunityKindVO">
+        SELECT idx, name_jp, name_kr, name_en
+        FROM anime_community_kind
+        WHERE use_yn = 'Y'
+    </select>
+    <!--SQL that select kind list-->
+    <select id="selectKindList" resultType="CommunityKindVO" parameterType="CommunityKindVO">
+        SELECT k.idx, k.name_jp, k.name_kr, k.name_en, k.insert_admin, k.insert_date,
+        (SELECT COUNT(l.idx)
+        FROM anime_community_list l
+        WHERE l.use_yn = 'Y' AND k.idx = l.kind_idx) AS list_cnt
+        FROM anime_community_kind k
+        <include refid="kindWhere" />
+        ORDER BY k.idx DESC
+        LIMIT #{offset}, #{rows}
+    </select>
+    <!--SQL that select kind count-->
+    <select id="selectKindCnt" parameterType="CommunityKindVO" resultType="int">
+        SELECT COUNT(*)
+        FROM anime_community_kind k
+        <include refid="kindWhere" />
+    </select>
+    <!--SQL that insert kind-->
+    <insert id="insertKind" parameterType="CommunityKindVO">
+        INSERT INTO anime_community_kind
+        (name_kr, name_en, name_jp, insert_admin)
+        VALUES (#{nameKr}, #{nameEn}, #{nameJp}, #{insertAdmin})
+    </insert>
+    <!--SQL that select duplicate kind-->
+    <select id="selectDuplicateKind" parameterType="CommunityKindVO" resultType="boolean">
+        SELECT COUNT(*)
+        FROM anime_community_kind
+        <include refid="kindDuplicateWhere" />
+    </select>
+    <!--SQL that select one of kind-->
+    <select id="selectOneKind" parameterType="CommunityKindVO" resultType="CommunityKindVO">
+        SELECT idx, name_kr, name_jp, name_en, insert_admin, insert_date
+        FROM anime_community_kind
+        WHERE idx = #{idx}
+    </select>
+    <!--SQL that select community list belongs to kind-->
+    <select id="selectListBelongKind" parameterType="CommunityKindVO" resultType="CommunityListVO">
+        SELECT l.idx, l.cname_kr, l.cname_jp, l.cname_en
+        FROM anime_community_list l
+        JOIN anime_community_kind k ON l.kind_idx = k.idx
+        WHERE l.use_yn = 'Y' AND k.idx = #{idx}
+    </select>
+    <!--SQL that update kind-->
+    <update id="updateKind" parameterType="CommunityKindVO">
+        UPDATE anime_community_kind
+        SET name_kr = #{nameKr}, name_en = #{nameEn}, name_jp = #{nameJp}, update_date = NOW()
+        WHERE idx = #{idx}
+    </update>
+    <!--SQL that update to delete kind-->
+    <update id="deleteKind" parameterType="CommunityKindVO">
+        UPDATE anime_community_kind
+        SET use_yn = 'N', delete_date = NOW()
+        WHERE idx = #{idx}
+    </update>
+
+    <select id="selectCommunityListBeforeDelete" parameterType="CommunityKindVO" resultType="boolean">
+        SELECT COUNT(l.idx)
+        FROM anime_community_list l
+        JOIN anime_community_kind k ON l.kind_idx =  k.idx
+        WHERE k.idx = #{idx} AND l.use_yn = 'Y'
+    </select>
+
+    <select id="selectCommunityListCnt" parameterType="CommunityListVO" resultType="int">
+        SELECT COUNT(l.idx)
+        FROM anime_community_list l
+        <include refid="listWhere" />
+    </select>
+
+    <select id="selectCommunityList" parameterType="CommunityListVO" resultType="CommunityListVO">
+        SELECT l.idx, l.cname_kr, l.cname_jp, l.cname_en, l.insert_admin, l.insert_date, k.name_kr AS kindKr, k.name_en AS kindEn, k.name_jp AS kindJp,
+        (SELECT COUNT(p.idx)
+        FROM anime_community_post p
+            WHERE l.idx = p.list_idx AND p.notice_yn = 'N' AND p.delete_yn = 'N') AS postCnt
+        FROM anime_community_list l
+        JOIN anime_community_kind k ON k.idx = l.kind_idx
+        <include refid="listWhere" />
+        ORDER BY l.idx DESC
+        LIMIT #{offset}, #{rows}
+    </select>
+    <!--SQL that select duplicate community-->
+    <select id="selectDuplicateCommunity" parameterType="CommunityListVO" resultType="boolean">
+        SELECT COUNT(*)
+        FROM anime_community_list
+        <include refid="listDuplicateWhere" />
+    </select>
+    <!--SQL that insert community list-->
+    <insert id="insertCommunityList" parameterType="CommunityListVO">
+        INSERT INTO anime_community_list
+        (kind_idx, cname_kr, cname_en, cname_jp, insert_admin)
+        VALUES (#{kindIdx}, #{cnameKr}, #{cnameEn}, #{cnameJp}, #{insertAdmin})
+    </insert>
+    <!--SQL that select one community-->
+    <select id="selectOneCommunity" parameterType="CommunityListVO" resultType="CommunityListVO">
+        SELECT l.idx, l.cname_kr, l.cname_jp, l.cname_en, l.insert_admin, l.insert_date, k.name_kr AS kindKr, k.name_en AS kindEn, k.name_jp AS kindJp,
+       (SELECT COUNT(p.idx)
+        FROM anime_community_post p
+        WHERE l.idx = p.list_idx AND p.notice_yn = 'N' AND p.delete_yn = 'N') AS postCnt
+        FROM anime_community_list l
+        JOIN anime_community_kind k ON k.idx = l.kind_idx
+        WHERE l.idx = #{idx}
+    </select>
+    <!--SQL that select one community to update-->
+    <select id="selectCommunity2Update" parameterType="CommunityListVO" resultType="CommunityListVO">
+        SELECT l.idx, l.cname_kr, l.cname_jp, l.cname_en, l.kind_idx
+        FROM anime_community_list l
+        WHERE l.idx = #{idx}
+    </select>
+    <!--SQL that update community-->
+    <update id="updateCommunity" parameterType="CommunityListVO">
+        UPDATE anime_community_list
+        SET cname_kr = #{cnameKr}, cname_jp = #{cnameJp}, cname_en = #{cnameEn}, kind_idx = #{kindIdx}
+        WHERE idx = #{idx}
+    </update>
+    <!--SQL that update to delete community-->
+    <update id="deleteCommunity" parameterType="CommunityListVO">
+        UPDATE anime_community_list
+        SET use_yn = 'N', delete_date = NOW()
+        WHERE idx = #{idx}
+    </update>
+    <!--SQL that select community post for Admin-->
+    <select id="selectCommunityPost4Admin" parameterType="CommunityPostVO" resultType="CommunityPostVO">
+        SELECT p.idx, p.title, p.hit, p.thumbs, p.dislike, m.nickname, p.insert_date, p.list_idx,
+               (SELECT COUNT(c.idx)
+                FROM anime_community_comment c
+                WHERE c.post_idx = p.idx) AS commentCnt
+        FROM anime_community_post p
+        JOIN anime_member m ON p.member_idx = m.idx
+        <include refid="postWhere" />
+        ORDER BY p.idx DESC
+        LIMIT #{offset}, #{rows}
+    </select>
+    <!--SQL that select count of community post-->
+    <select id="selectCommunityPostCnt" parameterType="CommunityPostVO" resultType="int">
+        SELECT COUNT(p.idx)
+        FROM anime_community_post p
+        <include refid="postWhere" />
+    </select>
+    <!--SQL that select community list name-->
+    <select id="selectCommunityListName" parameterType="CommunityPostVO" resultType="CommunityPostVO">
+        SELECT l.cname_kr, l.cname_en, l.cname_jp
+        FROM anime_community_list l
+        WHERE idx = #{listIdx}
+    </select>
+
+    <sql id="kindDuplicateWhere">
+        WHERE use_yn = 'Y' AND (name_kr = #{nameKr} OR name_en = #{nameEn} OR name_jp = #{nameJp})
+        <if test="idx != null || idx != ''">
+            AND idx <![CDATA[<>]]> #{idx}
+        </if>
+    </sql>
+
+    <sql id="listDuplicateWhere">
+        WHERE use_yn = 'Y' AND (cname_kr = #{cnameKr} OR cname_en = #{cnameEn} OR cname_jp = #{cnameJp})
+        <if test="idx != null || idx != ''">
+            AND idx <![CDATA[<>]]> #{idx}
+        </if>
+    </sql>
+
+    <sql id="listWhere">
+        WHERE l.use_yn = 'Y'
+        <if test="searchKeyword != null and searchKeyword != ''">
+            <choose>
+                <when test="searchBy == 'name'">
+                    AND (
+                    l.cname_jp REGEXP #{searchKeyword}
+                    OR l.cname_kr REGEXP #{searchKeyword}
+                    OR l.cname_en REGEXP #{searchKeyword}
+                    )
+                </when>
+                <when test="searchBy == 'admin'">
+                    AND l.insert_admin REGEXP #{searchKeyword}
+                </when>
+                <otherwise>
+                    AND (
+                    l.cname_jp REGEXP #{searchKeyword}
+                    OR l.cname_kr REGEXP #{searchKeyword}
+                    OR l.cname_en REGEXP #{searchKeyword}
+                    OR l.insert_admin REGEXP #{searchKeyword}
+                    )
+                </otherwise>
+            </choose>
+        </if>
+        <if test="kindIdx != 0">
+            AND l.kind_idx = #{kindIdx}
+        </if>
+    </sql>
+
+    <sql id="kindWhere">
+        WHERE k.use_yn = 'Y'
+        <if test="searchKeyword != null and searchKeyword != ''">
+            <choose>
+                <when test="searchBy == 'name'">
+                    AND (
+                    k.name_jp REGEXP #{searchKeyword}
+                    OR k.name_kr REGEXP #{searchKeyword}
+                    OR k.name_en REGEXP #{searchKeyword}
+                    )
+                </when>
+                <when test="searchBy == 'admin'">
+                    AND k.insert_admin REGEXP #{searchKeyword}
+                </when>
+                <otherwise>
+                    AND (
+                    k.name_jp REGEXP #{searchKeyword}
+                    OR k.name_kr REGEXP #{searchKeyword}
+                    OR k.name_en REGEXP #{searchKeyword}
+                    OR k.insert_admin REGEXP #{searchKeyword}
+                    )
+                </otherwise>
+            </choose>
+        </if>
+    </sql>
+
+    <sql id="postWhere">
+        WHERE p.delete_yn = 'N' AND p.list_idx = #{listIdx}
+        <if test="searchKeyword != null and searchKeyword != ''">
+            <choose>
+                <when test="searchBy == 'title'">
+                    AND p.title REGEXP #{searchKeyword}
+                </when>
+                <when test="searchBy == 'content'">
+                    AND p.content REGEXP #{searchKeyword}
+                </when>
+                <when test="searchBy == 'nickname'">
+                    AND m.nickname REGEXP #{searchKeyword}
+                </when>
+                <otherwise>
+                    AND (
+                    p.title REGEXP #{searchKeyword}
+                    OR p.content REGEXP #{searchKeyword}
+                    OR m.nickname REGEXP #{searchKeyword}
+                    )
+                </otherwise>
+            </choose>
+        </if>
+    </sql>
+</mapper>

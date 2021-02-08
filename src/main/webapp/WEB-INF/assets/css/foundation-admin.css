@@ -1,0 +1,72 @@
+.admin-menu {margin-top: 3%}
+.admin-menu li a {color: ghostwhite; text-align: center}
+
+.admin-active {background-color: #a53b2a}
+
+.admin-community {margin-top: 3%}
+.admin-community h3 {text-align: center}
+
+.admin-community-table {width: 70%; margin: auto}
+.admin-community-table table {border: #0a0a0a solid 2px}
+.admin-community-table table tr td {text-align: center}
+
+.admin-community-quickBtn {margin-top: 10%}
+.admin-community-quickBtn button{width: 50%; margin-left: 15%; margin-top: 5%}
+
+.admin-add-community {margin-top: 3%}
+.admin-add-community h3{text-align: center}
+.admin-add-community form label {margin-left: 25%; font-size: 20px; width: 30%}
+.admin-add-community form select {width: 30%; margin-left: 25%; margin-bottom: 2%}
+.admin-add-community form input {width: 30%; margin-left: 25%; margin-bottom: 2%}
+.admin-add-community .addBtn{margin-top: 5%; text-align: center}
+
+.admin-kind {margin-top: 3%}
+.admin-kind h3{text-align: center}
+.admin-kind i {color: #1779ba; margin-left: 83%}
+.admin-kind table {width: 70%; margin: auto}
+.admin-kind table tr th {text-align: center}
+.admin-kind .input-group {margin-top: 3%; width: 40%; margin-left: 47%}
+.admin-kind .input-group select {width: 30%}
+.admin-kind .input-group input {width: 50%}
+
+.admin-addKind {margin-top: 3%}
+.admin-addKind h3{text-align: center}
+.admin-addKind form label {margin-left: 25%; font-size: 20px; width: 30%}
+.admin-addKind form input {width: 30%; margin-left: 25%; margin-bottom: 2%}
+.admin-addKind .addBtn{margin-top: 5%; text-align: center}
+
+.admin-kind-view {margin-top: 3%}
+.admin-kind-view h3{text-align: center}
+.admin-kind-view table {width: 50%; margin: auto}
+.admin-kind-view table tr th {text-align: center}
+.admin-kind-view table tr td {text-align: center}
+.admin-kind-view .admin-kind-view-icon {margin-left: 72%}
+.admin-kind-view .admin-kind-view-icon i {color: #1779ba}
+
+.admin-community-list {margin-top: 3%}
+.admin-community-list h3 {text-align: center}
+.admin-community-list i {color: #1779ba; margin-left: 86%}
+.admin-community-list table {width: 75%; margin: auto}
+.admin-community-list table tr th {text-align: center}
+.admin-community-list .input-group {margin-top: 3%; width: 75%; margin-right: auto; margin-left: auto}
+.admin-community-list .input-group select {width: 15%}
+.admin-community-list .input-group input {width: 25%}
+.admin-community-list .input-group .search-input {margin-left: auto}
+
+.admin-community-view {margin-top: 3%}
+.admin-community-view h3 {text-align: center}
+.admin-community-view table {width: 75%; margin: auto}
+.admin-community-view table tr th {text-align: center}
+.admin-community-view table tr td {text-align: center}
+.admin-community-view .admin-community-view-icon {width: 75%; margin: auto}
+.admin-community-view .admin-community-view-icon i {color: #1779ba}
+.admin-community-view .admin-community-view-icon .fi-pencil {margin-left: 80%}
+
+.admin-community-post-view {margin-top: 3%}
+.admin-community-post-view h3 {text-align: center}
+.admin-community-post-view table {width: 95%; margin: auto}
+.admin-community-post-view table tr th {text-align: center}
+.admin-community-post-view .input-group {margin-top: 3%; width: 40%; margin-left: 59%}
+.admin-community-post-view .input-group select {width: 30%}
+.admin-community-post-view .input-group input {width: 50%}
+
